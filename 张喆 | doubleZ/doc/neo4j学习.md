@@ -16,11 +16,16 @@ Table of Contents
          * [标签](#标签)
       * [CQL](#cql)
          * [命令](#命令)
+            * [清空Neo4j数据库](#清空neo4j数据库)
          * [函数](#函数)
          * [数据类型](#数据类型)
          * [CREATE](#create)
          * [MATCH](#match)
          * [RETURN](#return)
+         * [WHERE](#where)
+         * [DELETE](#delete)
+         * [REMOVE](#remove)
+         * [SET](#set)
 
 ------
 
@@ -45,7 +50,6 @@ Table of Contents
 
   <center>属性在节点中</center>
 <img src="https://atts.w3cschool.cn/attachments/day_161225/201612251848188141.png" alt="属性在关系中" style="zoom:50%;" />
-  
 <center>属性在关系中</center>
 ------
 
@@ -182,7 +186,11 @@ Table of Contents
 | ORDER BY | 排序检索数据             |
 | SET      | 添加/更新标签            |
 
-match (n) detach delete n：清空数据
+#### 清空Neo4j数据库
+
+match (n) detach delete n
+
+------
 
 ### 函数
 
@@ -191,6 +199,8 @@ match (n) detach delete n：清空数据
 | String       | 使用String字面量                       |
 | Aggregation  | 对CQL查询结果执行聚合操作              |
 | Relationship | 获取关系的细节，如startnode，endnode等 |
+
+------
 
 ### 数据类型
 
@@ -262,7 +272,17 @@ RETURN <relationship-label-name>
 
 - **创建标签**
 
-  - 为节点/关系创建单个/多个标签
+  - 为节点创建
+  
+  - 为关系创建
+  
+    -----
+  
+  - 单个标签
+  
+  - 多个标签
+  
+    <img src="../ScreenShots/Neo4j/CREATE3.png" alt="image-20190926110503769" style="zoom:50%;" />
 
 ------
 
@@ -305,8 +325,61 @@ RETURN
 
   - 节点和关联关系的所有关系
 
+------
 
+### WHERE
 
+```CQL
+WHERE <condition> <boolean-operator> <condition>
+WHERE <property-name> <comparison-operator> <value>
+```
 
+| 逻辑运算符 | 比较运算符 |
+| ---------- | ---------- |
+| AND        | =          |
+| OR         | <>         |
+| NOT        | <          |
+| XOR        | >          |
+|            | <=         |
+|            | >=         |
 
+<img src="../ScreenShots/Neo4j/WHERE1.png" alt="image-20190926111922450" style="zoom:50%;" />
 
+<img src="../ScreenShots/Neo4j/WHERE2.png" alt="image-20190926113119457" style="zoom:50%;" />
+
+------
+
+### DELETE
+
+- 删除节点
+- 删除节点及相关节点和关系
+
+<img src="../ScreenShots/Neo4j/DELETE1.jpg" alt="image-20190926113119457" style="zoom:50%;" />
+
+<center>删除某个节点</center>
+<img src="../ScreenShots/Neo4j/DELETE2.jpg" alt="image-20190926113119457" style="zoom:50%;" />
+
+<center>删除节点间的某个属性</center>
+------
+
+### REMOVE
+
+- 删除标签
+
+  <img src="../ScreenShots/Neo4j/REMOVE2.jpg" alt="REMOVE2" style="zoom:50%;" />
+
+- 删除属性
+
+  <img src="../ScreenShots/Neo4j/REMOVE1.jpg" alt="REMOVE1" style="zoom:50%;" />
+
+------
+
+### SET
+
+- 添加属性
+
+  <img src="../ScreenShots/Neo4j/SET1.jpg" alt="REMOVE1" style="zoom:50%;" />
+
+- 更新属性
+
+  <img src="../ScreenShots/Neo4j/SET2.jpg" alt="REMOVE1" style="zoom:50%;" />
