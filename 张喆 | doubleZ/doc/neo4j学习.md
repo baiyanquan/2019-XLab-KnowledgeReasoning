@@ -26,6 +26,13 @@ Table of Contents
          * [DELETE](#delete)
          * [REMOVE](#remove)
          * [SET](#set)
+         * [ORDER BY](#order-by)
+         * [UNION](#union)
+         * [LIMIT](#limit)
+         * [SKIP](#skip)
+         * [MERGE](#merge)
+         * [NULL值](#null值)
+         * [IN](#in)
 
 ------
 
@@ -383,3 +390,88 @@ WHERE <property-name> <comparison-operator> <value>
 - 更新属性
 
   <img src="../ScreenShots/Neo4j/SET2.jpg" alt="REMOVE1" style="zoom:50%;" />
+
+------
+
+### ORDER BY
+
+```CQL
+MATCH...
+RETURN...
+ORDER BY XXX 				//默认升序排列
+ORDER BY XXX DESC		//降序
+```
+
+------
+
+### UNION
+
+- 将结果中的公共行组合并返回（不返回重复的行）
+
+  - 想要保留重复行：UNION ALL
+
+- <u>列名称</u>和<u>列数据类型</u>必须相同
+
+  <img src="../ScreenShots/Neo4j/UNION1.png" alt="image-20190926170154029" style="zoom:50%;" />
+
+  <center>虽然有相同的属性名，但是节点名不同</center>
+
+<img src="../ScreenShots/Neo4j/UNION2.png" alt="image-20190926170908072" style="zoom:50%;" />
+
+<center>union</center>
+<img src="../ScreenShots/Neo4j/UNION3.png" alt="image-20190926170934145" style="zoom:50%;" />
+
+<center>union all</center>
+------
+
+### LIMIT
+
+- 过滤或限制查询返回的行数
+- 修建结果集底部的结果（把底部多的去掉）
+
+### SKIP
+
+- 修建结果集顶部的结果
+
+```CQL
+MATCH...
+RETURN
+LIMIT 25
+SKIP 25
+```
+
+------
+
+### MERGE
+
+- MERGE = CREATE + MATCH
+
+  - 在图中搜索，如果存在，则返回结果
+  - 不存在，创建新的节点/关系并返回
+
+  > CREATE 总是向数据库中添加新的节点，如果信息一模一样也会插入
+
+------
+
+### NULL值
+
+- 创建现有节点标签名单未指定属性值的节点时，将创建一个具有NULL值的新节点
+
+```CQL
+//过滤NULL值
+MATCH (e:E)
+WHERE e IS NOT NULL
+```
+
+------
+
+### IN
+
+```CQL
+//过滤在范围中的节点
+WHERE e.value in [5,10]
+```
+
+------
+
+### 
