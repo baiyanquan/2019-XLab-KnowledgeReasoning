@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="1ba02491-006e-4a23-b89f-3e15c9332018" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../Learning/知识存储.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Learning/知识抽取与知识挖掘.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Learning/知识推理.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Learning/知识融合.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data/vc-db-1.rdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data/vc-db-2.rdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Reasoner/RdfOwlReasoner.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/TDB/tdbTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/rdf/Containers.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/rdf/ControllingPrefixes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/rdf/CreateWriteRDF.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/rdf/ModelAccess.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/rdf/ModelAddDelete.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/rdf/QueryRDF.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/rdf/ReadingRDF.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Learning/Neo4j学习.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/../Learning/Neo4j.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pom.xml" beforeDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1RwmTPoWVkcQZiDb86fvaeKmCI7" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/data" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.19117647" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\IDEA\jenaTest_\src\data" />
+      <recent name="F:\IDEA\jenaTest_\src\main\java\HelloWorld" />
+      <recent name="F:\IDEA\jenaTest_\src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\IDEA\KG_Yan\jenaTest_\src\data" />
+      <recent name="F:\IDEA\jenaTest_\src\data" />
+      <recent name="F:\IDEA\jenaTest_\src" />
+      <recent name="F:\IDEA\jenaTest_\src\main\java" />
+      <recent name="F:\IDEA\jenaTest_\src\main\java\data" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.tdbTest">
+    <configuration name="Containers" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="rdf.Containers" />
+      <module name="jenaTest_" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Reasoner.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ModelAddDelete" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="rdf.ModelAddDelete" />
+      <module name="jenaTest_" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Reasoner.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="QueryRDF" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="rdf.QueryRDF" />
+      <module name="jenaTest_" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Reasoner.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RdfOwlReasoner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Reasoner.RdfOwlReasoner" />
+      <module name="jenaTest_" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Reasoner.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="tdbTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="TDB.tdbTest" />
+      <module name="jenaTest_" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="TDB.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.tdbTest" />
+        <item itemvalue="Application.RdfOwlReasoner" />
+        <item itemvalue="Application.ModelAddDelete" />
+        <item itemvalue="Application.Containers" />
+        <item itemvalue="Application.QueryRDF" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1ba02491-006e-4a23-b89f-3e15c9332018" name="Default Changelist" comment="" />
+      <created>1570586539889</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1570586539889</updated>
+      <workItem from="1570586549574" duration="19929000" />
+      <workItem from="1570629875723" duration="60000" />
+      <workItem from="1570629942790" duration="1992000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
