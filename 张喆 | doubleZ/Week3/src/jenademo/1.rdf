@@ -1,0 +1,8 @@
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix vCard: <http://www.w3.org/2001/vcard-rdf/3.0#> .
+
+<http://somewhere/JohnSmith>
+        vCard:FN  "John Smith" ;
+        vCard:N   [ vCard:Family  "Smith" ;
+                    vCard:Given   "John"
+                  ] .
