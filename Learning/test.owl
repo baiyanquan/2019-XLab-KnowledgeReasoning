@@ -1,0 +1,24 @@
+﻿@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <http://www.kg.com/ontology/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+### 定义学生和书两个类 -> 节点
+:Student rdf:type rdfs:Class.
+:Book rdf:type rdfs:Class.
+
+### 定义属性
+:name rdf:type owl:DatatypeProperty;
+      rdfs:domain :Student;
+      rdfs:range xsd:string .
+:age rdf:type owl:DatatypeProperty;
+      rdfs:domain :Student;
+      rdfs:range xsd:integer .
+			
+:name rdf:type owl:DatatypeProperty;
+      rdfs:domain :Book;
+      rdfs:range xsd:string .
+:price rdf:type owl:DatatypeProperty;
+      rdfs:domain :Book;
+      rdfs:range xsd:string .

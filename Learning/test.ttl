@@ -1,0 +1,13 @@
+@prefix student: <http://www.kg.com/student/> .
+@prefix book: <http://www.kg.com/book/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+student:1 student:name "ming"^^xsd:string.
+student:1 student:age "19"^^xsd:integer.
+student:2 student:name "hong"^^xsd:string.
+student:2 student:age "10"^^xsd:integer.
+
+book:1 book:name "Python Program Design"^^xsd:string.
+book:1 book:price "55.1"^^xsd:string.
+book:2 book:name "Design Patterm"^^xsd:string.
+book:2 book:price "24.2"^^xsd:string.

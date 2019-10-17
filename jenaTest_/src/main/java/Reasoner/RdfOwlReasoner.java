@@ -13,7 +13,6 @@ public class RdfOwlReasoner {
     public static void main(String []args) {
         String fiance = "http://www.demo/fiance#";
 
-
         Model m = ModelFactory.createDefaultModel();
         Resource shb = m.createResource(fiance + "孙宏斌");
         Resource rczg = m.createResource(fiance + "融创中国");

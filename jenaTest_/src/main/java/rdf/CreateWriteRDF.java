@@ -55,5 +55,7 @@ public class CreateWriteRDF extends Object {
 
         // now write the model in N-TRIPLES form to a file
         model.write(System.out, "N-TRIPLES");
+
+        model.write(System.out,"TURTLE");
     }
 }
