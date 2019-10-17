@@ -1,13 +1,6 @@
 # 知识推理
 
-Table of Contents
-=================
-
-   * [知识推理](#知识推理)
-      * [总计划表](#总计划表)
-      * [项目仓库](#项目仓库)
-      * [参考资料](#参考资料)
-      * [第一周任务](#第一周任务)
+[TOC]
 
 ------
 
@@ -32,10 +25,21 @@ Table of Contents
 
 ## 第一周任务
 
-- [ ] 学习neo4j的相关使用
-- [ ] 学习spring boot
+- [x] 学习neo4j的相关使用
+- [x] 学习spring boot
 - [ ] 与neo4j结合做成一个RESTful应用
 - [ ] 尝试服务器/neo4j部署
 
 ![Mission-Week1](ScreenShots/Mission-Week1.png)
 
+------
+
+## 第二周任务
+
+![image-20190926191934240](ScreenShots/Mission-Week2.png)
+
+-----
+
+## 第三周任务
+
+![Mission-Week3](ScreenShots/Mission-Week3.png)
