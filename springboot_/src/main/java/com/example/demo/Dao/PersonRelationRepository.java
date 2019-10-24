@@ -1,6 +1,7 @@
 package com.example.demo.Dao;
 
 import com.example.demo.Model.PersonRelation;
+import com.example.demo.Model.TripleModel;
 import org.springframework.data.neo4j.annotation.Query;
 import org.springframework.data.neo4j.repository.Neo4jRepository;
 import org.springframework.data.repository.query.Param;
@@ -18,4 +19,5 @@ public interface PersonRelationRepository extends Neo4jRepository<PersonRelation
     @Query("MATCH p=(p1:Person)<-[r:relatives]->(p2:Person) " +
             "WHERE p1.name={name1} AND p2.name={name2} DELETE r")
     List<PersonRelation>deletePersonRelation(@Param("name1")String name1, @Param("name2")String name2);
+
 }

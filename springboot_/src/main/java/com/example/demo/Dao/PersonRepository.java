@@ -14,4 +14,5 @@ public interface PersonRepository extends Neo4jRepository<PersonNode,Long>{
 
     @Query("MATCH(p:Person{name:{name}}) SET p.age={age} RETURN p")
     PersonNode setPersonAge(@Param("name") String name,@Param("age")int age);
+
 }

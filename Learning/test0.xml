@@ -1,0 +1,55 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:j.0="http://kg/Person#">
+  <rdf:Description rdf:about="http://kg/Person#98">
+    <j.0:age>0</j.0:age>
+    <j.0:name>gf</j.0:name>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://kg/Person#76">
+    <j.0:age>6</j.0:age>
+    <j.0:name>a</j.0:name>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://kg/Person#53">
+    <j.0:age>9</j.0:age>
+    <j.0:name>childOne</j.0:name>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://kg/Person#73">
+    <j.0:age>39</j.0:age>
+    <j.0:name>father</j.0:name>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://kg/Person#78">
+    <j.0:father>
+      <rdf:Description rdf:about="http://kg/Person#119">
+        <j.0:age>0</j.0:age>
+        <j.0:name>so</j.0:name>
+      </rdf:Description>
+    </j.0:father>
+    <j.0:age>0</j.0:age>
+    <j.0:name>fa</j.0:name>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://kg/Person#118">
+    <j.0:mother rdf:resource="http://kg/Person#119"/>
+    <j.0:age>0</j.0:age>
+    <j.0:name>mo</j.0:name>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://kg/Person#99">
+    <j.0:age>0</j.0:age>
+    <j.0:name>mo</j.0:name>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://kg/Person#77">
+    <j.0:age>4</j.0:age>
+    <j.0:name>b</j.0:name>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://kg/Person#55">
+    <j.0:age>37</j.0:age>
+    <j.0:name>mother</j.0:name>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://kg/Person#49">
+    <j.0:age>66</j.0:age>
+    <j.0:name>grandfather</j.0:name>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://kg/Person#50">
+    <j.0:age>63</j.0:age>
+    <j.0:name>grandmother</j.0:name>
+  </rdf:Description>
+</rdf:RDF>

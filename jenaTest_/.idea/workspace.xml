@@ -2,40 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1ba02491-006e-4a23-b89f-3e15c9332018" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Reasoner/RdfOwlReasoner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Reasoner/RdfOwlReasoner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rdf/Containers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rdf/Containers.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rdf/CreateWriteRDF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rdf/CreateWriteRDF.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/TDB/tdbTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TDB/tdbTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/rdf/CreateWriteRDF.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/rdf/CreateWriteRDF.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot_neo4j/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot_neo4j/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot_neo4j/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot_neo4j/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot_neo4j/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot_neo4j/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot_neo4j/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot_neo4j/src/main/java/com/example/demo/Controller/PersonController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot_neo4j/src/main/java/com/example/demo/Controller/PersonRelationController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot_neo4j/src/main/java/com/example/demo/Controller/helloworldController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot_neo4j/src/main/java/com/example/demo/Dao/PersonRelationRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot_neo4j/src/main/java/com/example/demo/Dao/PersonRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot_neo4j/src/main/java/com/example/demo/DemoApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot_neo4j/src/main/java/com/example/demo/Entity/PersonNode.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot_neo4j/src/main/java/com/example/demo/Entity/PersonRelation.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot_neo4j/src/main/java/com/example/demo/Service/PersonRelationService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot_neo4j/src/main/java/com/example/demo/Service/PersonRelationServiceImp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot_neo4j/src/main/java/com/example/demo/Service/PersonService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot_neo4j/src/main/java/com/example/demo/Service/PersonServiceImp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot_neo4j/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot_neo4j/src/test/java/com/example/demo/DemoApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/FusekiTest/FusekiTest_.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Reasoner/RdfOwlReasoner.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Reasoner/RdfOwlReasoner.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/rdf/Containers.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/rdf/Containers.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot_/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot_/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot_/src/main/java/com/example/demo/Controller/helloworldController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot_/src/main/java/com/example/demo/Controller/helloworldController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot_/src/main/java/com/example/demo/Dao/PersonRelationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot_/src/main/java/com/example/demo/Dao/PersonRelationRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springboot_/src/main/java/com/example/demo/Dao/PersonRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot_/src/main/java/com/example/demo/Dao/PersonRepository.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -107,7 +81,20 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.FusekiTest_">
+  <component name="RunManager" selected="Application.CreateWriteRDF">
+    <configuration name="ControllingPrefixes" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="rdf.ControllingPrefixes" />
+      <module name="jenaTest_" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="rdf.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="CreateWriteRDF" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="rdf.CreateWriteRDF" />
       <module name="jenaTest_" />
@@ -134,19 +121,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ReadingRDF" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="rdf.ReadingRDF" />
-      <module name="jenaTest_" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="rdf.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="fusekiTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="FusekiTest.fusekiTest" />
       <module name="jenaTest_" />
@@ -160,20 +134,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="test" />
+    <configuration name="test (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="FusekiTest.test" />
       <module name="jenaTest_" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="FusekiTest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.FusekiTest_" />
-        <item itemvalue="Application.fusekiTest" />
         <item itemvalue="Application.CreateWriteRDF" />
-        <item itemvalue="Application.test" />
-        <item itemvalue="Application.ReadingRDF" />
+        <item itemvalue="Application.ControllingPrefixes" />
+        <item itemvalue="Application.test (1)" />
+        <item itemvalue="Application.fusekiTest" />
+        <item itemvalue="Application.FusekiTest_" />
       </list>
     </recent_temporary>
   </component>
@@ -195,15 +175,57 @@
       <workItem from="1571131717095" duration="9122000" />
       <workItem from="1571229968787" duration="357000" />
       <workItem from="1571235882018" duration="4591000" />
+      <workItem from="1571746806943" duration="294000" />
+      <workItem from="1571747434132" duration="256000" />
+      <workItem from="1571750845043" duration="1929000" />
+      <workItem from="1571752784979" duration="251000" />
+      <workItem from="1571753045061" duration="303000" />
+      <workItem from="1571828351155" duration="1991000" />
+      <workItem from="1571881243125" duration="6878000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
+        <entry key="1">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="structure">
+                    <value>
+                      <list>
+                        <option value="dir:F:/IDEA/KG_Yan/jenaTest_/src/main/java/FusekiTest" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
         <entry key="MAIN">
           <value>
             <State>
@@ -212,6 +234,11 @@
           </value>
         </entry>
       </map>
+    </option>
+    <option name="OPEN_TABS">
+      <set>
+        <option value="1" />
+      </set>
     </option>
   </component>
 </project>

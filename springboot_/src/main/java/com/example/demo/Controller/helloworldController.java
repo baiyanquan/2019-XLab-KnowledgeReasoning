@@ -1,6 +1,8 @@
 package com.example.demo.Controller;
 
 
+import com.example.demo.Service.neoTOfusekiServiceImp;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,4 +23,5 @@ public class helloworldController {
         return name+age;
 
     }
+
 }

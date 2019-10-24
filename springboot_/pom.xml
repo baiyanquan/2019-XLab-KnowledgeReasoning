@@ -17,7 +17,9 @@
     <properties>
         <java.version>1.8</java.version>
     </properties>
-
+    :name rdf:type owl:DatatypeProperty;
+    rdfs:domain :Book;
+    rdfs:range xsd:string .
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
