@@ -1,0 +1,9 @@
+@prefix st: <http://studysparql.com/studenttable/> .
+
+st:zz st:schoolID "1754060" .
+st:zz st:homeland "Tonghua" .
+st:zz st:school "Tongji" .
+
+st:yt st:schoolID "1852137" .
+st:yt st:homeland "Taiyuan" .
+st:yt st:school "Tongji" .

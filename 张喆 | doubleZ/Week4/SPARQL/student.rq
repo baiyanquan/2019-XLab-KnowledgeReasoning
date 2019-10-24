@@ -1,0 +1,6 @@
+PREFIX st:<http://studysparql.com/studenttable/>
+
+SELECT ?zz_homeland
+WHERE{
+ st:zz st:homeland ?zz_homeland .
+}
