@@ -1,0 +1,25 @@
+# Class
+Container type Class
+Pod type Class
+Service type Class
+
+# ObjectProperty
+rel:contain domain Pod
+rel:contain range Container
+rel:contain type ObjectProperty
+rel:provide domain Pod
+rel:provide range Service
+rel:provide type ObjectProperty
+
+# object
+pod1 type Pod
+pod2 type Pod
+
+# relation
+pod1 rel:contain container1
+pod1 rel:contain container2
+pod1 rel:provide service1
+pod2 rel:contain container3
+pod2 rel:contain container4
+pod2 rel:provide service1
+
