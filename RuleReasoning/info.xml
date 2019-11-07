@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<info>
+	<ipAddress>http://localhost:3030//LABKG/query</ipAddress>
+	<queryString>SELECT DISTINCT ?s ?p ?o { ?s ?p ?o }</queryString>
+	<rule>[rule1: (?X contains ?Y) (?X provides ?Z) -> (?Y supports ?Z)]</rule>
+</info>
