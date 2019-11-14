@@ -1,3 +1,4 @@
+## Prefix
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -73,7 +74,7 @@ environment_rel:has rdf:type owl:ObjectProperty;
 
 
 
-## objects
+## Objects
 <http://services/10.60.38.181/sock-shop/session-db> rdf:type :Service .
 <http://containers/10.60.38.181/sock-shop/carts-db/Network_Input_Packets> rdf:type :Container .
 <http://services/10.60.38.181/sock-shop/front-end-external/success_rate> rdf:type :Service .
@@ -251,7 +252,7 @@ environment_rel:has rdf:type owl:ObjectProperty;
 <http://containers/10.60.38.181/sock-shop/orders-db/Network_Input_Packets> rdf:type :Containe .
 
 
-## relation
+## Relation
 <http://pods/10.60.38.181/sock-shop/shipping-65769d99d7-lmpg7>
         <http://pods/10.60.38.181/contains>
                 <http://containers/10.60.38.181/sock-shop/shipping> ;
