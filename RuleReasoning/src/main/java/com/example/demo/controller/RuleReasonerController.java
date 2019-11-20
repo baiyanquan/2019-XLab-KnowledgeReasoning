@@ -7,19 +7,21 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping({"/reasoner"})
+@RequestMapping({"/rule-reasoner"})
 public class RuleReasonerController {
 
+    @Autowired
+    private RuleReasonerService ruleReasonerService;
 
-        @Autowired
-        private RuleReasonerService ruleReasonerService;
 
-        @RequestMapping(
-                value = {"/start-rule-reason"},
-                method = {RequestMethod.GET}
-        )
-        public String startRuleReason() {
-            return this.ruleReasonerService.reason();
-        }
-
+    @RequestMapping(value = "/start-fuseki-reason",method = RequestMethod.GET)
+    public String startFusekiReason(){
+        return ruleReasonerService.fusekiReasoning();
     }
+
+    @RequestMapping(value = "/start-neo4j-reason",method = RequestMethod.GET)
+    public String startNeo4jReason() {
+        return ruleReasonerService.neo4jReasoning();
+    }
+
+}

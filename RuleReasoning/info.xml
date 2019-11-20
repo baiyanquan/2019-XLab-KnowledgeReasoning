@@ -1,6 +1,15 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <info>
-	<ipAddress>http://localhost:3030//LABKG/query</ipAddress>
-	<queryString>SELECT DISTINCT ?s ?p ?o { ?s ?p ?o }</queryString>
-	<rule>[rule1: (?X contains ?Y) (?X provides ?Z) -> (?Y supports ?Z)]</rule>
+    <fusekiQueryAddress>http://localhost:3030//Data/query</fusekiQueryAddress>
+    <fusekiUpdateAddress>http://localhost:3030//Data/update</fusekiUpdateAddress>
+    <fusekiQueryString>SELECT DISTINCT ?s ?p ?o { ?s ?p ?o }</fusekiQueryString>
+
+    <neo4jIpAddress>jdbc:neo4j:bolt://localhost</neo4jIpAddress>
+    <neo4jUser>neo4j</neo4jUser>
+    <neo4jPassword>0000</neo4jPassword>
+    <ttlInsert>CALL semantics.importRDF('file:///F:/KG/RuleReasoning/data/reasonData.ttl','Turtle', {shortenUrls: true})</ttlInsert>
+    <neo4jQueryString>MATCH p=(s)-[r]->(o) RETURN s.uri as subject, type(r) as predicate, o.uri as object</neo4jQueryString>
+
+    <rule>[rule1: (?X contains ?Y) (?X provides ?Z) -> (?Y supports ?Z)]</rule>
+
 </info>
