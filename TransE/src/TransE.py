@@ -68,15 +68,17 @@ class TransE:
                 #原三元组和打碎的三元组的元组tuple
                 if((sbatch, corruptedTriplet) not in Tbatch):
                     Tbatch.append((sbatch, corruptedTriplet))
-            self.update(Tbatch)
 
-            if cycleIndex % 100 == 0:
-                print("第%d次循环"%cycleIndex)
-                print("loss: ")
-                print(self.loss)
-                self.writeRelationVector("F:\\KG\\TranE\\data\\relationVector.txt")
-                self.writeEntityVector("F:\\KG\\TranE\\data\\entityVector.txt")
-                self.loss = 0
+            self.update(Tbatch)
+            print("loss: ",self.loss)
+            self.loss = 0
+            #if cycleIndex % 100 == 0:
+             #   print("第%d次循环"%cycleIndex)
+              #  print("loss: ")
+               # print(self.loss)
+                #self.writeRelationVector("F:\\KG\\TransE\\data\\relationVector.txt")
+                #self.writeEntityVector("F:\\KG\\TransE\\data\\entityVector.txt")
+                #self.loss = 0
 
     def getCorruptedTriplet(self, triplet):
         '''
@@ -109,14 +111,6 @@ class TransE:
         for sbatch, corruptedTriplet in Tbatch:
             #原三元组,打碎的三元组
 
-            # 取copy里的vector累积更新
-            headEntityVector = copyEntityList[sbatch[0]]
-            relationVector = copyRelationList[sbatch[1]]
-            tailEntityVector = copyEntityList[sbatch[2]]
-
-            headEntityVectorWithCorruptedTriplet = copyEntityList[corruptedTriplet[0]]
-            tailEntityVectorWithCorruptedTriplet = copyEntityList[corruptedTriplet[2]]
-
             # 取原始的vector计算梯度
             headEntityVectorBeforeBatch = self.entityList[sbatch[0]]
             relationVectorBeforeBatch = self.relationList[sbatch[1]]
@@ -135,6 +129,8 @@ class TransE:
             eg = self.margin + distTriplet - distCorruptedTriplet
 
             if eg > 0: #[function]+ 是一个取正值的函数
+
+                print("eg: ",eg)
                 self.loss += eg
                 #梯度
                 tempPositive = 2 * self.learingRate * (tailEntityVectorBeforeBatch - headEntityVectorBeforeBatch - relationVectorBeforeBatch)
@@ -152,6 +148,14 @@ class TransE:
                             tempNegtative[i] = 1
                         else:
                             tempNegtative[i] = -1
+
+                # 取copy里的vector累积更新
+                headEntityVector = copyEntityList[sbatch[0]]
+                relationVector = copyRelationList[sbatch[1]]
+                tailEntityVector = copyEntityList[sbatch[2]]
+                headEntityVectorWithCorruptedTriplet = copyEntityList[corruptedTriplet[0]]
+                tailEntityVectorWithCorruptedTriplet = copyEntityList[corruptedTriplet[2]]
+
 
                 headEntityVector = headEntityVector + tempPositive
                 tailEntityVector = tailEntityVector - tempPositive
