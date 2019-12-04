@@ -16,7 +16,7 @@ public class ModifyPredicateService {
     @Autowired
     private LabDao labDao;
 
-    public void modifyPredicate(String []args) {
+    public void modifyPredicate() {
 
         Model model = ModelFactory.createDefaultModel();
 

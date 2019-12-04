@@ -87,7 +87,6 @@ import java.io.File;
                 predicate = subject.substring(0, subject.indexOf("1")) + "10.60.38.181/" + predicate;
                 String insert = "insert {<" + subject + "> <" + predicate + "> <" + object + ">} where {}";
 
-                System.out.println(insert);
                 //System.out.println(insert);
                 conn.update(insert);
             }
