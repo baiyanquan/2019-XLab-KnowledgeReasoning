@@ -81,12 +81,13 @@ public class RefactorObjectsService {
 
         try{
             File file = new File("data/parts/objects_part.ttl");
+
             if(file.exists()){
                 file.delete();
                 file.createNewFile();
             }
 
-            FileWriter fileWriter = new FileWriter(file.getName(), true);
+            FileWriter fileWriter = new FileWriter(file.getPath(), true);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             Vector<String> buf_vec = new Vector<String>();
 
