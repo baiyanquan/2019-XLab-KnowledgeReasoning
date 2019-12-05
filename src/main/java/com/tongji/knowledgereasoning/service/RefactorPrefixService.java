@@ -20,9 +20,6 @@ public class RefactorPrefixService {
     public static void main(String[] args) {
         Model model = ModelFactory.createDefaultModel();
 
-        model.createProperty("111", "222");
-        
-
         model.setNsPrefix( "owl", "http://www.w3.org/2002/07/owl#" );
         model.setNsPrefix( "rdf", "http://www.w3.org/1999/02/22-rdf-syntax-ns#" );
         model.setNsPrefix( "rdfs", "http://www.w3.org/2000/01/rdf-schema#" );
