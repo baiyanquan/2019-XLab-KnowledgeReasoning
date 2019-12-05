@@ -24,11 +24,11 @@ public class RuleReasonerServiceImp implements RuleReasonerService {
     @Autowired
     private NeoDao neoDao;
 
-    FileWriter ruleReasonInfo = null;
+    FileWriter ruleReasonResult = null;
 
 
     //rule: (?X contains ?Y) (?X provides ?Z) -> (?Y supports ?Z)
-    public String fusekiReasoning(){
+    public String fusekiReasoning(String rule){
 
         Model model = ModelFactory.createDefaultModel();
         ResultSet rs = fusekiDao.getTriples();
@@ -48,7 +48,6 @@ public class RuleReasonerServiceImp implements RuleReasonerService {
 
         }
 
-        String rule = fusekiDao.getRule();
         Model modelAfterReason = reasoner(model,rule);
         String triples = TriplesToJson(modelAfterReason);
 
@@ -62,7 +61,7 @@ public class RuleReasonerServiceImp implements RuleReasonerService {
         return triples;
     }
 
-    public String neo4jReasoning() {
+    public String neo4jReasoning(String rule) {
 
         Model model = ModelFactory.createDefaultModel();
 
@@ -87,7 +86,6 @@ public class RuleReasonerServiceImp implements RuleReasonerService {
             e.printStackTrace();
         }
 
-        String rule = neoDao.getRule();
         Model modelAfterReason = reasoner(model,rule);
         String triples = TriplesToJson(modelAfterReason);
         neoDao.updateTriplesInNeo4j();
@@ -162,12 +160,12 @@ public class RuleReasonerServiceImp implements RuleReasonerService {
     private void writeToFile(Model model,String filepath){
 
         try {
-            ruleReasonInfo = new FileWriter(filepath);//没有文件会自动创建
+            ruleReasonResult = new FileWriter(filepath);//没有文件会自动创建
 
         } catch (IOException e) {
             e.printStackTrace();
         }
-        model.write(ruleReasonInfo,"TURTLE");	//写入文件,默认是xml方式,可以自己指定
+        model.write(ruleReasonResult,"TURTLE");	//写入文件,默认是xml方式,可以自己指定
 
     }
 }

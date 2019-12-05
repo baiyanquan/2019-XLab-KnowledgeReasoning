@@ -18,10 +18,7 @@ import java.sql.*;
         private String user;
         private String password;
         private String ttlInsert;
-
         private String queryString;
-        private String rule;
-
         private ResultSet resultSet;
 
         public NeoDao(){
@@ -43,7 +40,6 @@ import java.sql.*;
                         user = dt.getElementsByTagName("neo4jUser").item(0).getTextContent();
                         password = dt.getElementsByTagName("neo4jPassword").item(0).getTextContent();
                         queryString = dt.getElementsByTagName("neo4jQueryString").item(0).getTextContent();
-                        rule = dt.getElementsByTagName("rule").item(0).getTextContent();
                         ttlInsert=dt.getElementsByTagName("ttlInsert").item(0).getTextContent();
                 }
                 catch (Exception e) {

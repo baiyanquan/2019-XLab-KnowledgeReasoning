@@ -25,7 +25,6 @@ import java.io.File;
     private String queryAddress;
     private String updateAddress;
     private String queryString;
-    private String rule;
 
     public FusekiDao(){
 
@@ -45,7 +44,6 @@ import java.io.File;
             queryAddress = dt.getElementsByTagName("fusekiQueryAddress").item(0).getTextContent();
             updateAddress = dt.getElementsByTagName("fusekiUpdateAddress").item(0).getTextContent();
             queryString = dt.getElementsByTagName("fusekiQueryString").item(0).getTextContent();
-            rule = dt.getElementsByTagName("rule").item(0).getTextContent();
         }
         catch (Exception e) {
             e.printStackTrace();
