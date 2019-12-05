@@ -27,7 +27,6 @@ public class RuleReasonerServiceImp implements RuleReasonerService {
     FileWriter ruleReasonResult = null;
 
 
-    //rule: (?X contains ?Y) (?X provides ?Z) -> (?Y supports ?Z)
     public String fusekiReasoning(String rule){
 
         Model model = ModelFactory.createDefaultModel();
