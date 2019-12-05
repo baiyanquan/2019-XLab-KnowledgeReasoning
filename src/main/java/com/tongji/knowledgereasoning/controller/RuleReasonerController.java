@@ -4,6 +4,7 @@ import com.tongji.knowledgereasoning.service.RuleReasonerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -13,15 +14,14 @@ public class RuleReasonerController {
     @Autowired
     private RuleReasonerService ruleReasonerService;
 
-
     @RequestMapping(value = "/start-fuseki-reason",method = RequestMethod.GET)
-    public String startFusekiReason(){
-        return ruleReasonerService.fusekiReasoning();
+    public String startFusekiReason(@RequestParam("rule")String rule){
+        return ruleReasonerService.fusekiReasoning(rule);
     }
 
     @RequestMapping(value = "/start-neo4j-reason",method = RequestMethod.GET)
-    public String startNeo4jReason() {
-        return ruleReasonerService.neo4jReasoning();
+    public String startNeo4jReason(@RequestParam("rule")String rule) {
+        return ruleReasonerService.neo4jReasoning(rule);
     }
 
 }
