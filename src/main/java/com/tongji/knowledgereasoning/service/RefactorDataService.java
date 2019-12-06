@@ -5,10 +5,7 @@ import org.apache.jena.ontology.OntModel;
 import org.apache.jena.ontology.OntModelSpec;
 import org.apache.jena.ontology.OntProperty;
 import org.apache.jena.query.*;
-import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
-import org.apache.jena.rdfconnection.RDFConnectionFuseki;
-import org.apache.jena.rdfconnection.RDFConnectionRemoteBuilder;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -214,7 +211,7 @@ public class RefactorDataService {
         refactor_class();
         refactor_property();
 
-        write_definition();
+        write_definition();     //把上面三部分预定义的内容预先写到ttl中
 
         refactor_object();
         refactor_relation();

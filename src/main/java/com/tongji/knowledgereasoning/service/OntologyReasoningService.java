@@ -176,6 +176,12 @@ public class OntologyReasoningService {
          *
          * @return : void
          **/
+        //添加prefix
+        init_map();
+
+        //初始化结果结构
+        init_container();
+
         // 为本体创建Model
         Model ontologyModel = ModelFactory.createDefaultModel();
         ontologyModel.read("data/LabData.ttl");
@@ -206,13 +212,7 @@ public class OntologyReasoningService {
         fusionModel.close();
     }
 
-    public static void main(String[] args) throws FileNotFoundException {
-        //添加prefix
-        init_map();
-
-        //初始化结果结构
-        init_container();
-
+    public static void main(String[] args){
         //进行本体推理
         OntologyReasoning();
     }
