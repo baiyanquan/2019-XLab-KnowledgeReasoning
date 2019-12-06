@@ -15,6 +15,8 @@ import java.util.Vector;
  * @author: Zhe Zhang
  * @create: 2019/12/04
  **/
+
+
 public class OntologyReasoningService {
     public static Hashtable<String, String> prefix_map = new Hashtable<String, String>();
     public static Vector<Vector<String>> stmt_container = new Vector<Vector<String>>();

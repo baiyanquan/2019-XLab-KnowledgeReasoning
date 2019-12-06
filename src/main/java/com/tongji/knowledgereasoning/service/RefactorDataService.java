@@ -8,8 +8,6 @@ import org.apache.jena.ontology.OntProperty;
 import org.apache.jena.query.*;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
-import org.apache.jena.rdfconnection.RDFConnectionFuseki;
-import org.apache.jena.rdfconnection.RDFConnectionRemoteBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,11 +26,12 @@ import java.util.Vector;
  * @author: Zhe Zhang
  * @create: 2019/12/04
  **/
+
 @Service("RefactorDataService")
 public class RefactorDataService {
 
     @Autowired
-    private static LabDao labDao;
+    private LabDao labDao;
 
     private static OntModel ontModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM);
     private static OntClass namespace;
@@ -42,10 +41,10 @@ public class RefactorDataService {
     private static OntClass server;
     private static OntClass environment;
 
-    private static FileWriter fwriter = null;
+    private static FileWriter fwriter;
     private static String url = "data/refactor_data.ttl";
 
-    public static void refactor_prefix(){
+    public void refactor_prefix(){
         ontModel.setNsPrefix( "owl", "http://www.w3.org/2002/07/owl#" );
         ontModel.setNsPrefix( "rdf", "http://www.w3.org/1999/02/22-rdf-syntax-ns#" );
         ontModel.setNsPrefix( "rdfs", "http://www.w3.org/2000/01/rdf-schema#" );
@@ -66,7 +65,7 @@ public class RefactorDataService {
         ontModel.setNsPrefix( "environment", "http://localhost/KGns/Environment/" );
     }
 
-    public static void refactor_class(){
+    public void refactor_class(){
         namespace = ontModel.createClass(":Namespace");
         pod = ontModel.createClass(":Pod");
         container = ontModel.createClass(":Container");
@@ -75,7 +74,7 @@ public class RefactorDataService {
         environment = ontModel.createClass(":Environment");
     }
 
-    public static void refactor_property(){
+    public void refactor_property(){
         OntProperty supervises = ontModel.createObjectProperty("http://namespace/10.60.38.181/supervises");
         supervises.addDomain(namespace);
         supervises.addRange(namespace);
@@ -109,12 +108,7 @@ public class RefactorDataService {
         has.addRange(server);
     }
 
-    public static void refactor_object(){
-        Model model = ModelFactory.createDefaultModel();
-
-        RDFConnectionRemoteBuilder builder = RDFConnectionFuseki.create().destination("http://10.60.38.173:3030//DevKGData/query");
-
-        Query query = QueryFactory.create("SELECT DISTINCT ?s ?p ?o { ?s ?p ?o }");
+    public void refactor_object(){
 
         List<String> class_=new ArrayList<>();
         class_.add("http://namespace/10.60.38.181");
@@ -126,43 +120,27 @@ public class RefactorDataService {
 
         HashSet<String> object_set = new HashSet<String>();
 
-        try ( RDFConnectionFuseki conn = (RDFConnectionFuseki)builder.build() ) {
+        ResultSet rs = labDao.getTriples();
+        while (rs.hasNext()) {
 
-            QueryExecution qExec = conn.query(query);
+            QuerySolution qs = rs.next() ;
 
-            ResultSet rs = qExec.execSelect();
+            String subject = qs.get("s").toString();
+            String object = qs.get("o").toString();
 
-            while (rs.hasNext()) {
+            for(String s:class_) {
 
-                QuerySolution qs = rs.next() ;
+                if (subject.contains(s)) {
 
-                String subject = qs.get("s").toString();
-                String object = qs.get("o").toString();
-                String predicate = qs.get("p").toString();
-
-                for(String s:class_) {
-
-                    if (subject.contains(s)) {
-
-                        String[] p = predicate.split("/");
-                        String predicate_ = s + '/' + p[p.length - 1];
-
-                        if(!object_set.contains(subject)){
-                            object_set.add(subject);
-                        }
-                        if(!object_set.contains(object)){
-                            object_set.add(object);
-                        }
-
-                        model.add(model.createResource(subject), model.createProperty(predicate_), model.createResource(object));
-
+                    if(!object_set.contains(subject)){
+                        object_set.add(subject);
+                    }
+                    if(!object_set.contains(object)){
+                        object_set.add(object);
                     }
                 }
-
             }
-            qExec.close();
-        }catch (Exception e){
-            e.printStackTrace();
+
         }
 
 
@@ -172,7 +150,6 @@ public class RefactorDataService {
             FileWriter fileWriter = new FileWriter(file, true);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             Vector<String> buf_vec = new Vector<String>();
-
 
             for (String s : object_set) {
                 try{
@@ -208,6 +185,7 @@ public class RefactorDataService {
             }
 
             for (String s : buf_vec) {
+
                 bufferedWriter.write(s);
             }
 
@@ -218,11 +196,9 @@ public class RefactorDataService {
         }
     }
 
-    public static void refactor_relation(){
-
+    public void refactor_relation(){
 
         Model model = ModelFactory.createDefaultModel();
-        ResultSet rs = labDao.getTriples();
 
         String namespace = "http://namespace/10.60.38.181";
         String pods = "http://pods/10.60.38.181";
@@ -231,6 +207,7 @@ public class RefactorDataService {
         String server = "http://server/10.60.38.181";
         String environment = "http://environment/10.60.38.181";
 
+        ResultSet rs = labDao.getTriples();
         while (rs.hasNext()) {
 
             QuerySolution qs1 = rs.next();
@@ -247,28 +224,20 @@ public class RefactorDataService {
                 String predicate_ = subject.substring(0, subject.indexOf("1")) + "10.60.38.181/" + p[p.length - 1];
 
                 model.add(model.createResource(subject), model.createProperty(predicate_), model.createResource(object));
-
             }
         }
+       // model.write(fwriter,"TURTLE");	//写入文件,默认是xml方式,可以自己指定
 
-        FileWriter fwriter = null;
-
-        try {
-            fwriter = new FileWriter("data/labdata.ttl");//没有文件会自动创建
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        model.write(fwriter,"TURTLE");	//写入文件,默认是xml方式,可以自己指定
-
+        model.write(fwriter,"TURTLE");
     }
 
-    public static void main(String[] args) {
+    public void refactorData() {
         refactor_prefix();
         refactor_class();
         refactor_property();
 
         try {
-            fwriter = new FileWriter(url);     //没有文件会自动创建
+            fwriter = new FileWriter(url,true);     //没有文件会自动创建
         } catch (IOException e) {
             e.printStackTrace();
         }

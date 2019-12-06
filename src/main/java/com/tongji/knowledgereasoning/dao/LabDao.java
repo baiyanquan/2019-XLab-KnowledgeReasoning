@@ -1,5 +1,6 @@
 package com.tongji.knowledgereasoning.dao;
 
+import lombok.Data;
 import org.apache.jena.query.Query;
 import org.apache.jena.query.QueryExecution;
 import org.apache.jena.query.QueryFactory;
@@ -8,8 +9,8 @@ import org.apache.jena.rdfconnection.RDFConnectionFuseki;
 import org.apache.jena.rdfconnection.RDFConnectionRemoteBuilder;
 import org.springframework.stereotype.Repository;
 
-@Repository("labDao")
-public class LabDao {
+@Repository("LabDao")
+@Data public class LabDao {
 
     private ResultSet resultSet;
 
