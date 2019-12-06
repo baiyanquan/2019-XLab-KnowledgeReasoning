@@ -19,6 +19,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Vector;
 
+import static com.tongji.knowledgereasoning.dao.LabDao.getTriples;
+
+
 /**
  * @program: knowledgereasoning
  * @description:
@@ -36,6 +39,16 @@ public class RefactorDataService {
 
     private static FileWriter fwriter = null;
     private static String url = "data/refactor_data.ttl";
+
+    public static void write_definition(){
+        try {
+            fwriter = new FileWriter(url);     //没有文件会自动创建
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        ontModel.write(fwriter,"TURTLE");
+    }
 
     public static void refactor_prefix(){
         ontModel.setNsPrefix( "owl", "http://www.w3.org/2002/07/owl#" );
@@ -102,12 +115,6 @@ public class RefactorDataService {
     }
 
     public static void refactor_object(){
-        Model model = ModelFactory.createDefaultModel();
-
-        RDFConnectionRemoteBuilder builder = RDFConnectionFuseki.create().destination("http://10.60.38.173:3030//DevKGData/query");
-
-        Query query = QueryFactory.create("SELECT DISTINCT ?s ?p ?o { ?s ?p ?o }");
-
         List<String> class_=new ArrayList<>();
         class_.add("http://namespace/10.60.38.181");
         class_.add("http://pods/10.60.38.181");
@@ -118,45 +125,33 @@ public class RefactorDataService {
 
         HashSet<String> object_set = new HashSet<String>();
 
-        try ( RDFConnectionFuseki conn = (RDFConnectionFuseki)builder.build() ) {
+        ResultSet rs = getTriples();
+        while (rs.hasNext()) {
 
-            QueryExecution qExec = conn.query(query);
+            QuerySolution qs = rs.next() ;
 
-            ResultSet rs = qExec.execSelect();
+            String subject = qs.get("s").toString();
+            String object = qs.get("o").toString();
+            String predicate = qs.get("p").toString();
 
-            while (rs.hasNext()) {
+            for(String s:class_) {
 
-                QuerySolution qs = rs.next() ;
+                if (subject.contains(s)) {
 
-                String subject = qs.get("s").toString();
-                String object = qs.get("o").toString();
-                String predicate = qs.get("p").toString();
+                    String[] p = predicate.split("/");
+                    String predicate_ = s + '/' + p[p.length - 1];
 
-                for(String s:class_) {
-
-                    if (subject.contains(s)) {
-
-                        String[] p = predicate.split("/");
-                        String predicate_ = s + '/' + p[p.length - 1];
-
-                        if(!object_set.contains(subject)){
-                            object_set.add(subject);
-                        }
-                        if(!object_set.contains(object)){
-                            object_set.add(object);
-                        }
-
-                        model.add(model.createResource(subject), model.createProperty(predicate_), model.createResource(object));
-
+                    if(!object_set.contains(subject)){
+                        object_set.add(subject);
                     }
+                    if(!object_set.contains(object)){
+                        object_set.add(object);
+                    }
+
                 }
-
             }
-            qExec.close();
-        }catch (Exception e){
-            e.printStackTrace();
-        }
 
+        }
 
         try{
             File file = new File(url);
@@ -214,21 +209,18 @@ public class RefactorDataService {
 
     }
 
-    public static void main(String[] args) {
+    public static void refactor_data(){
         refactor_prefix();
         refactor_class();
         refactor_property();
 
-        try {
-            fwriter = new FileWriter(url);     //没有文件会自动创建
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        write_definition();
 
-        ontModel.write(fwriter,"TURTLE");
-
-        //TODO: 想法是先把之前的model写下来，再在ttl后追加object和relation
         refactor_object();
         refactor_relation();
+    }
+
+    public static void main(String[] args) {
+        refactor_data();
     }
 }

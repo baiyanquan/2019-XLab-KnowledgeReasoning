@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 @Repository("labDao")
 public class LabDao {
 
-    public ResultSet getTriples(){
+    public static ResultSet getTriples(){
 
         RDFConnectionRemoteBuilder builder = RDFConnectionFuseki.create().destination("http://10.60.38.173:3030//DevKGData/query");
 
@@ -29,4 +29,5 @@ public class LabDao {
         }
         return rs;
     }
+
 }
