@@ -1,0 +1,251 @@
+<http://pods/10.60.38.181/sock-shop/shipping-65769d99d7-lmpg7>
+        <ns1__contains>     <http://containers/10.60.38.181/sock-shop/shipping> ;
+        <ns1__deployed_in>  <http://server/10.60.38.181/192.168.199.34> ;
+        <ns1__provides>     <http://services/10.60.38.181/sock-shop/shipping> .
+
+<http://pods/10.60.38.181/contains>
+        <rdfs__domain>  <http://localhost/KGns/Pod> ;
+        <rdfs__range>   <http://localhost/KGns/Container> .
+
+<http://pods/10.60.38.181/sock-shop/catalogue-b8587c9c5-wfvkt>
+        <ns1__contains>     <http://containers/10.60.38.181/sock-shop/catalogue> ;
+        <ns1__deployed_in>  <http://server/10.60.38.181/192.168.199.34> ;
+        <ns1__provides>     <http://services/10.60.38.181/sock-shop/catalogue> .
+
+<http://services/10.60.38.181/sock-shop/user-db>
+        <ns2__profile>  <http://services/10.60.38.181/sock-shop/user-db/throughput> , <http://services/10.60.38.181/sock-shop/user-db/latency> .
+
+<http://services/10.60.38.181/sock-shop/user>
+        <ns2__profile>  <http://services/10.60.38.181/sock-shop/user/latency> , <http://services/10.60.38.181/sock-shop/user/success_rate> .
+
+<http://services/10.60.38.181/sock-shop/catalogue-db>
+        <ns2__profile>  <http://services/10.60.38.181/sock-shop/catalogue-db/latency> , <http://services/10.60.38.181/sock-shop/catalogue-db/throughput> .
+
+<http://pods/10.60.38.181/sock-shop/user-db-6ccbdb454c-q9dxm>
+        <ns1__contains>     <http://containers/10.60.38.181/sock-shop/user-db> ;
+        <ns1__deployed_in>  <http://server/10.60.38.181/192.168.199.32> ;
+        <ns1__provides>     <http://services/10.60.38.181/sock-shop/user-db> .
+
+<http://containers/10.60.38.181/sock-shop/catalogue>
+        <ns3__profile>   <http://containers/10.60.38.181/sock-shop/catalogue/Network_Output_Bytes> , <http://containers/10.60.38.181/sock-shop/catalogue/Network_Output_Packets> , <http://containers/10.60.38.181/sock-shop/catalogue/Network_Input_Packets> , <http://containers/10.60.38.181/sock-shop/catalogue/MEM_Usage> , <http://containers/10.60.38.181/sock-shop/catalogue/CPU_Usage> , <http://containers/10.60.38.181/sock-shop/catalogue/Network_Input_Bytes> ;
+        <ns3__supports>  <http://services/10.60.38.181/sock-shop/catalogue> .
+
+<http://pods/10.60.38.181/sock-shop/front-end-858b4ff57-lkm8b>
+        <ns1__contains>     <http://containers/10.60.38.181/sock-shop/front-end> ;
+        <ns1__deployed_in>  <http://server/10.60.38.181/192.168.199.33> ;
+        <ns1__provides>     <http://services/10.60.38.181/sock-shop/front-end> .
+
+<http://containers/10.60.38.181/sock-shop/user>
+        <ns3__profile>   <http://containers/10.60.38.181/sock-shop/user/Network_Output_Packets> , <http://containers/10.60.38.181/sock-shop/user/Network_Output_Bytes> , <http://containers/10.60.38.181/sock-shop/user/CPU_Usage> , <http://containers/10.60.38.181/sock-shop/user/Network_Input_Bytes> , <http://containers/10.60.38.181/sock-shop/user/MEM_Usage> , <http://containers/10.60.38.181/sock-shop/user/Network_Input_Packets> ;
+        <ns3__supports>  <http://services/10.60.38.181/sock-shop/user> .
+
+<http://pods/10.60.38.181/sock-shop/carts-648d5f498d-n8hzn>
+        <ns1__contains>     <http://containers/10.60.38.181/sock-shop/carts> ;
+        <ns1__deployed_in>  <http://server/10.60.38.181/192.168.199.32> ;
+        <ns1__provides>     <http://services/10.60.38.181/sock-shop/carts> .
+
+<http://pods/10.60.38.181/sock-shop/orders-6496fcd6f7-tw8sm>
+        <ns1__contains>     <http://containers/10.60.38.181/sock-shop/orders> ;
+        <ns1__deployed_in>  <http://server/10.60.38.181/192.168.199.34> ;
+        <ns1__provides>     <http://services/10.60.38.181/sock-shop/orders> .
+
+<http://containers/10.60.38.181/sock-shop/payment>
+        <ns3__profile>   <http://containers/10.60.38.181/sock-shop/payment/Network_Input_Packets> , <http://containers/10.60.38.181/sock-shop/payment/Network_Input_Bytes> , <http://containers/10.60.38.181/sock-shop/payment/Network_Output_Bytes> , <http://containers/10.60.38.181/sock-shop/payment/MEM_Usage> , <http://containers/10.60.38.181/sock-shop/payment/CPU_Usage> , <http://containers/10.60.38.181/sock-shop/payment/Network_Output_Packets> ;
+        <ns3__supports>  <http://services/10.60.38.181/sock-shop/payment> .
+
+<http://containers/10.60.38.181/sock-shop/front-end>
+        <ns3__profile>   <http://containers/10.60.38.181/sock-shop/front-end/Network_Output_Packets> , <http://containers/10.60.38.181/sock-shop/front-end/Network_Input_Packets> , <http://containers/10.60.38.181/sock-shop/front-end/MEM_Usage> , <http://containers/10.60.38.181/sock-shop/front-end/Network_Output_Bytes> , <http://containers/10.60.38.181/sock-shop/front-end/CPU_Usage> , <http://containers/10.60.38.181/sock-shop/front-end/Network_Input_Bytes> ;
+        <ns3__supports>  <http://services/10.60.38.181/sock-shop/front-end> .
+
+<http://services/10.60.38.181/sock-shop/carts-db>
+        <ns2__profile>  <http://services/10.60.38.181/sock-shop/carts-db/throughput> , <http://services/10.60.38.181/sock-shop/carts-db/latency> .
+
+<http://pods/10.60.38.181/sock-shop/front-end-858b4ff57-dbdck>
+        <ns1__contains>     <http://containers/10.60.38.181/sock-shop/front-end> ;
+        <ns1__deployed_in>  <http://server/10.60.38.181/192.168.199.32> ;
+        <ns1__provides>     <http://services/10.60.38.181/sock-shop/front-end> .
+
+<http://pods/10.60.38.181/sock-shop/front-end-858b4ff57-55bg5>
+        <ns1__contains>     <http://containers/10.60.38.181/sock-shop/front-end> ;
+        <ns1__deployed_in>  <http://server/10.60.38.181/192.168.199.32> ;
+        <ns1__provides>     <http://services/10.60.38.181/sock-shop/front-end> .
+
+<http://containers/10.60.38.181/sock-shop/orders>
+        <ns3__profile>   <http://containers/10.60.38.181/sock-shop/orders/Network_Output_Bytes> , <http://containers/10.60.38.181/sock-shop/orders/Network_Input_Packets> , <http://containers/10.60.38.181/sock-shop/orders/MEM_Usage> , <http://containers/10.60.38.181/sock-shop/orders/Network_Output_Packets> , <http://containers/10.60.38.181/sock-shop/orders/Network_Input_Bytes> , <http://containers/10.60.38.181/sock-shop/orders/CPU_Usage> ;
+        <ns3__supports>  <http://services/10.60.38.181/sock-shop/orders> .
+
+<http://server/10.60.38.181/192.168.199.191>
+        <ns7__manage>  <http://server/10.60.38.181/192.168.199.31> , <http://server/10.60.38.181/192.168.199.32> , <http://server/10.60.38.181/192.168.199.33> , <http://server/10.60.38.181/192.168.199.34> , <http://server/10.60.38.181/192.168.199.35> .
+
+<http://pods/10.60.38.181/deployed_in>
+        <rdfs__domain>  <http://localhost/KGns/Pod> ;
+        <rdfs__range>   <http://localhost/KGns/Server> .
+
+<http://containers/10.60.38.181/sock-shop/carts-db>
+        <ns3__profile>   <http://containers/10.60.38.181/sock-shop/carts-db/Network_Output_Packets> , <http://containers/10.60.38.181/sock-shop/carts-db/CPU_Usage> , <http://containers/10.60.38.181/sock-shop/carts-db/MEM_Usage> , <http://containers/10.60.38.181/sock-shop/carts-db/Network_Output_Bytes> , <http://containers/10.60.38.181/sock-shop/carts-db/Network_Input_Packets> , <http://containers/10.60.38.181/sock-shop/carts-db/Network_Input_Bytes> ;
+        <ns3__supports>  <http://services/10.60.38.181/sock-shop/carts-db> .
+
+<http://containers/10.60.38.181/sock-shop/session-db>
+        <ns3__profile>   <http://containers/10.60.38.181/sock-shop/session-db/Network_Input_Packets> , <http://containers/10.60.38.181/sock-shop/session-db/Network_Output_Packets> , <http://containers/10.60.38.181/sock-shop/session-db/CPU_Usage> , <http://containers/10.60.38.181/sock-shop/session-db/Network_Output_Bytes> , <http://containers/10.60.38.181/sock-shop/session-db/Network_Input_Bytes> , <http://containers/10.60.38.181/sock-shop/session-db/MEM_Usage> ;
+        <ns3__supports>  <http://services/10.60.38.181/sock-shop/session-db> .
+
+<http://services/10.60.38.181/sock-shop/front-end-external>
+        <ns2__profile>  <http://services/10.60.38.181/sock-shop/front-end-external/latency> , <http://services/10.60.38.181/sock-shop/front-end-external/success_rate> .
+
+<http://environment/10.60.38.181>
+        <ns4__has>  <http://server/10.60.38.181/192.168.199.31> , <http://server/10.60.38.181/192.168.199.32> , <http://server/10.60.38.181/192.168.199.33> , <http://server/10.60.38.181/192.168.199.34> , <http://server/10.60.38.181/192.168.199.35> .
+
+<http://namespace/10.60.38.181/monitoring>
+        <ns6__supervises>  <http://namespace/10.60.38.181/sock-shop> .
+
+<http://services/10.60.38.181/sock-shop/orders>
+        <ns2__profile>  <http://services/10.60.38.181/sock-shop/orders/latency> , <http://services/10.60.38.181/sock-shop/orders/success_rate> .
+
+<http://services/10.60.38.181/sock-shop/rabbitmq>
+        <ns2__profile>  <http://services/10.60.38.181/sock-shop/rabbitmq/success_rate> , <http://services/10.60.38.181/sock-shop/rabbitmq/latency> .
+
+<http://services/10.60.38.181/profile>
+        <rdfs__domain>  <http://localhost/KGns/Service> ;
+        <rdfs__range>   <http://localhost/KGns/Service> .
+
+<http://containers/10.60.38.181/sock-shop/orders-db>
+        <ns3__profile>   <http://containers/10.60.38.181/sock-shop/orders-db/Network_Input_Packets> , <http://containers/10.60.38.181/sock-shop/orders-db/MEM_Usage> , <http://containers/10.60.38.181/sock-shop/orders-db/Network_Output_Bytes> , <http://containers/10.60.38.181/sock-shop/orders-db/Network_Input_Bytes> , <http://containers/10.60.38.181/sock-shop/orders-db/CPU_Usage> , <http://containers/10.60.38.181/sock-shop/orders-db/Network_Output_Packets> ;
+        <ns3__supports>  <http://services/10.60.38.181/sock-shop/orders-db> .
+
+<http://pods/10.60.38.181/sock-shop/payment-6c698f689b-vlkhq>
+        <ns1__contains>     <http://containers/10.60.38.181/sock-shop/payment> ;
+        <ns1__deployed_in>  <http://server/10.60.38.181/192.168.199.33> ;
+        <ns1__provides>     <http://services/10.60.38.181/sock-shop/payment> .
+
+<http://pods/10.60.38.181/sock-shop/orders-db-86f5c494b9-xvvhr>
+        <ns1__contains>     <http://containers/10.60.38.181/sock-shop/orders-db> ;
+        <ns1__deployed_in>  <http://server/10.60.38.181/192.168.199.33> ;
+        <ns1__provides>     <http://services/10.60.38.181/sock-shop/orders-db> .
+
+<http://containers/10.60.38.181/sock-shop/rabbitmq>
+        <ns3__profile>   <http://containers/10.60.38.181/sock-shop/rabbitmq/Network_Output_Packets> , <http://containers/10.60.38.181/sock-shop/rabbitmq/CPU_Usage> , <http://containers/10.60.38.181/sock-shop/rabbitmq/MEM_Usage> , <http://containers/10.60.38.181/sock-shop/rabbitmq/Network_Input_Packets> , <http://containers/10.60.38.181/sock-shop/rabbitmq/Network_Input_Bytes> , <http://containers/10.60.38.181/sock-shop/rabbitmq/Network_Output_Bytes> ;
+        <ns3__supports>  <http://services/10.60.38.181/sock-shop/rabbitmq> .
+
+<http://pods/10.60.38.181/sock-shop/front-end-858b4ff57-gq9k9>
+        <ns1__contains>     <http://containers/10.60.38.181/sock-shop/front-end> ;
+        <ns1__deployed_in>  <http://server/10.60.38.181/192.168.199.34> ;
+        <ns1__provides>     <http://services/10.60.38.181/sock-shop/front-end> .
+
+<http://pods/10.60.38.181/sock-shop/carts-db-64b6cc584f-zd6zz>
+        <ns1__contains>     <http://containers/10.60.38.181/sock-shop/carts-db> ;
+        <ns1__deployed_in>  <http://server/10.60.38.181/192.168.199.33> ;
+        <ns1__provides>     <http://services/10.60.38.181/sock-shop/carts-db> .
+
+<http://pods/10.60.38.181/sock-shop/orders-6496fcd6f7-l9rmn>
+        <ns1__contains>     <http://containers/10.60.38.181/sock-shop/orders> ;
+        <ns1__deployed_in>  <http://server/10.60.38.181/192.168.199.32> ;
+        <ns1__provides>     <http://services/10.60.38.181/sock-shop/orders> .
+
+<http://servers/10.60.38.181/manage>
+        <rdfs__domain>  <http://localhost/KGns/Server> ;
+        <rdfs__range>   <http://localhost/KGns/Server> .
+
+<http://containers/10.60.38.181/sock-shop/queue-master>
+        <ns3__profile>   <http://containers/10.60.38.181/sock-shop/queue-master/Network_Input_Bytes> , <http://containers/10.60.38.181/sock-shop/queue-master/CPU_Usage> , <http://containers/10.60.38.181/sock-shop/queue-master/MEM_Usage> , <http://containers/10.60.38.181/sock-shop/queue-master/Network_Output_Packets> , <http://containers/10.60.38.181/sock-shop/queue-master/Network_Input_Packets> , <http://containers/10.60.38.181/sock-shop/queue-master/Network_Output_Bytes> ;
+        <ns3__supports>  <http://services/10.60.38.181/sock-shop/queue-master> .
+
+<http://containers/10.60.38.181/sock-shop/carts>
+        <ns3__profile>   <http://containers/10.60.38.181/sock-shop/carts/Network_Output_Packets> , <http://containers/10.60.38.181/sock-shop/carts/MEM_Usage> , <http://containers/10.60.38.181/sock-shop/carts/Network_Input_Packets> , <http://containers/10.60.38.181/sock-shop/carts/Network_Output_Bytes> , <http://containers/10.60.38.181/sock-shop/carts/Network_Input_Bytes> , <http://containers/10.60.38.181/sock-shop/carts/CPU_Usage> ;
+        <ns3__supports>  <http://services/10.60.38.181/sock-shop/carts> .
+
+<http://pods/10.60.38.181/sock-shop/rabbitmq-6cf767fcc4-9j5vn>
+        <ns1__contains>     <http://containers/10.60.38.181/sock-shop/rabbitmq> ;
+        <ns1__deployed_in>  <http://server/10.60.38.181/192.168.199.34> ;
+        <ns1__provides>     <http://services/10.60.38.181/sock-shop/rabbitmq> .
+
+<http://pods/10.60.38.181/sock-shop/orders-6496fcd6f7-fqnjt>
+        <ns1__contains>     <http://containers/10.60.38.181/sock-shop/orders> ;
+        <ns1__deployed_in>  <http://server/10.60.38.181/192.168.199.33> ;
+        <ns1__provides>     <http://services/10.60.38.181/sock-shop/orders> .
+
+<http://namespace/10.60.38.181/supervises>
+        <rdfs__domain>  <http://localhost/KGns/Namespace> ;
+        <rdfs__range>   <http://localhost/KGns/Namespace> .
+
+<http://pods/10.60.38.181/sock-shop/orders-6496fcd6f7-zt6zq>
+        <ns1__contains>     <http://containers/10.60.38.181/sock-shop/orders> ;
+        <ns1__deployed_in>  <http://server/10.60.38.181/192.168.199.32> ;
+        <ns1__provides>     <http://services/10.60.38.181/sock-shop/orders> .
+
+<http://environment/10.60.38.181/has>
+        <rdfs__domain>  <http://localhost/KGns/Environment> ;
+        <rdfs__range>   <http://localhost/KGns/Server> .
+
+<http://containers/10.60.38.181/sock-shop/user-db>
+        <ns3__profile>   <http://containers/10.60.38.181/sock-shop/user-db/Network_Input_Bytes> , <http://containers/10.60.38.181/sock-shop/user-db/Network_Output_Packets> , <http://containers/10.60.38.181/sock-shop/user-db/MEM_Usage> , <http://containers/10.60.38.181/sock-shop/user-db/Network_Input_Packets> , <http://containers/10.60.38.181/sock-shop/user-db/Network_Output_Bytes> , <http://containers/10.60.38.181/sock-shop/user-db/CPU_Usage> ;
+        <ns3__supports>  <http://services/10.60.38.181/sock-shop/user-db> .
+
+<http://services/10.60.38.181/sock-shop/session-db>
+        <ns2__profile>  <http://services/10.60.38.181/sock-shop/session-db/latency> , <http://services/10.60.38.181/sock-shop/session-db/throughput> .
+
+<http://pods/10.60.38.181/sock-shop/session-db-6b57d5cc79-gjxvb>
+        <ns1__contains>     <http://containers/10.60.38.181/sock-shop/session-db> ;
+        <ns1__deployed_in>  <http://server/10.60.38.181/192.168.199.33> ;
+        <ns1__provides>     <http://services/10.60.38.181/sock-shop/session-db> .
+
+<http://pods/10.60.38.181/sock-shop/front-end-858b4ff57-6md46>
+        <ns1__contains>     <http://containers/10.60.38.181/sock-shop/front-end> ;
+        <ns1__deployed_in>  <http://server/10.60.38.181/192.168.199.33> ;
+        <ns1__provides>     <http://services/10.60.38.181/sock-shop/front-end> .
+
+<http://pods/10.60.38.181/sock-shop/queue-master-77d854c647-qbgwq>
+        <ns1__contains>     <http://containers/10.60.38.181/sock-shop/queue-master> ;
+        <ns1__deployed_in>  <http://server/10.60.38.181/192.168.199.33> ;
+        <ns1__provides>     <http://services/10.60.38.181/sock-shop/queue-master> .
+
+<http://services/10.60.38.181/sock-shop/shipping>
+        <ns2__profile>  <http://services/10.60.38.181/sock-shop/shipping/success_rate> , <http://services/10.60.38.181/sock-shop/shipping/latency> .
+
+<http://services/10.60.38.181/sock-shop/catalogue>
+        <ns2__profile>  <http://services/10.60.38.181/sock-shop/catalogue/success_rate> , <http://services/10.60.38.181/sock-shop/catalogue/latency> .
+
+<http://services/10.60.38.181/sock-shop/payment>
+        <ns2__profile>  <http://services/10.60.38.181/sock-shop/payment/latency> , <http://services/10.60.38.181/sock-shop/payment/success_rate> .
+
+<http://services/10.60.38.181/sock-shop/carts>
+        <ns2__profile>  <http://services/10.60.38.181/sock-shop/carts/success_rate> , <http://services/10.60.38.181/sock-shop/carts/latency> .
+
+<http://services/10.60.38.181/sock-shop/queue-master>
+        <ns2__profile>  <http://services/10.60.38.181/sock-shop/queue-master/latency> , <http://services/10.60.38.181/sock-shop/queue-master/success_rate> .
+
+<http://pods/10.60.38.181/sock-shop/orders-6496fcd6f7-qcmj7>
+        <ns1__contains>     <http://containers/10.60.38.181/sock-shop/orders> ;
+        <ns1__deployed_in>  <http://server/10.60.38.181/192.168.199.33> ;
+        <ns1__provides>     <http://services/10.60.38.181/sock-shop/orders> .
+
+<http://containers/10.60.38.181/profile>
+        <rdfs__domain>  <http://localhost/KGns/Container> ;
+        <rdfs__range>   <http://localhost/KGns/Container> .
+
+<http://pods/10.60.38.181/provides>
+        <rdfs__domain>  <http://localhost/KGns/Pod> ;
+        <rdfs__range>   <http://localhost/KGns/Service> .
+
+<http://pods/10.60.38.181/sock-shop/user-d4cb47c5f-8srcb>
+        <ns1__contains>     <http://containers/10.60.38.181/sock-shop/user> ;
+        <ns1__deployed_in>  <http://server/10.60.38.181/192.168.199.33> ;
+        <ns1__provides>     <http://services/10.60.38.181/sock-shop/user> .
+
+<http://services/10.60.38.181/sock-shop/orders-db>
+        <ns2__profile>  <http://services/10.60.38.181/sock-shop/orders-db/latency> , <http://services/10.60.38.181/sock-shop/orders-db/throughput> .
+
+<http://containers/10.60.38.181/sock-shop/shipping>
+        <ns2__profile>   <http://containers/10.60.38.181/sock-shop/shipping/CPU_Usage> , <http://containers/10.60.38.181/sock-shop/shipping/Network_Input_Bytes> , <http://containers/10.60.38.181/sock-shop/shipping/MEM_Usage> , <http://containers/10.60.38.181/sock-shop/shipping/Network_Output_Bytes> , <http://containers/10.60.38.181/sock-shop/shipping/Network_Input_Packets> , <http://containers/10.60.38.181/sock-shop/shipping/Network_Output_Packets> ;
+        <ns3__supports>  <http://services/10.60.38.181/sock-shop/shipping> .
+
+<http://pods/10.60.38.181/sock-shop/catalogue-db-99cbcbb88-wl52p>
+        <ns1__contains>     <http://containers/10.60.38.181/sock-shop/catalogue-db> ;
+        <ns1__deployed_in>  <http://server/10.60.38.181/192.168.199.33> ;
+        <ns1__provides>     <http://services/10.60.38.181/sock-shop/catalogue-db> .
+
+<http://containers/10.60.38.181/sock-shop/catalogue-db>
+        <ns3__profile>   <http://containers/10.60.38.181/sock-shop/catalogue-db/Network_Output_Packets> , <http://containers/10.60.38.181/sock-shop/catalogue-db/CPU_Usage> , <http://containers/10.60.38.181/sock-shop/catalogue-db/MEM_Usage> , <http://containers/10.60.38.181/sock-shop/catalogue-db/Network_Output_Bytes> , <http://containers/10.60.38.181/sock-shop/catalogue-db/Network_Input_Packets> , <http://containers/10.60.38.181/sock-shop/catalogue-db/Network_Input_Bytes> ;
+        <ns3__supports>  <http://services/10.60.38.181/sock-shop/catalogue-db> .
+
+<http://services/10.60.38.181/sock-shop/front-end>
+        <ns2__profile>  <http://services/10.60.38.181/sock-shop/front-end/success_rate> , <http://services/10.60.38.181/sock-shop/front-end/latency> .

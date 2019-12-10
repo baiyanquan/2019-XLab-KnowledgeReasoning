@@ -14,7 +14,7 @@ import org.springframework.stereotype.Repository;
 
     private ResultSet resultSet;
 
-    public static ResultSet getTriples(){
+    public ResultSet getTriples(){
 
         RDFConnectionRemoteBuilder builder = RDFConnectionFuseki.create().destination("http://10.60.38.173:3030//DevKGData/query");
 
