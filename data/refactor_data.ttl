@@ -1,0 +1,64 @@
+@prefix :      <http://localhost/KGns/> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix services: <http://localhost/KGns/Service/> .
+@prefix environment: <http://localhost/KGns/Environment/> .
+@prefix servers_rel: <http://servers/10.60.38.181/> .
+@prefix pods_rel: <http://pods/10.60.38.181/> .
+@prefix namespace_rel: <http://namespace/10.60.38.181/> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix namespace: <http://localhost/KGns/Namespace/> .
+@prefix rel:   <http://localhost/KGns/relationship/> .
+@prefix containers: <http://localhost/KGns/Container/> .
+@prefix pods:  <http://localhost/KGns/Pod/> .
+@prefix containers_rel: <http://containers/10.60.38.181/> .
+@prefix environment_rel: <http://environment/10.60.38.181/> .
+@prefix services_rel: <http://services/10.60.38.181/> .
+
+<:Environment>  a  owl:Class .
+
+namespace_rel:supervises
+        a            owl:ObjectProperty ;
+        rdfs:domain  <:Namespace> ;
+        rdfs:range   <:Namespace> .
+
+pods_rel:provides  a  owl:ObjectProperty ;
+        rdfs:domain  <:Pod> ;
+        rdfs:range   <:Service> .
+
+<:Server>  a    owl:Class .
+
+pods_rel:deployed_in  a  owl:ObjectProperty ;
+        rdfs:domain  <:Pod> ;
+        rdfs:range   <:Server> .
+
+<:Pod>  a       owl:Class .
+
+servers_rel:manage  a  owl:ObjectProperty ;
+        rdfs:domain  <:Server> ;
+        rdfs:range   <:Server> .
+
+pods_rel:contains  a  owl:ObjectProperty ;
+        rdfs:domain  <:Pod> ;
+        rdfs:range   <:Container> .
+
+<:Service>  a   owl:Class .
+
+environment_rel:has  a  owl:ObjectProperty ;
+        rdfs:domain  <:Environment> ;
+        rdfs:range   <:Server> .
+
+<:Container>  a  owl:Class .
+
+containers_rel:cc_profile
+        a            owl:ObjectProperty ;
+        rdfs:domain  <:Container> ;
+        rdfs:range   <:Container> .
+
+services_rel:ss_profile
+        a            owl:ObjectProperty ;
+        rdfs:domain  <:Service> ;
+        rdfs:range   <:Service> .
+
+<:Namespace>  a  owl:Class .
