@@ -24,5 +24,4 @@ public class RuleReasonerController {
         return ruleReasonerService.neo4jReasoning(rule);
     }
 
-
 }

@@ -72,22 +72,21 @@ public class RuleReasonerServiceImp implements RuleReasonerService {
                 String predicate = rs.getString(2);
                 String object = rs.getString(3);
 
-                if(predicate.contains("deployed_in")) {
-                    model.add(model.createResource(subject), model.createProperty("develop_in"), model.createResource(object));
-                } else {
-                    String[] p = predicate.split("_");
-                    predicate = p[p.length-1];
+                String[] p = predicate.split("__");
+                predicate = p[p.length-1];
+                System.out.println(predicate);
                     //System.out.println(predicate);
-                    model.add(model.createResource(subject), model.createProperty(predicate), model.createResource(object));
-                }
+                model.add(model.createResource(subject), model.createProperty(predicate), model.createResource(object));
             }
+            //writeToFile(model,"data/neo4jdata.ttl");
         }catch (Exception e){
             e.printStackTrace();
         }
 
         Model modelAfterReason = reasoner(model,rule);
         String triples = TriplesToJson(modelAfterReason);
-        neoDao.updateTriplesInNeo4j();
+        String ttlInsert ="CALL semantics.importRDF('file:///F:/IDEA/2019-XLab-KnowledgeReasoning/data/RuleReasoning/RuleReasonResult.ttl','Turtle', {shortenUrls: true})";
+        neoDao.updateTriplesInNeo4j(ttlInsert);
         return triples;
     }
 
@@ -115,7 +114,7 @@ public class RuleReasonerServiceImp implements RuleReasonerService {
             modelAfterReason.add(modelAfterReason.createResource(subject),
                     modelAfterReason.createProperty(predicate),
                     modelAfterReason.createResource(object));
-            writeToFile(modelAfterReason,"data/reasonData.ttl");
+            writeToFile(modelAfterReason,"data/RuleReasoning/RuleReasonResult.ttl");
         }
         return modelAfterReason;
     }
@@ -144,7 +143,7 @@ public class RuleReasonerServiceImp implements RuleReasonerService {
             modelAfterReason.add(modelAfterReason.createResource(subject),
                     modelAfterReason.createProperty(predicate),
                     modelAfterReason.createResource(object));
-            writeToFile(modelAfterReason,"data/reasonData.ttl");
+            writeToFile(modelAfterReason,"data/RuleReasoning/RuleReasonResult.ttl");
         }
         return triples.toString();
     }

@@ -17,7 +17,6 @@ import java.sql.*;
         private String ipAddress;
         private String user;
         private String password;
-        private String ttlInsert;
         private String queryString;
         private ResultSet resultSet;
 
@@ -40,7 +39,6 @@ import java.sql.*;
                         user = dt.getElementsByTagName("neo4jUser").item(0).getTextContent();
                         password = dt.getElementsByTagName("neo4jPassword").item(0).getTextContent();
                         queryString = dt.getElementsByTagName("neo4jQueryString").item(0).getTextContent();
-                        ttlInsert=dt.getElementsByTagName("ttlInsert").item(0).getTextContent();
                 }
                 catch (Exception e) {
                         e.printStackTrace();
@@ -63,7 +61,7 @@ import java.sql.*;
                 return resultSet;
         }
 
-        public void updateTriplesInNeo4j() {
+        public void updateTriplesInNeo4j(String ttlInsert) {
 
                 try {
                         Connection connection = DriverManager.getConnection(ipAddress, user, password);
