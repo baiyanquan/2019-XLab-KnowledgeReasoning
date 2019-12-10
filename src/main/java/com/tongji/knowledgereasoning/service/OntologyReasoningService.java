@@ -11,18 +11,21 @@ import java.util.Vector;
 
 /**
  * @program: knowledgereasoning
- * @description:
+ * @description: Ontology Reasoning Service.
  * @author: Zhe Zhang
  * @create: 2019/12/04
  **/
 
 
 public class OntologyReasoningService {
-    public static Hashtable<String, String> prefix_map = new Hashtable<String, String>();
-    public static Vector<Vector<String>> stmt_container = new Vector<Vector<String>>();
-    public static Vector<String> buf_container = new Vector<String>();
+    private static Hashtable<String, String> prefix_map = new Hashtable<String, String>();
+    private static Vector<Vector<String>> stmt_container = new Vector<Vector<String>>();
+    private static Vector<String> buf_container = new Vector<String>();
+    private static Model ontologyModel;         // 为本体创建Model
+    private static Model fusionModel;           // 创建一个新Model将本体与实例数据进行合并
+    private static InfModel inf;                //在合并后的数据模型
 
-    public static void init_map(){
+    private static void init_map(){
         /**
          * @description: 定义 @prefix，通过Hashtable key-value对实现
          *
@@ -52,7 +55,7 @@ public class OntologyReasoningService {
 
     }
 
-    public static void init_container(){
+    private static void init_container(){
         /**
          * @description: 初始化结果容器，将输出数据分为四类（Class ObjectProperty object relation）
          *
@@ -68,7 +71,7 @@ public class OntologyReasoningService {
         stmt_container.get(3).add("# relation");
     }
 
-    public static void add_into_container(Statement stmt){
+    private static void add_into_container(Statement stmt){
         /**
          * @description: 将三元组进行过滤，加入到结果容器中
          *
@@ -104,7 +107,7 @@ public class OntologyReasoningService {
         }
     }
 
-    public static void initAllTriples(Model model, boolean with_filter) {
+    private static void initAllTriples(Model model, boolean with_filter) {
         /**
          * @description: 逐个去除model中到三元组，按照要求加入容器中
          *
@@ -125,7 +128,7 @@ public class OntologyReasoningService {
         }
     }
 
-    public static void writeAllTriples(Model model, String filename, boolean with_filter){
+    private static void writeAllTriples(Model model, String filename, boolean with_filter){
         /**
          * @description: 将三元组中到内容写入到指定文件中
          *
@@ -172,50 +175,65 @@ public class OntologyReasoningService {
 
     }
 
-    public static void OntologyReasoning(){
-        /**
-         * @description: 本体推理
-         *
-         * @return : void
-         **/
+    private static void readOriginData(){
         //添加prefix
         init_map();
 
         //初始化结果结构
         init_container();
 
-        // 为本体创建Model
-        Model ontologyModel = ModelFactory.createDefaultModel();
+        ontologyModel = ModelFactory.createDefaultModel();
+        //TODO: read from Neo4j
         ontologyModel.read("data/LabData.ttl");
 
-        // 创建一个新Model将本体与实例数据进行合并
-        Model fusionModel = ModelFactory.createDefaultModel();
+        fusionModel = ModelFactory.createDefaultModel();
         fusionModel.add(ontologyModel);
+    }
 
+    public static void outputOriginTriples(){
         // 输出推理前的数据
         System.out.println("Triples Before Reasoning:");
         writeAllTriples(fusionModel, "data/Ontology Reasoning/before_ontology_reasoning_without_filter.ttl", false);
         writeAllTriples(fusionModel, "data/Ontology Reasoning/before_ontology_reasoning_with_filter.ttl", true);
+    }
 
+    private static void outputOntologyTriples(){
+        // 输出推理后的数据
+        System.out.println("Triples After Reasoning:");
+        writeAllTriples(inf, "data/Ontology Reasoning/after_ontology_reasoning_without_filter.ttl", false);
+        writeAllTriples(inf, "data/Ontology Reasoning/after_ontology_reasoning_with_filter.ttl", true);
+
+    }
+
+    public static void OntologyReasoning(){
+        /**
+         * @description: 本体推理
+         *
+         * @return : void
+         **/
         buf_container.clear();
         stmt_container.clear();
         init_container();
 
         // 在合并后的数据模型上进行OWL推理
         Reasoner reasoner = ReasonerRegistry.getOWLReasoner();
-        InfModel inf = ModelFactory.createInfModel(reasoner, fusionModel);
-
-        // 输出推理后的数据
-        System.out.println("Triples After Reasoning:");
-        writeAllTriples(inf, "data/Ontology Reasoning/after_ontology_reasoning_without_filter.ttl", false);
-        writeAllTriples(inf, "data/Ontology Reasoning/after_ontology_reasoning_with_filter.ttl", true);
-
-        ontologyModel.close();
-        fusionModel.close();
+        inf = ModelFactory.createInfModel(reasoner, fusionModel);
     }
 
     public static void main(String[] args){
+        //读入原始数据
+        readOriginData();
+
+        //将原始数据写入本地
+        outputOriginTriples();
+
         //进行本体推理
         OntologyReasoning();
+
+        //将推理后的数据写入本地
+        outputOntologyTriples();
+
+        ontologyModel.close();
+        fusionModel.close();
     }
 }

@@ -22,7 +22,7 @@ import java.util.Vector;
 
 /**
  * @program: knowledgereasoning
- * @description:
+ * @description: Refactor Data Service.
  * @author: Zhe Zhang
  * @create: 2019/12/04
  **/
