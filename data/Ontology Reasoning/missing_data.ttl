@@ -238,17 +238,7 @@ environment_rel:has rdf:type owl:ObjectProperty;
 <http://containers/10.60.38.181/sock-shop/front-end> rdf:type :Container .
 <http://server/10.60.38.181/192.168.199.191> rdf:type :Server .
 <http://containers/10.60.38.181/sock-shop/user-db> rdf:type :Container .
-<http://services/10.60.38.181/sock-shop/shipping> rdf:type :Service .
-<http://services/10.60.38.181/sock-shop/payment/latency> rdf:type :Service .
-<http://containers/10.60.38.181/sock-shop/carts-db/Network_Output_Packets> rdf:type :Container .
-<http://pods/10.60.38.181/sock-shop/catalogue-db-99cbcbb88-wl52p> rdf:type :Pod .
-<http://containers/10.60.38.181/sock-shop/orders-db/Network_Output_Bytes> rdf:type :Container .
-<http://containers/10.60.38.181/sock-shop/catalogue> rdf:type :Container .
-<http://containers/10.60.38.181/sock-shop/shipping/Network_Input_Bytes> rdf:type :Container .
-<http://containers/10.60.38.181/sock-shop/shipping/CPU_Usage> rdf:type :Container .
-<http://containers/10.60.38.181/sock-shop/catalogue-db/Network_Output_Packets> rdf:type :Container .
-<http://pods/10.60.38.181/sock-shop/orders-6496fcd6f7-tw8sm> rdf:type :Pod .
-<http://containers/10.60.38.181/sock-shop/orders-db/Network_Input_Packets> rdf:type :Container .
+
 
 
 ## relation

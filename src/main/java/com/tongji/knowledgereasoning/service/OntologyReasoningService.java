@@ -1,5 +1,6 @@
 package com.tongji.knowledgereasoning.service;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.jena.rdf.model.*;
 import org.apache.jena.reasoner.Reasoner;
 import org.apache.jena.reasoner.ReasonerRegistry;
@@ -21,9 +22,12 @@ public class OntologyReasoningService {
     private static Hashtable<String, String> prefix_map = new Hashtable<String, String>();
     private static Vector<Vector<String>> stmt_container = new Vector<Vector<String>>();
     private static Vector<String> buf_container = new Vector<String>();
+
     private static Model ontologyModel;         // 为本体创建Model
     private static Model fusionModel;           // 创建一个新Model将本体与实例数据进行合并
     private static InfModel inf;                //在合并后的数据模型
+
+    private static FileWriter fwriter;
 
     private static void init_map(){
         /**
@@ -183,18 +187,22 @@ public class OntologyReasoningService {
         init_container();
 
         ontologyModel = ModelFactory.createDefaultModel();
-        //TODO: read from Neo4j
-        ontologyModel.read("data/LabData.ttl");
+        ontologyModel.read("data/Ontology Reasoning/missing_data.ttl");
 
         fusionModel = ModelFactory.createDefaultModel();
         fusionModel.add(ontologyModel);
     }
 
-    public static void outputOriginTriples(){
+    public static void outputOriginTriples() throws IOException {
         // 输出推理前的数据
         System.out.println("Triples Before Reasoning:");
         writeAllTriples(fusionModel, "data/Ontology Reasoning/before_ontology_reasoning_without_filter.ttl", false);
         writeAllTriples(fusionModel, "data/Ontology Reasoning/before_ontology_reasoning_with_filter.ttl", true);
+
+        //写入neo4j
+        File source = new File("data/Ontology Reasoning/missing_data.ttl");
+        File dest = new File("data/Ontology Reasoning/before_ontology_reasoning_for_neo4j.ttl");
+        FileUtils.copyFile(source, dest);
     }
 
     private static void outputOntologyTriples(){
@@ -203,6 +211,96 @@ public class OntologyReasoningService {
         writeAllTriples(inf, "data/Ontology Reasoning/after_ontology_reasoning_without_filter.ttl", false);
         writeAllTriples(inf, "data/Ontology Reasoning/after_ontology_reasoning_with_filter.ttl", true);
 
+        //写入neo4j
+        Vector<String> fresh_objects = new Vector<String>();
+
+        File file = new File("data/Ontology Reasoning/after_ontology_reasoning_with_filter.ttl");
+        BufferedReader reader = null;
+        try {
+            reader = new BufferedReader(new FileReader(file));
+            String tempString = null;
+            int line = 1;
+            boolean flag = false;
+
+            // 一次读入一行，直到读入null为文件结束
+            while ((tempString = reader.readLine()) != null) {
+                // 显示行号
+                if(tempString.equals("# object")){
+                    flag = true;
+                }
+                if(tempString.equals("# relation")){
+                    break;
+                }
+                if(flag){
+                    fresh_objects.add(tempString);
+                }
+
+            }
+
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (reader != null) {
+                try {
+                    reader.close();
+                } catch (IOException e1) {
+                }
+            }
+        }
+
+        Vector<String> refactor_objects = new Vector<String>();
+        for(String line: fresh_objects){
+            String[] words = line.split(" ");
+            if(words.length == 3){
+                String fresh_line = '<' + words[0] + "> rdf:type :" + words[2] + " .";
+                refactor_objects.add(fresh_line);
+            }
+        }
+
+        try{
+            File out_file = new File("data/Ontology Reasoning/after_ontology_reasoning_for_neo4j.ttl");
+
+            FileWriter fileWriter = new FileWriter(out_file, true);
+            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+
+            File copy_file = new File("data/Ontology Reasoning/before_ontology_reasoning_for_neo4j.ttl");
+            BufferedReader copy_reader = null;
+            try {
+                copy_reader = new BufferedReader(new FileReader(copy_file));
+                String tempString = null;
+
+                // 一次读入一行，直到读入null为文件结束
+                while ((tempString = copy_reader.readLine()) != null) {
+                    if(tempString.equals("## objects")){
+                        break;
+                    }else{
+                        bufferedWriter.write(tempString + '\n');
+                    }
+                }
+
+                reader.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } finally {
+                if (reader != null) {
+                    try {
+                        reader.close();
+                    } catch (IOException e1) {
+                    }
+                }
+            }
+
+
+            for(String line : refactor_objects){
+                bufferedWriter.write(line + '\n');
+            }
+
+            bufferedWriter.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void OntologyReasoning(){
@@ -220,7 +318,7 @@ public class OntologyReasoningService {
         inf = ModelFactory.createInfModel(reasoner, fusionModel);
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) throws IOException {
         //读入原始数据
         readOriginData();
 
