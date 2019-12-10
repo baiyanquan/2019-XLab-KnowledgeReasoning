@@ -194,8 +194,8 @@ public class OntologyReasoningService {
 
         // 输出推理前的数据
         System.out.println("Triples Before Reasoning:");
-        writeAllTriples(fusionModel, "data/Ontology Reasoning/before_ontology_reasoning_without_filter.txt", false);
-        writeAllTriples(fusionModel, "data/Ontology Reasoning/before_ontology_reasoning_with_filter.txt", true);
+        writeAllTriples(fusionModel, "data/Ontology Reasoning/before_ontology_reasoning_without_filter.ttl", false);
+        writeAllTriples(fusionModel, "data/Ontology Reasoning/before_ontology_reasoning_with_filter.ttl", true);
 
         buf_container.clear();
         stmt_container.clear();
@@ -207,8 +207,8 @@ public class OntologyReasoningService {
 
         // 输出推理后的数据
         System.out.println("Triples After Reasoning:");
-        writeAllTriples(inf, "data/Ontology Reasoning/after_ontology_reasoning_without_filter.txt", false);
-        writeAllTriples(inf, "data/Ontology Reasoning/after_ontology_reasoning_with_filter.txt", true);
+        writeAllTriples(inf, "data/Ontology Reasoning/after_ontology_reasoning_without_filter.ttl", false);
+        writeAllTriples(inf, "data/Ontology Reasoning/after_ontology_reasoning_with_filter.ttl", true);
 
         ontologyModel.close();
         fusionModel.close();
