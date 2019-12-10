@@ -31,7 +31,7 @@ import java.util.Vector;
 public class RefactorDataService {
 
     @Autowired
-    private LabDao labDao;
+    private static LabDao labDao;
 
     private static OntModel ontModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM);
     private static OntClass namespace;
@@ -44,7 +44,7 @@ public class RefactorDataService {
     private static FileWriter fwriter;
     private static String url = "data/refactor_data.ttl";
 
-    public void refactor_prefix(){
+    public static void refactor_prefix(){
         ontModel.setNsPrefix( "owl", "http://www.w3.org/2002/07/owl#" );
         ontModel.setNsPrefix( "rdf", "http://www.w3.org/1999/02/22-rdf-syntax-ns#" );
         ontModel.setNsPrefix( "rdfs", "http://www.w3.org/2000/01/rdf-schema#" );
@@ -65,7 +65,7 @@ public class RefactorDataService {
         ontModel.setNsPrefix( "environment", "http://localhost/KGns/Environment/" );
     }
 
-    public void refactor_class(){
+    public static void refactor_class(){
         namespace = ontModel.createClass(":Namespace");
         pod = ontModel.createClass(":Pod");
         container = ontModel.createClass(":Container");
@@ -74,7 +74,7 @@ public class RefactorDataService {
         environment = ontModel.createClass(":Environment");
     }
 
-    public void refactor_property(){
+    public static void refactor_property(){
         OntProperty supervises = ontModel.createObjectProperty("http://namespace/10.60.38.181/supervises");
         supervises.addDomain(namespace);
         supervises.addRange(namespace);
@@ -108,7 +108,7 @@ public class RefactorDataService {
         has.addRange(server);
     }
 
-    public void refactor_object(){
+    public static void refactor_object(){
 
         List<String> class_=new ArrayList<>();
         class_.add("http://namespace/10.60.38.181");
@@ -196,7 +196,7 @@ public class RefactorDataService {
         }
     }
 
-    public void refactor_relation(){
+    public static void refactor_relation(){
 
         Model model = ModelFactory.createDefaultModel();
 
@@ -226,12 +226,11 @@ public class RefactorDataService {
                 model.add(model.createResource(subject), model.createProperty(predicate_), model.createResource(object));
             }
         }
-       // model.write(fwriter,"TURTLE");	//写入文件,默认是xml方式,可以自己指定
 
         model.write(fwriter,"TURTLE");
     }
 
-    public void refactorData() {
+    public static void refactorData() {
         refactor_prefix();
         refactor_class();
         refactor_property();
@@ -244,8 +243,11 @@ public class RefactorDataService {
 
         ontModel.write(fwriter,"TURTLE");
 
-        //TODO: 想法是先把之前的model写下来，再在ttl后追加object和relation
         refactor_object();
         refactor_relation();
+    }
+
+    public static void main(String[] args) {
+        refactorData();
     }
 }
