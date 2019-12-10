@@ -125,7 +125,7 @@ public class OntologyReasoningService {
         }
     }
 
-    public static void outputAllTriples(Model model, String filename, boolean with_filter){
+    public static void writeAllTriples(Model model, String filename, boolean with_filter){
         /**
          * @description: 将三元组中到内容写入到指定文件中
          *
@@ -145,7 +145,7 @@ public class OntologyReasoningService {
                 file.createNewFile();
             }
 
-            FileWriter fileWriter = new FileWriter(file.getName(), true);
+            FileWriter fileWriter = new FileWriter(file.getPath(), true);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 
             if(with_filter){
@@ -178,6 +178,12 @@ public class OntologyReasoningService {
          *
          * @return : void
          **/
+        //添加prefix
+        init_map();
+
+        //初始化结果结构
+        init_container();
+
         // 为本体创建Model
         Model ontologyModel = ModelFactory.createDefaultModel();
         ontologyModel.read("data/LabData.ttl");
@@ -188,8 +194,8 @@ public class OntologyReasoningService {
 
         // 输出推理前的数据
         System.out.println("Triples Before Reasoning:");
-        outputAllTriples(fusionModel, "data/Ontology Reasoning/before_ontology_reasoning_without_filter.txt", false);
-        outputAllTriples(fusionModel, "data/Ontology Reasoning/before_ontology_reasoning_with_filter.txt", true);
+        writeAllTriples(fusionModel, "data/Ontology Reasoning/before_ontology_reasoning_without_filter.txt", false);
+        writeAllTriples(fusionModel, "data/Ontology Reasoning/before_ontology_reasoning_with_filter.txt", true);
 
         buf_container.clear();
         stmt_container.clear();
@@ -201,20 +207,14 @@ public class OntologyReasoningService {
 
         // 输出推理后的数据
         System.out.println("Triples After Reasoning:");
-        outputAllTriples(inf, "data/Ontology Reasoning/after_ontology_reasoning_without_filter.txt", false);
-        outputAllTriples(inf, "data/Ontology Reasoning/after_ontology_reasoning_with_filter.txt", true);
+        writeAllTriples(inf, "data/Ontology Reasoning/after_ontology_reasoning_without_filter.txt", false);
+        writeAllTriples(inf, "data/Ontology Reasoning/after_ontology_reasoning_with_filter.txt", true);
 
         ontologyModel.close();
         fusionModel.close();
     }
 
-    public static void main(String[] args) throws FileNotFoundException {
-        //添加prefix
-        init_map();
-
-        //初始化结果结构
-        init_container();
-
+    public static void main(String[] args){
         //进行本体推理
         OntologyReasoning();
     }
