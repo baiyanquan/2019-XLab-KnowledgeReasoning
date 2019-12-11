@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping({"/refactordata"})
+@RequestMapping({"/refactor-data"})
 public class RefactorDataController {
     @Autowired
     private RefactorDataService refactorDataService;

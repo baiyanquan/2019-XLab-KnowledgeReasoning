@@ -248,7 +248,7 @@ environment_rel:has rdf:type owl:ObjectProperty;
 <http://containers/10.60.38.181/sock-shop/shipping/CPU_Usage> rdf:type :Container .
 <http://containers/10.60.38.181/sock-shop/catalogue-db/Network_Output_Packets> rdf:type :Container .
 <http://pods/10.60.38.181/sock-shop/orders-6496fcd6f7-tw8sm> rdf:type :Pod .
-<http://containers/10.60.38.181/sock-shop/orders-db/Network_Input_Packets> rdf:type :Containe .
+<http://containers/10.60.38.181/sock-shop/orders-db/Network_Input_Packets> rdf:type :Container .
 
 
 ## relation

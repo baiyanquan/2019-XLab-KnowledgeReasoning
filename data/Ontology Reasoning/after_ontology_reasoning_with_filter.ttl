@@ -40,7 +40,6 @@ http://containers/10.60.38.181/sock-shop/carts-db/MEM_Usage type Container
 http://containers/10.60.38.181/sock-shop/carts-db/Network_Input_Bytes type Container
 http://containers/10.60.38.181/sock-shop/carts-db/Network_Input_Packets type Container
 http://containers/10.60.38.181/sock-shop/carts-db/Network_Output_Bytes type Container
-http://containers/10.60.38.181/sock-shop/carts-db/Network_Output_Packets type Container
 http://containers/10.60.38.181/sock-shop/carts/CPU_Usage type Container
 http://containers/10.60.38.181/sock-shop/carts/MEM_Usage type Container
 http://containers/10.60.38.181/sock-shop/carts/Network_Input_Bytes type Container
@@ -54,7 +53,6 @@ http://containers/10.60.38.181/sock-shop/catalogue-db/MEM_Usage type Container
 http://containers/10.60.38.181/sock-shop/catalogue-db/Network_Input_Bytes type Container
 http://containers/10.60.38.181/sock-shop/catalogue-db/Network_Input_Packets type Container
 http://containers/10.60.38.181/sock-shop/catalogue-db/Network_Output_Bytes type Container
-http://containers/10.60.38.181/sock-shop/catalogue-db/Network_Output_Packets type Container
 http://containers/10.60.38.181/sock-shop/catalogue/CPU_Usage type Container
 http://containers/10.60.38.181/sock-shop/catalogue/MEM_Usage type Container
 http://containers/10.60.38.181/sock-shop/catalogue/Network_Input_Bytes type Container
@@ -73,7 +71,6 @@ http://containers/10.60.38.181/sock-shop/orders-db type Container
 http://containers/10.60.38.181/sock-shop/orders-db/CPU_Usage type Container
 http://containers/10.60.38.181/sock-shop/orders-db/MEM_Usage type Container
 http://containers/10.60.38.181/sock-shop/orders-db/Network_Input_Bytes type Container
-http://containers/10.60.38.181/sock-shop/orders-db/Network_Output_Bytes type Container
 http://containers/10.60.38.181/sock-shop/orders-db/Network_Output_Packets type Container
 http://containers/10.60.38.181/sock-shop/orders/CPU_Usage type Container
 http://containers/10.60.38.181/sock-shop/orders/MEM_Usage type Container
@@ -110,9 +107,7 @@ http://containers/10.60.38.181/sock-shop/session-db/Network_Input_Packets type C
 http://containers/10.60.38.181/sock-shop/session-db/Network_Output_Bytes type Container
 http://containers/10.60.38.181/sock-shop/session-db/Network_Output_Packets type Container
 http://containers/10.60.38.181/sock-shop/shipping type Container
-http://containers/10.60.38.181/sock-shop/shipping/CPU_Usage type Container
 http://containers/10.60.38.181/sock-shop/shipping/MEM_Usage type Container
-http://containers/10.60.38.181/sock-shop/shipping/Network_Input_Bytes type Container
 http://containers/10.60.38.181/sock-shop/shipping/Network_Input_Packets type Container
 http://containers/10.60.38.181/sock-shop/shipping/Network_Output_Bytes type Container
 http://containers/10.60.38.181/sock-shop/shipping/Network_Output_Packets type Container
@@ -178,7 +173,6 @@ http://services/10.60.38.181/sock-shop/orders-db/throughput type Service
 http://services/10.60.38.181/sock-shop/orders/latency type Service
 http://services/10.60.38.181/sock-shop/orders/success_rate type Service
 http://services/10.60.38.181/sock-shop/payment type Service
-http://services/10.60.38.181/sock-shop/payment/latency type Service
 http://services/10.60.38.181/sock-shop/payment/success_rate type Service
 http://services/10.60.38.181/sock-shop/queue-master type Service
 http://services/10.60.38.181/sock-shop/queue-master/latency type Service
