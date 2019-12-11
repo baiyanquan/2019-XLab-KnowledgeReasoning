@@ -8,5 +8,6 @@ public interface OntologyReasonerService {
     void OntologyReasoning();
     void outputOntologyTriples();
     void closeModel();
-    void write_to_neo4j();
+    void write_ontology_reasoning_data_to_neo4j();
+    void write_origin_data_to_neo4j();
 }
