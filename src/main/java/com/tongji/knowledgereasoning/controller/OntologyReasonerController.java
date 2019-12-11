@@ -4,8 +4,9 @@ import com.tongji.knowledgereasoning.service.OntologyReasonerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.io.IOException;
 
 /**
  * @program: knowledgereasoning
@@ -18,18 +19,18 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping({"/ontology-reasoner"})
 public class OntologyReasonerController {
 
-//    @Autowired
-//    private OntologyReasonerService ontologyReasonerService;
+    @Autowired
+    private OntologyReasonerService ontologyReasonerService;
 
-//    @RequestMapping(value = "/start-fuseki-reason",method = RequestMethod.POST)
-//    public String startFusekiReason(@RequestParam("rule")String rule){
-//        return ruleReasonerService.fusekiReasoning(rule);
-//    }
-//
-//    @RequestMapping(value = "/start-neo4j-reason",method = RequestMethod.POST)
-//    public String startNeo4jReason(@RequestParam("rule")String rule) {
-//        return ruleReasonerService.neo4jReasoning(rule);
-//    }
+    @RequestMapping(value = "/start-ontology-reason", method = RequestMethod.GET)
+    public void startOntologyReason() throws IOException {
+        ontologyReasonerService.readOriginData();
+        ontologyReasonerService.outputOriginTriples();
+        ontologyReasonerService.OntologyReasoning();
+        ontologyReasonerService.outputOntologyTriples();
+        ontologyReasonerService.closeModel();
+        ontologyReasonerService.write_to_neo4j();
+    }
 
 
 }

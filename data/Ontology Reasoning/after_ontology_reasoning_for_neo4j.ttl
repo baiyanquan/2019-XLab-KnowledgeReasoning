@@ -232,3 +232,237 @@ environment_rel:has rdf:type owl:ObjectProperty;
 <http://services/10.60.38.181/sock-shop/user-db/throughput> rdf:type :Service .
 <http://services/10.60.38.181/sock-shop/user/latency> rdf:type :Service .
 <http://services/10.60.38.181/sock-shop/user/success_rate> rdf:type :Service .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+@prefix : <http://localhost/KGns/> .
+@prefix rel: <http://localhost/KGns/relationship/> .
+@prefix namespace_rel: <http://namespace/10.60.38.181/> .
+@prefix pods_rel: <http://pods/10.60.38.181/> .
+@prefix containers_rel: <http://containers/10.60.38.181/> .
+@prefix services_rel: <http://services/10.60.38.181/> .
+@prefix servers_rel: <http://servers/10.60.38.181/> .
+@prefix environment_rel: <http://environment/10.60.38.181/> .
+
+@prefix namespace: <http://localhost/KGns/Namespace/> .
+@prefix pods: <http://localhost/KGns/Pod/> .
+@prefix containers: <http://localhost/KGns/Container/> .
+@prefix services: <http://localhost/KGns/Service/> .
+@prefix environment: <http://localhost/KGns/Environment/> .
+
+
+## Class
+:Namespace rdf:type owl:Class .
+:Pod rdf:type owl:Class .
+:Container rdf:type owl:Class .
+:Service rdf:type owl:Class .
+:Server rdf:type owl:Class .
+:Environment rdf:type owl:Class .
+
+
+## ObjectProperty
+# s: Namespace
+namespace_rel:supervises rdf:type owl:ObjectProperty;
+        rdfs:domain :Namespace;
+        rdfs:range :Namespace .
+
+
+# s: Pod
+pods_rel:contains rdf:type owl:ObjectProperty;
+        rdfs:domain :Pod;
+        rdfs:range :Container .
+
+pods_rel:deployed_in rdf:type owl:ObjectProperty;
+        rdfs:domain :Pod;
+        rdfs:range :Server .
+
+pods_rel:provides rdf:type owl:ObjectProperty;
+        rdfs:domain :Pod;
+        rdfs:range :Service .
+
+
+
+# s: Container
+containers_rel:cc_profile rdf:type owl:ObjectProperty;     # profile for Container-Container
+        rdfs:domain :Container;
+        rdfs:range :Container .
+
+
+# s: Service
+services_rel:ss_profile rdf:type owl:ObjectProperty;     # profile for Service-Service
+        rdfs:domain :Service;
+        rdfs:range :Service .
+
+# s: Server
+servers_rel:manage rdf:type owl:ObjectProperty;
+        rdfs:domain :Server;        # masterServer
+        rdfs:range :Server .
+
+# s: Environment
+environment_rel:has rdf:type owl:ObjectProperty;
+        rdfs:domain :Environment;
+        rdfs:range :Server .
+
+
+
+
+<http://containers/10.60.38.181/sock-shop/carts> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/carts-db> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/carts-db/CPU_Usage> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/carts-db/MEM_Usage> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/carts-db/Network_Input_Bytes> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/carts-db/Network_Input_Packets> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/carts-db/Network_Output_Bytes> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/carts/CPU_Usage> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/carts/MEM_Usage> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/carts/Network_Input_Bytes> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/carts/Network_Input_Packets> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/carts/Network_Output_Bytes> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/carts/Network_Output_Packets> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/catalogue> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/catalogue-db> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/catalogue-db/CPU_Usage> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/catalogue-db/MEM_Usage> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/catalogue-db/Network_Input_Bytes> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/catalogue-db/Network_Input_Packets> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/catalogue-db/Network_Output_Bytes> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/catalogue/CPU_Usage> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/catalogue/MEM_Usage> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/catalogue/Network_Input_Bytes> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/catalogue/Network_Input_Packets> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/catalogue/Network_Output_Bytes> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/catalogue/Network_Output_Packets> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/front-end> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/front-end/CPU_Usage> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/front-end/MEM_Usage> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/front-end/Network_Input_Bytes> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/front-end/Network_Input_Packets> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/front-end/Network_Output_Bytes> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/front-end/Network_Output_Packets> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/orders> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/orders-db> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/orders-db/CPU_Usage> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/orders-db/MEM_Usage> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/orders-db/Network_Input_Bytes> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/orders-db/Network_Output_Packets> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/orders/CPU_Usage> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/orders/MEM_Usage> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/orders/Network_Input_Bytes> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/orders/Network_Input_Packets> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/orders/Network_Output_Bytes> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/orders/Network_Output_Packets> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/payment> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/payment/CPU_Usage> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/payment/MEM_Usage> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/payment/Network_Input_Bytes> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/payment/Network_Input_Packets> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/payment/Network_Output_Bytes> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/payment/Network_Output_Packets> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/queue-master> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/queue-master/CPU_Usage> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/queue-master/MEM_Usage> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/queue-master/Network_Input_Bytes> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/queue-master/Network_Input_Packets> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/queue-master/Network_Output_Bytes> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/queue-master/Network_Output_Packets> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/rabbitmq> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/rabbitmq/CPU_Usage> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/rabbitmq/MEM_Usage> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/rabbitmq/Network_Input_Bytes> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/rabbitmq/Network_Input_Packets> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/rabbitmq/Network_Output_Bytes> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/rabbitmq/Network_Output_Packets> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/session-db> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/session-db/CPU_Usage> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/session-db/MEM_Usage> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/session-db/Network_Input_Bytes> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/session-db/Network_Input_Packets> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/session-db/Network_Output_Bytes> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/session-db/Network_Output_Packets> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/shipping> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/shipping/MEM_Usage> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/shipping/Network_Input_Packets> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/shipping/Network_Output_Bytes> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/shipping/Network_Output_Packets> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/user> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/user-db> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/user-db/CPU_Usage> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/user-db/MEM_Usage> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/user-db/Network_Input_Bytes> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/user-db/Network_Input_Packets> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/user-db/Network_Output_Bytes> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/user-db/Network_Output_Packets> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/user/CPU_Usage> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/user/MEM_Usage> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/user/Network_Input_Bytes> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/user/Network_Input_Packets> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/user/Network_Output_Bytes> rdf:type :Container .
+<http://containers/10.60.38.181/sock-shop/user/Network_Output_Packets> rdf:type :Container .
+<http://pods/10.60.38.181/sock-shop/carts-648d5f498d-n8hzn> rdf:type :Pod .
+<http://pods/10.60.38.181/sock-shop/carts-648d5f498d-test2> rdf:type :Pod .
+<http://pods/10.60.38.181/sock-shop/carts-db-64b6cc584f-zd6zz> rdf:type :Pod .
+<http://pods/10.60.38.181/sock-shop/catalogue-b8587c9c5-wfvkt> rdf:type :Pod .
+<http://pods/10.60.38.181/sock-shop/catalogue-db-99cbcbb88-wl52p> rdf:type :Pod .
+<http://pods/10.60.38.181/sock-shop/front-end-858b4ff57-55bg5> rdf:type :Pod .
+<http://pods/10.60.38.181/sock-shop/front-end-858b4ff57-6md46> rdf:type :Pod .
+<http://pods/10.60.38.181/sock-shop/front-end-858b4ff57-dbdck> rdf:type :Pod .
+<http://pods/10.60.38.181/sock-shop/front-end-858b4ff57-gq9k9> rdf:type :Pod .
+<http://pods/10.60.38.181/sock-shop/front-end-858b4ff57-lkm8b> rdf:type :Pod .
+<http://pods/10.60.38.181/sock-shop/orders-6496fcd6f7-fqnjt> rdf:type :Pod .
+<http://pods/10.60.38.181/sock-shop/orders-6496fcd6f7-l9rmn> rdf:type :Pod .
+<http://pods/10.60.38.181/sock-shop/orders-6496fcd6f7-qcmj7> rdf:type :Pod .
+<http://pods/10.60.38.181/sock-shop/orders-6496fcd6f7-tw8sm> rdf:type :Pod .
+<http://pods/10.60.38.181/sock-shop/orders-6496fcd6f7-zt6zq> rdf:type :Pod .
+<http://pods/10.60.38.181/sock-shop/orders-db-86f5c494b9-xvvhr> rdf:type :Pod .
+<http://pods/10.60.38.181/sock-shop/payment-6c698f689b-vlkhq> rdf:type :Pod .
+<http://pods/10.60.38.181/sock-shop/queue-master-77d854c647-qbgwq> rdf:type :Pod .
+<http://pods/10.60.38.181/sock-shop/rabbitmq-6cf767fcc4-9j5vn> rdf:type :Pod .
+<http://pods/10.60.38.181/sock-shop/session-db-6b57d5cc79-gjxvb> rdf:type :Pod .
+<http://pods/10.60.38.181/sock-shop/shipping-65769d99d7-lmpg7> rdf:type :Pod .
+<http://pods/10.60.38.181/sock-shop/user-d4cb47c5f-8srcb> rdf:type :Pod .
+<http://pods/10.60.38.181/sock-shop/user-db-6ccbdb454c-q9dxm> rdf:type :Pod .
+<http://services/10.60.38.181/sock-shop/carts> rdf:type :Service .
+<http://services/10.60.38.181/sock-shop/carts-db> rdf:type :Service .
+<http://services/10.60.38.181/sock-shop/carts-db/latency> rdf:type :Service .
+<http://services/10.60.38.181/sock-shop/carts-db/throughput> rdf:type :Service .
+<http://services/10.60.38.181/sock-shop/carts/latency> rdf:type :Service .
+<http://services/10.60.38.181/sock-shop/carts/success_rate> rdf:type :Service .
+<http://services/10.60.38.181/sock-shop/catalogue> rdf:type :Service .
+<http://services/10.60.38.181/sock-shop/catalogue-db> rdf:type :Service .
+<http://services/10.60.38.181/sock-shop/catalogue-db/latency> rdf:type :Service .
+<http://services/10.60.38.181/sock-shop/catalogue-db/throughput> rdf:type :Service .
+<http://services/10.60.38.181/sock-shop/catalogue/latency> rdf:type :Service .
+<http://services/10.60.38.181/sock-shop/catalogue/success_rate> rdf:type :Service .
+<http://services/10.60.38.181/sock-shop/front-end> rdf:type :Service .
+<http://services/10.60.38.181/sock-shop/front-end-external> rdf:type :Service .
+<http://services/10.60.38.181/sock-shop/front-end-external/latency> rdf:type :Service .
+<http://services/10.60.38.181/sock-shop/front-end-external/success_rate> rdf:type :Service .
+<http://services/10.60.38.181/sock-shop/front-end/latency> rdf:type :Service .
+<http://services/10.60.38.181/sock-shop/front-end/success_rate> rdf:type :Service .
+<http://services/10.60.38.181/sock-shop/orders> rdf:type :Service .
+<http://services/10.60.38.181/sock-shop/orders-db> rdf:type :Service .
+<http://services/10.60.38.181/sock-shop/orders-db/latency> rdf:type :Service .
+<http://services/10.60.38.181/sock-shop/orders-db/throughput> rdf:type :Service .
+<http://services/10.60.38.181/sock-shop/orders/latency> rdf:type :Service .
+<http://services/10.60.38.181/sock-shop/orders/success_rate> rdf:type :Service .
+<http://services/10.60.38.181/sock-shop/payment> rdf:type :Service .
+<http://services/10.60.38.181/sock-shop/payment/success_rate> rdf:type :Service .
+<http://services/10.60.38.181/sock-shop/queue-master> rdf:type :Service .
+<http://services/10.60.38.181/sock-shop/queue-master/latency> rdf:type :Service .
+<http://services/10.60.38.181/sock-shop/queue-master/success_rate> rdf:type :Service .
+<http://services/10.60.38.181/sock-shop/rabbitmq> rdf:type :Service .
+<http://services/10.60.38.181/sock-shop/rabbitmq/latency> rdf:type :Service .
+<http://services/10.60.38.181/sock-shop/rabbitmq/success_rate> rdf:type :Service .
+<http://services/10.60.38.181/sock-shop/session-db> rdf:type :Service .
+<http://services/10.60.38.181/sock-shop/session-db/latency> rdf:type :Service .
+<http://services/10.60.38.181/sock-shop/session-db/throughput> rdf:type :Service .
+<http://services/10.60.38.181/sock-shop/shipping> rdf:type :Service .
+<http://services/10.60.38.181/sock-shop/shipping/latency> rdf:type :Service .
+<http://services/10.60.38.181/sock-shop/shipping/success_rate> rdf:type :Service .
+<http://services/10.60.38.181/sock-shop/user> rdf:type :Service .
+<http://services/10.60.38.181/sock-shop/user-db> rdf:type :Service .
+<http://services/10.60.38.181/sock-shop/user-db/latency> rdf:type :Service .
+<http://services/10.60.38.181/sock-shop/user-db/throughput> rdf:type :Service .
+<http://services/10.60.38.181/sock-shop/user/latency> rdf:type :Service .
+<http://services/10.60.38.181/sock-shop/user/success_rate> rdf:type :Service .
