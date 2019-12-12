@@ -74,7 +74,7 @@ public class RuleReasonerServiceImp implements RuleReasonerService {
 
                 String[] p = predicate.split("__");
                 predicate = p[p.length-1];
-                System.out.println(predicate);
+                //System.out.println(predicate);
                     //System.out.println(predicate);
                 model.add(model.createResource(subject), model.createProperty(predicate), model.createResource(object));
             }

@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
 @Repository("LabDao")
 @Data public class LabDao {
 
-    private static ResultSet resultSet;
+    private ResultSet resultSet;
 
     public ResultSet getTriples(){
 

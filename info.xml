@@ -2,7 +2,7 @@
 <info>
     <fusekiQueryAddress>http://localhost:3030//Data/query</fusekiQueryAddress>
     <fusekiUpdateAddress>http://localhost:3030//Data/update</fusekiUpdateAddress>
-    <fusekiQueryString>SELECT DISTINCT ?s ?p ?o { ?s ?p ?o }</fusekiQueryString>
+    <fusekiQueryString>SELECT DISTINCT ?s ?p ?o WHERE{ ?s ?p ?o }</fusekiQueryString>
 
     <neo4jIpAddress>jdbc:neo4j:bolt://localhost</neo4jIpAddress>
     <neo4jUser>neo4j</neo4jUser>
