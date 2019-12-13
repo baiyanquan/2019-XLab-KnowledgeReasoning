@@ -21,8 +21,8 @@ public class QueryController {
     @Autowired
     private QueryService queryService;
 
-    @RequestMapping(value = "/query",method = RequestMethod.GET)
-    public String query(@RequestParam("query")String query){
+    @RequestMapping(value = "/query", method = RequestMethod.GET)
+    public String query(@RequestParam("query") String query) {
         return queryService.Query(query);
     }
 }

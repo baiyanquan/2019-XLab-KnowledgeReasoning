@@ -23,7 +23,7 @@ public class OntologyReasonerController {
     private OntologyReasonerService ontologyReasonerService;
 
     @RequestMapping(value = "/prepare-missing-data", method = RequestMethod.GET)
-    public void prepareMissingData(){
+    public void prepareMissingData() {
         ontologyReasonerService.write_origin_data_to_neo4j();
     }
 

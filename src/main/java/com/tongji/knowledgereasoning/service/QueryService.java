@@ -11,7 +11,7 @@ import java.io.ByteArrayOutputStream;
 
 
 @Service("QueryService")
-public class QueryService{
+public class QueryService {
 
     @Autowired
     private NeoDao neoDao;
@@ -29,7 +29,7 @@ public class QueryService{
 
                 String[] p = predicate.split("__");
                 predicate = p[p.length - 1];
-               // System.out.println(predicate);
+                // System.out.println(predicate);
                 //System.out.println(predicate);
                 model.add(model.createResource(subject), model.createProperty(predicate), model.createResource(object));
             }
@@ -38,7 +38,7 @@ public class QueryService{
             e.printStackTrace();
         }
 
-        Query q= QueryFactory.create(query);  //创建一个查询
+        Query q = QueryFactory.create(query);  //创建一个查询
         // 执行查询，获得结果
         QueryExecution qe = QueryExecutionFactory.create(q, model);
         org.apache.jena.query.ResultSet resultSet = qe.execSelect();//select 类型

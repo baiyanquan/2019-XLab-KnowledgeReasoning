@@ -27,13 +27,13 @@ public class RuleReasonerServiceImp implements RuleReasonerService {
     FileWriter ruleReasonResult = null;
 
 
-    public String fusekiReasoning(String rule){
+    public String fusekiReasoning(String rule) {
 
         Model model = ModelFactory.createDefaultModel();
         ResultSet rs = fusekiDao.getTriples();
         while (rs.hasNext()) {
 
-            QuerySolution qs = rs.next() ;
+            QuerySolution qs = rs.next();
 
             String subject = qs.get("s").toString();
             String object = qs.get("o").toString();
@@ -47,7 +47,7 @@ public class RuleReasonerServiceImp implements RuleReasonerService {
 
         }
 
-        Model modelAfterReason = reasoner(model,rule);
+        Model modelAfterReason = reasoner(model, rule);
         String triples = TriplesToJson(modelAfterReason);
 
         //输出原数据
@@ -73,52 +73,53 @@ public class RuleReasonerServiceImp implements RuleReasonerService {
                 String object = rs.getString(3);
 
                 String[] p = predicate.split("__");
-                predicate = p[p.length-1];
+                predicate = p[p.length - 1];
                 //System.out.println(predicate);
-                    //System.out.println(predicate);
+                //System.out.println(predicate);
                 model.add(model.createResource(subject), model.createProperty(predicate), model.createResource(object));
             }
             //writeToFile(model,"data/neo4jdata.ttl");
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
-        Model modelAfterReason = reasoner(model,rule);
+        Model modelAfterReason = reasoner(model, rule);
         String triples = TriplesToJson(modelAfterReason);
-        String ttlInsert ="CALL semantics.importRDF('file:///F:/IDEA/2019-XLab-KnowledgeReasoning/data/RuleReasoning/RuleReasonResult.ttl','Turtle', {shortenUrls: true})";
+        String ttlInsert = "CALL semantics.importRDF('file:///F:/IDEA/2019-XLab-KnowledgeReasoning/data/RuleReasoning/RuleReasonResult.ttl','Turtle', {shortenUrls: true})";
         neoDao.updateTriplesInNeo4j(ttlInsert);
         return triples;
     }
 
-    private Model reasoner(Model model,String rule){
+    private Model reasoner(Model model, String rule) {
         Reasoner reasoner = new GenericRuleReasoner(Rule.parseRules(rule));
         reasoner.setDerivationLogging(true);
         InfModel inf = ModelFactory.createInfModel(reasoner, model);
         return inf.getDeductionsModel();
     }
-/*
-    private Model modelAfterReason(Model model){
 
-        StmtIterator itr = model.listStatements();
-        Model modelAfterReason = ModelFactory.createDefaultModel();
-        while (itr.hasNext()) {
-            Statement nowStatement = itr.nextStatement();
+    /*
+        private Model modelAfterReason(Model model){
 
-            String subject = nowStatement.getSubject().toString();
-            String predicate = nowStatement.getPredicate().toString();
-            String object = nowStatement.getObject().toString();
+            StmtIterator itr = model.listStatements();
+            Model modelAfterReason = ModelFactory.createDefaultModel();
+            while (itr.hasNext()) {
+                Statement nowStatement = itr.nextStatement();
 
-            //set predicate
-            predicate=subject.substring(0,subject.indexOf("1"))+"10.60.38.181/"+predicate;
+                String subject = nowStatement.getSubject().toString();
+                String predicate = nowStatement.getPredicate().toString();
+                String object = nowStatement.getObject().toString();
 
-            modelAfterReason.add(modelAfterReason.createResource(subject),
-                    modelAfterReason.createProperty(predicate),
-                    modelAfterReason.createResource(object));
-            writeToFile(modelAfterReason,"data/RuleReasoning/RuleReasonResult.ttl");
+                //set predicate
+                predicate=subject.substring(0,subject.indexOf("1"))+"10.60.38.181/"+predicate;
+
+                modelAfterReason.add(modelAfterReason.createResource(subject),
+                        modelAfterReason.createProperty(predicate),
+                        modelAfterReason.createResource(object));
+                writeToFile(modelAfterReason,"data/RuleReasoning/RuleReasonResult.ttl");
+            }
+            return modelAfterReason;
         }
-        return modelAfterReason;
-    }
- */
+     */
     private String TriplesToJson(Model model) {
         JSONArray triples = new JSONArray();
         StmtIterator itr = model.listStatements();
@@ -133,7 +134,7 @@ public class RuleReasonerServiceImp implements RuleReasonerService {
             JSONObject triple = new JSONObject();
 
             //set predicate
-            predicate=subject.substring(0,subject.indexOf("1"))+"10.60.38.181/"+predicate;
+            predicate = subject.substring(0, subject.indexOf("1")) + "10.60.38.181/" + predicate;
             triple.put("subject", subject);
             triple.put("predicate", predicate);
             triple.put("object", object);
@@ -143,7 +144,7 @@ public class RuleReasonerServiceImp implements RuleReasonerService {
             modelAfterReason.add(modelAfterReason.createResource(subject),
                     modelAfterReason.createProperty(predicate),
                     modelAfterReason.createResource(object));
-            writeToFile(modelAfterReason,"data/RuleReasoning/RuleReasonResult.ttl");
+            writeToFile(modelAfterReason, "data/RuleReasoning/RuleReasonResult.ttl");
         }
         return triples.toString();
     }
@@ -155,7 +156,7 @@ public class RuleReasonerServiceImp implements RuleReasonerService {
         }
     }
 
-    private void writeToFile(Model model,String filepath){
+    private void writeToFile(Model model, String filepath) {
 
         try {
             ruleReasonResult = new FileWriter(filepath);//没有文件会自动创建
@@ -163,7 +164,7 @@ public class RuleReasonerServiceImp implements RuleReasonerService {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        model.write(ruleReasonResult,"TURTLE");	//写入文件,默认是xml方式,可以自己指定
+        model.write(ruleReasonResult, "TURTLE");    //写入文件,默认是xml方式,可以自己指定
 
     }
 }

@@ -1,55 +1,41 @@
 <http://containers/10.60.38.181/sock-shop/catalogue>
-        <http://containers/10.60.38.181/supports>
-                <http://services/10.60.38.181/sock-shop/catalogue> .
+    <http://containers/10.60.38.181/supports> <http://services/10.60.38.181/sock-shop/catalogue> .
 
 <http://containers/10.60.38.181/sock-shop/rabbitmq>
-        <http://containers/10.60.38.181/supports>
-                <http://services/10.60.38.181/sock-shop/rabbitmq> .
+    <http://containers/10.60.38.181/supports> <http://services/10.60.38.181/sock-shop/rabbitmq> .
 
 <http://containers/10.60.38.181/sock-shop/payment>
-        <http://containers/10.60.38.181/supports>
-                <http://services/10.60.38.181/sock-shop/payment> .
+    <http://containers/10.60.38.181/supports> <http://services/10.60.38.181/sock-shop/payment> .
 
 <http://containers/10.60.38.181/sock-shop/orders-db>
-        <http://containers/10.60.38.181/supports>
-                <http://services/10.60.38.181/sock-shop/orders-db> .
+    <http://containers/10.60.38.181/supports> <http://services/10.60.38.181/sock-shop/orders-db> .
 
 <http://containers/10.60.38.181/sock-shop/queue-master>
-        <http://containers/10.60.38.181/supports>
-                <http://services/10.60.38.181/sock-shop/queue-master> .
+    <http://containers/10.60.38.181/supports> <http://services/10.60.38.181/sock-shop/queue-master> .
 
 <http://containers/10.60.38.181/sock-shop/front-end>
-        <http://containers/10.60.38.181/supports>
-                <http://services/10.60.38.181/sock-shop/front-end> .
+    <http://containers/10.60.38.181/supports> <http://services/10.60.38.181/sock-shop/front-end> .
 
 <http://containers/10.60.38.181/sock-shop/user>
-        <http://containers/10.60.38.181/supports>
-                <http://services/10.60.38.181/sock-shop/user> .
+    <http://containers/10.60.38.181/supports> <http://services/10.60.38.181/sock-shop/user> .
 
 <http://containers/10.60.38.181/sock-shop/orders>
-        <http://containers/10.60.38.181/supports>
-                <http://services/10.60.38.181/sock-shop/orders> .
+    <http://containers/10.60.38.181/supports> <http://services/10.60.38.181/sock-shop/orders> .
 
 <http://containers/10.60.38.181/sock-shop/catalogue-db>
-        <http://containers/10.60.38.181/supports>
-                <http://services/10.60.38.181/sock-shop/catalogue-db> .
+    <http://containers/10.60.38.181/supports> <http://services/10.60.38.181/sock-shop/catalogue-db> .
 
 <http://containers/10.60.38.181/sock-shop/carts-db>
-        <http://containers/10.60.38.181/supports>
-                <http://services/10.60.38.181/sock-shop/carts-db> .
+    <http://containers/10.60.38.181/supports> <http://services/10.60.38.181/sock-shop/carts-db> .
 
 <http://containers/10.60.38.181/sock-shop/shipping>
-        <http://containers/10.60.38.181/supports>
-                <http://services/10.60.38.181/sock-shop/shipping> .
+    <http://containers/10.60.38.181/supports> <http://services/10.60.38.181/sock-shop/shipping> .
 
 <http://containers/10.60.38.181/sock-shop/carts>
-        <http://containers/10.60.38.181/supports>
-                <http://services/10.60.38.181/sock-shop/carts> .
+    <http://containers/10.60.38.181/supports> <http://services/10.60.38.181/sock-shop/carts> .
 
 <http://containers/10.60.38.181/sock-shop/user-db>
-        <http://containers/10.60.38.181/supports>
-                <http://services/10.60.38.181/sock-shop/user-db> .
+    <http://containers/10.60.38.181/supports> <http://services/10.60.38.181/sock-shop/user-db> .
 
 <http://containers/10.60.38.181/sock-shop/session-db>
-        <http://containers/10.60.38.181/supports>
-                <http://services/10.60.38.181/sock-shop/session-db> .
+    <http://containers/10.60.38.181/supports> <http://services/10.60.38.181/sock-shop/session-db> .

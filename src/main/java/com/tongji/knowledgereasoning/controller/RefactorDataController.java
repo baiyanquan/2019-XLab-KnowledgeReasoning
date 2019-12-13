@@ -13,7 +13,7 @@ public class RefactorDataController {
     private RefactorDataService refactorDataService;
 
     @RequestMapping(method = RequestMethod.PUT)
-    public void refactorData(){
+    public void refactorData() {
         refactorDataService.refactorData();
     }
 }

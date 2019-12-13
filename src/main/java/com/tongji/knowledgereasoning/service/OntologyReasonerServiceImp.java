@@ -33,7 +33,7 @@ public class OntologyReasonerServiceImp implements OntologyReasonerService {
     @Autowired
     private NeoDao neoDao;
 
-    private void init_map(){
+    private void init_map() {
         /**
          * @description: 定义 @prefix，通过Hashtable key-value对实现
          *
@@ -63,7 +63,7 @@ public class OntologyReasonerServiceImp implements OntologyReasonerService {
 
     }
 
-    private void init_container(){
+    private void init_container() {
         /**
          * @description: 初始化结果容器，将输出数据分为四类（Class ObjectProperty object relation）
          *
@@ -79,7 +79,7 @@ public class OntologyReasonerServiceImp implements OntologyReasonerService {
         stmt_container.get(3).add("# relation");
     }
 
-    private void add_into_container(Statement stmt){
+    private void add_into_container(Statement stmt) {
         /**
          * @description: 将三元组进行过滤，加入到结果容器中
          *
@@ -87,30 +87,30 @@ public class OntologyReasonerServiceImp implements OntologyReasonerService {
          *
          * @return : void
          **/
-        String  subject   = stmt.getSubject().toString();
-        String  predicate = stmt.getPredicate().toString();
-        String  object    = stmt.getObject().toString();
+        String subject = stmt.getSubject().toString();
+        String predicate = stmt.getPredicate().toString();
+        String object = stmt.getObject().toString();
 
-        subject = prefix_map.containsKey(subject)?prefix_map.get(subject):subject;
-        predicate = prefix_map.containsKey(predicate)?prefix_map.get(predicate):predicate;
-        object = prefix_map.containsKey(object)?prefix_map.get(object):object;
+        subject = prefix_map.containsKey(subject) ? prefix_map.get(subject) : subject;
+        predicate = prefix_map.containsKey(predicate) ? prefix_map.get(predicate) : predicate;
+        object = prefix_map.containsKey(object) ? prefix_map.get(object) : object;
 
-        if(object.equals("Class") &&                            //类信息
+        if (object.equals("Class") &&                            //类信息
                 (subject.equals("Container") || subject.equals("Pod") || subject.equals("Service") ||
-                        subject.equals("Server") || subject.equals("Environment") || subject.equals("Namespace"))){
+                        subject.equals("Server") || subject.equals("Environment") || subject.equals("Namespace"))) {
             stmt_container.get(0).add(subject + " " + predicate + " " + object);
-        }else if((subject.substring(0,3).equals("rel")) &&      //属性信息
+        } else if ((subject.substring(0, 3).equals("rel")) &&      //属性信息
                 (predicate.equals("type") || predicate.equals("domain") || predicate.equals("range")) &&
                 (object.equals("ObjectProperty") ||
                         object.equals("Container") || object.equals("Pod") || object.equals("Service") ||
-                        object.equals("Server") || object.equals("Namespace") || object.equals("Environment"))){
+                        object.equals("Server") || object.equals("Namespace") || object.equals("Environment"))) {
             stmt_container.get(1).add(subject + " " + predicate + " " + object);
-        }else if(predicate.equals("type") &&                     //对象
-                (object.equals("Container") || object.equals("Pod") || object.equals("Service"))){
+        } else if (predicate.equals("type") &&                     //对象
+                (object.equals("Container") || object.equals("Pod") || object.equals("Service"))) {
             stmt_container.get(2).add(subject + " " + predicate + " " + object);
-        }else if(predicate.substring(0,3).equals("rel")) {      //对象之间的关系
+        } else if (predicate.substring(0, 3).equals("rel")) {      //对象之间的关系
             stmt_container.get(3).add(subject + " " + predicate + " " + object);
-        }else{
+        } else {
             System.out.println(stmt);
         }
     }
@@ -128,15 +128,15 @@ public class OntologyReasonerServiceImp implements OntologyReasonerService {
         while (itr.hasNext()) {
             Statement stmt = itr.nextStatement();
 
-            if(with_filter){
+            if (with_filter) {
                 add_into_container(stmt);
-            }else{
+            } else {
                 buf_container.add(stmt.toString());
             }
         }
     }
 
-    private void writeAllTriples(Model model, String filename, boolean with_filter){
+    private void writeAllTriples(Model model, String filename, boolean with_filter) {
         /**
          * @description: 将三元组中到内容写入到指定文件中
          *
@@ -149,9 +149,9 @@ public class OntologyReasonerServiceImp implements OntologyReasonerService {
 
         initAllTriples(model, with_filter);
 
-        try{
+        try {
             File file = new File(filename);
-            if(file.exists()){
+            if (file.exists()) {
                 file.delete();
                 file.createNewFile();
             }
@@ -159,16 +159,16 @@ public class OntologyReasonerServiceImp implements OntologyReasonerService {
             FileWriter fileWriter = new FileWriter(file.getPath(), true);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 
-            if(with_filter){
-                for(Vector<String> category : stmt_container){
+            if (with_filter) {
+                for (Vector<String> category : stmt_container) {
                     Collections.sort(category);
-                    for(String item : category){
+                    for (String item : category) {
                         bufferedWriter.write(item + "\n");
                     }
                     bufferedWriter.write("\n");
                 }
-            }else{
-                for(String item : buf_container){
+            } else {
+                for (String item : buf_container) {
                     bufferedWriter.write(item + "\n");
                 }
                 bufferedWriter.write("\n");
@@ -183,7 +183,7 @@ public class OntologyReasonerServiceImp implements OntologyReasonerService {
 
     }
 
-    public void readOriginData(){
+    public void readOriginData() {
         //添加prefix
         init_map();
 
@@ -209,7 +209,7 @@ public class OntologyReasonerServiceImp implements OntologyReasonerService {
         FileUtils.copyFile(source, dest);
     }
 
-    public void outputOntologyTriples(){
+    public void outputOntologyTriples() {
         // 输出推理后的数据
         System.out.println("Triples After Reasoning:");
         writeAllTriples(inf, "data/Ontology Reasoning/after_ontology_reasoning_without_filter.ttl", false);
@@ -229,13 +229,13 @@ public class OntologyReasonerServiceImp implements OntologyReasonerService {
             // 一次读入一行，直到读入null为文件结束
             while ((tempString = reader.readLine()) != null) {
                 // 显示行号
-                if(tempString.equals("# object")){
+                if (tempString.equals("# object")) {
                     flag = true;
                 }
-                if(tempString.equals("# relation")){
+                if (tempString.equals("# relation")) {
                     break;
                 }
-                if(flag){
+                if (flag) {
                     fresh_objects.add(tempString);
                 }
 
@@ -254,15 +254,15 @@ public class OntologyReasonerServiceImp implements OntologyReasonerService {
         }
 
         Vector<String> refactor_objects = new Vector<String>();
-        for(String line: fresh_objects){
+        for (String line : fresh_objects) {
             String[] words = line.split(" ");
-            if(words.length == 3){
+            if (words.length == 3) {
                 String fresh_line = '<' + words[0] + "> rdf:type :" + words[2] + " .";
                 refactor_objects.add(fresh_line);
             }
         }
 
-        try{
+        try {
             File out_file = new File("data/Ontology Reasoning/after_ontology_reasoning_for_neo4j.ttl");
 
             FileWriter fileWriter = new FileWriter(out_file, true);
@@ -276,9 +276,9 @@ public class OntologyReasonerServiceImp implements OntologyReasonerService {
 
                 // 一次读入一行，直到读入null为文件结束
                 while ((tempString = copy_reader.readLine()) != null) {
-                    if(tempString.equals("## objects")){
+                    if (tempString.equals("## objects")) {
                         break;
-                    }else{
+                    } else {
                         bufferedWriter.write(tempString + '\n');
                     }
                 }
@@ -296,7 +296,7 @@ public class OntologyReasonerServiceImp implements OntologyReasonerService {
             }
 
 
-            for(String line : refactor_objects){
+            for (String line : refactor_objects) {
                 bufferedWriter.write(line + '\n');
             }
 
@@ -307,7 +307,7 @@ public class OntologyReasonerServiceImp implements OntologyReasonerService {
         }
     }
 
-    public void OntologyReasoning(){
+    public void OntologyReasoning() {
         /**
          * @description: 本体推理
          *
@@ -322,18 +322,18 @@ public class OntologyReasonerServiceImp implements OntologyReasonerService {
         inf = ModelFactory.createInfModel(reasoner, fusionModel);
     }
 
-    public void closeModel(){
+    public void closeModel() {
         ontologyModel.close();
         fusionModel.close();
     }
 
-    public void write_origin_data_to_neo4j(){
-        String ttlInsert ="CALL semantics.importRDF('file:///F:/IDEA/2019-XLab-KnowledgeReasoning/data/Ontology Reasoning/missing_data.ttl','Turtle', {shortenUrls: true})";
+    public void write_origin_data_to_neo4j() {
+        String ttlInsert = "CALL semantics.importRDF('file:///F:/IDEA/2019-XLab-KnowledgeReasoning/data/Ontology Reasoning/missing_data.ttl','Turtle', {shortenUrls: true})";
         neoDao.updateTriplesInNeo4j(ttlInsert);
     }
 
-    public void write_ontology_reasoning_data_to_neo4j(){
-        String ttlInsert ="CALL semantics.importRDF('file:///F:/IDEA/2019-XLab-KnowledgeReasoning/data/Ontology Reasoning/after_ontology_reasoning_for_neo4j.ttl','Turtle', {shortenUrls: true})";
+    public void write_ontology_reasoning_data_to_neo4j() {
+        String ttlInsert = "CALL semantics.importRDF('file:///F:/IDEA/2019-XLab-KnowledgeReasoning/data/Ontology Reasoning/after_ontology_reasoning_for_neo4j.ttl','Turtle', {shortenUrls: true})";
         neoDao.updateTriplesInNeo4j(ttlInsert);
     }
 
