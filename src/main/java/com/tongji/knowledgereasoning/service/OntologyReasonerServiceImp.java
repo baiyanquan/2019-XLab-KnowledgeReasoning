@@ -328,12 +328,12 @@ public class OntologyReasonerServiceImp implements OntologyReasonerService {
     }
 
     public void write_origin_data_to_neo4j(){
-        String ttlInsert ="CALL semantics.importRDF('file:////Users/doublez/code/git/2019-XLab-KnowledgeReasoning/data/Ontology Reasoning/missing_data.ttl','Turtle', {shortenUrls: true})";
+        String ttlInsert ="CALL semantics.importRDF('file:///F:/IDEA/2019-XLab-KnowledgeReasoning/data/Ontology Reasoning/missing_data.ttl','Turtle', {shortenUrls: true})";
         neoDao.updateTriplesInNeo4j(ttlInsert);
     }
 
     public void write_ontology_reasoning_data_to_neo4j(){
-        String ttlInsert ="CALL semantics.importRDF('file:////Users/doublez/code/git/2019-XLab-KnowledgeReasoning/data/Ontology Reasoning/after_ontology_reasoning_for_neo4j.ttl','Turtle', {shortenUrls: true})";
+        String ttlInsert ="CALL semantics.importRDF('file:///F:/IDEA/2019-XLab-KnowledgeReasoning/data/Ontology Reasoning/after_ontology_reasoning_for_neo4j.ttl','Turtle', {shortenUrls: true})";
         neoDao.updateTriplesInNeo4j(ttlInsert);
     }
 
