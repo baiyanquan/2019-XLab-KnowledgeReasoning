@@ -31,7 +31,7 @@ import java.util.Vector;
 public class RefactorDataService {
 
     @Autowired
-    private static LabDao labDao;
+    private LabDao labDao;
 
     private static OntModel ontModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM);
     private static OntClass namespace;
@@ -44,7 +44,7 @@ public class RefactorDataService {
     private static FileWriter fwriter;
     private static String url = "data/refactor_data.ttl";
 
-    public static void refactor_prefix() {
+    public void refactor_prefix() {
         ontModel.setNsPrefix("owl", "http://www.w3.org/2002/07/owl#");
         ontModel.setNsPrefix("rdf", "http://www.w3.org/1999/02/22-rdf-syntax-ns#");
         ontModel.setNsPrefix("rdfs", "http://www.w3.org/2000/01/rdf-schema#");
@@ -65,7 +65,7 @@ public class RefactorDataService {
         ontModel.setNsPrefix("environment", "http://localhost/KGns/Environment/");
     }
 
-    public static void refactor_class() {
+    public void refactor_class() {
         namespace = ontModel.createClass(":Namespace");
         pod = ontModel.createClass(":Pod");
         container = ontModel.createClass(":Container");
@@ -74,7 +74,7 @@ public class RefactorDataService {
         environment = ontModel.createClass(":Environment");
     }
 
-    public static void refactor_property() {
+    public void refactor_property() {
         OntProperty supervises = ontModel.createObjectProperty("http://namespace/10.60.38.181/supervises");
         supervises.addDomain(namespace);
         supervises.addRange(namespace);
@@ -108,7 +108,7 @@ public class RefactorDataService {
         has.addRange(server);
     }
 
-    public static void refactor_object() {
+    public void refactor_object() {
 
         List<String> class_ = new ArrayList<>();
         class_.add("http://namespace/10.60.38.181");
@@ -196,7 +196,7 @@ public class RefactorDataService {
         }
     }
 
-    public static void refactor_relation() {
+    public void refactor_relation() {
 
         Model model = ModelFactory.createDefaultModel();
 
@@ -230,7 +230,7 @@ public class RefactorDataService {
         model.write(fwriter, "TURTLE");
     }
 
-    public static void refactorData() {
+    public void refactorData() {
         refactor_prefix();
         refactor_class();
         refactor_property();
@@ -247,7 +247,4 @@ public class RefactorDataService {
         refactor_relation();
     }
 
-    public static void main(String[] args) {
-        refactorData();
-    }
 }
