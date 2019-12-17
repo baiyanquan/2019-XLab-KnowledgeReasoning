@@ -8,8 +8,8 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @EnableFeignClients
 public class KnowledgereasoningApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(KnowledgereasoningApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(KnowledgereasoningApplication.class, args);
+    }
 
 }

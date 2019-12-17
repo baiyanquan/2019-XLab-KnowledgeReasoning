@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class TranseReasonerController {
     @Autowired
     private TranseService transeService;
+
     @RequestMapping(value = "/start-transe-reason", method = RequestMethod.GET)
     public void startTranseReason() {
         transeService.TransEReasoning();

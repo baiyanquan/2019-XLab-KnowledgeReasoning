@@ -10,21 +10,22 @@ import org.apache.jena.rdfconnection.RDFConnectionRemoteBuilder;
 import org.springframework.stereotype.Repository;
 
 @Repository("LabDao")
-@Data public class LabDao {
+@Data
+public class LabDao {
 
-    private static ResultSet resultSet;
+    private ResultSet resultSet;
 
-    public ResultSet getTriples(){
+    public ResultSet getTriples() {
 
         RDFConnectionRemoteBuilder builder = RDFConnectionFuseki.create().destination("http://10.60.38.173:3030//DevKGData/query");
 
-        Query query= QueryFactory.create("SELECT ?s ?p ?o WHERE{ ?s ?p ?o }");
-        try ( RDFConnectionFuseki conn = (RDFConnectionFuseki)builder.build() ) {
+        Query query = QueryFactory.create("SELECT ?s ?p ?o WHERE{ ?s ?p ?o }");
+        try (RDFConnectionFuseki conn = (RDFConnectionFuseki) builder.build()) {
 
             QueryExecution qExec = conn.query(query);
-             resultSet = qExec.execSelect();
+            resultSet = qExec.execSelect();
 
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return resultSet;

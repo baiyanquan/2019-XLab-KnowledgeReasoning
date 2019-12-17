@@ -1,4 +1,4 @@
-[http://pods/10.60.38.181/sock-shop/front-end-858b4ff57-lkm8b, http://www.w3.org/1999/02/22-rdf-syntax-ns#type, http://localhost/KGns/Pod]
+[ http://pods/10.60.38.181/sock-shop/front-end-858b4ff57-lkm8b ,  http://www.w3.org/1999/02/22-rdf-syntax-ns#type, http://localhost/KGns/Pod]
 [http://pods/10.60.38.181/sock-shop/front-end-858b4ff57-lkm8b, http://pods/10.60.38.181/contains, http://containers/10.60.38.181/sock-shop/front-end]
 [http://pods/10.60.38.181/sock-shop/front-end-858b4ff57-lkm8b, http://pods/10.60.38.181/deployed_in, http://server/10.60.38.181/192.168.199.33]
 [http://pods/10.60.38.181/sock-shop/front-end-858b4ff57-lkm8b, http://pods/10.60.38.181/provides, http://services/10.60.38.181/sock-shop/front-end]

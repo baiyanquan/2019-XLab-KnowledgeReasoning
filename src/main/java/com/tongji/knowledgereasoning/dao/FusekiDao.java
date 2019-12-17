@@ -20,13 +20,14 @@ import java.io.File;
 
 
 @Repository("FusekiDao")
-@Data public class FusekiDao {
+@Data
+public class FusekiDao {
 
     private String queryAddress;
     private String updateAddress;
     private String queryString;
 
-    public FusekiDao(){
+    public FusekiDao() {
 
         File f = new File("./info.xml");
 
@@ -44,20 +45,19 @@ import java.io.File;
             queryAddress = dt.getElementsByTagName("fusekiQueryAddress").item(0).getTextContent();
             updateAddress = dt.getElementsByTagName("fusekiUpdateAddress").item(0).getTextContent();
             queryString = dt.getElementsByTagName("fusekiQueryString").item(0).getTextContent();
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public ResultSet getTriples(){
+    public ResultSet getTriples() {
 
         RDFConnectionRemoteBuilder builder = RDFConnectionFuseki.create().destination(queryAddress);
 
         //SELECT DISTINCT ?s ?p ?o { ?s ?p ?o }
         Query query = QueryFactory.create(queryString);
 
-        try ( RDFConnectionFuseki conn = (RDFConnectionFuseki)builder.build() ) {
+        try (RDFConnectionFuseki conn = (RDFConnectionFuseki) builder.build()) {
 
             QueryExecution qExec = conn.query(query);
             ResultSet rs = qExec.execSelect();
