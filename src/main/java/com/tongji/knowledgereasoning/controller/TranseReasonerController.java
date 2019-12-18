@@ -14,7 +14,7 @@ public class TranseReasonerController {
     private TranseService transeService;
 
     @RequestMapping(value = "/start-transe-reason", method = RequestMethod.GET)
-    public void startTranseReason() {
-        transeService.TransEReasoning();
+    public String startTranseReason() {
+        return transeService.TransEReasoning();
     }
 }
