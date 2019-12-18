@@ -11,5 +11,5 @@ import org.springframework.web.bind.annotation.RequestParam;
 @FeignClient(url = "${decisionEngine.url}", name = "transe")
 public interface TranseService {
     @RequestMapping(value = "/TransE_Reasoning", method = RequestMethod.GET)
-    public void TransEReasoning();
+    String TransEReasoning();
 }
