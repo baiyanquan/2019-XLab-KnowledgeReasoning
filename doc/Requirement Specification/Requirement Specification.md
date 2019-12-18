@@ -104,3 +104,36 @@ Main system of our knowledge reasoning project will attend building the metadata
 
   > According to the structure of the data, we use several ways to refactor the raw data in order to satisfy the data requirement in the knowledge reasoning project.
 
+### Use Case: _Ontology Reasoning_
+
+#### Description
+
+Ontology reasoning is carried out on the knowledge graph and the newly discovered knowledge is written into the database. This use case plays a significant role in perfect knowledge in x-lab because we cannot find all knowledge artificially.
+
+#### Participants
+
+Users who use our knowledge reasoning system can use ontology reasoning to perfect his or her own knowledte database.
+
+#### Pre-condition
+
+- The metadata layer is built successfully.
+- The knowledge is imported from database in x-lab.
+
+#### Post-condition
+
+- Newly discovered knowledge will be written into the database.
+
+#### Process Flow
+
+1. Reading data from x-lab database.
+2. Use metadata layer as a reference.
+3. Ontological reasoning of the operation and maintenance data.
+4. Refactor to the data to delete obvious data and retain data related to laboratory operation and maintenance only.
+
+<img src="Resources/Ontology_reasoning_flow_chart.png" alt="Ontology_reasoning_flow_chart" style="zoom:50%;" />
+
+#### Exceptions
+
+- Ontology reasoning yields a lot of new data that is obvious and not useful for later use。
+
+  > Refactor all the data after ontology reasoning. Only data related to laboratory operation and maintenance will be retained.
