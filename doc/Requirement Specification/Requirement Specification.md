@@ -53,7 +53,7 @@ This project focuses on knowledge reasoning, involving knowledge representation,
 
 ## Use Case Analysis (用例分析)
 
-<img src="Resources/UseCase_Diagram.png" alt="Build_metadata_layer_flow_chart" style="zoom:50%;" />
+![UserCase_Diagram](Resources/UseCase_Diagram.png "UserCase_Diagram")
 
 ------
 
@@ -90,7 +90,7 @@ Main system of our knowledge reasoning project will attend building the metadata
 5. Repeated iteration of 2~4.
 6. Reviewing throughout the process.
 
-<img src="Resources/Build_metadata_layer_flow_chart.png" alt="Build_metadata_layer_flow_chart" style="zoom:50%;" />
+![Build_metadata_layer_flow_chart](Resources/Build_metadata_layer_flow_chart.png "Build_metadata_layer_flow_chart")
 
 #### Exceptions
 
@@ -130,7 +130,7 @@ Users who use our knowledge reasoning system can use ontology reasoning to perfe
 3. Ontological reasoning of the operation and maintenance data.
 4. Refactor to the data to delete obvious data and retain data related to laboratory operation and maintenance only.
 
-<img src="Resources/Ontology_reasoning_flow_chart.png" alt="Ontology_reasoning_flow_chart" style="zoom:50%;" />
+![Ontology_reasoning_flow_chart](Resources/Ontology_reasoning_flow_chart.png "Ontology_reasoning_flow_chart")
 
 #### Exceptions
 
@@ -162,8 +162,8 @@ Users who use our knowledge reasoning system.
 1. Reading data from x-lab database.
 2. Start rule reasoning based on the rules user entered.
 3. Return rule reasoning result to users.
-
-<img src="Resources/Rule_reasoning_flow_chart.PNG" alt="Rule_reasoning_flow_chart" style="zoom:50%;" />
+                                                            
+ ![Rule_reasoning_flow_chart](Resources/Rule_reasoning_flow_chart.PNG "Rule_reasoning_flow_chart")
 
 #### Exceptions (Optional)
 
@@ -198,8 +198,10 @@ Users who use our knowledge reasoning system.
 - TransE reasoning yields some new data that is incorrectly.
 
   > Modify train parameters to get different models, valid and test these models to get the best model.
- 
-<img src="Resources/TransE_reasoning_flow_chart.PNG" alt="TransE_reasoning_flow_chart" style="zoom:50%;" />
+
+                                                                
+ ![TransE_reasoning_flow_chart](Resources/TransE_reasoning_flow_chart.PNG "TransE_reasoning_flow_chart")
+
 
 ### Use Case: _Query Event_
 
@@ -225,5 +227,5 @@ Users who use our knowledge reasoning system can use query usecase to get the fa
 2. Start query operation.
 3. Return query result to users.
 
-<img src="Resources/Query_flow_chart.PNG" alt="Query_flow_chart" style="zoom:50%;" />
+![Query_flow_chart](Resources/Query_flow_chart.png "Query_flow_chart")
 
