@@ -55,3 +55,52 @@ This project focuses on knowledge reasoning, involving knowledge representation,
 
 [use case diagram]
 
+------
+
+### Use Case: _Building the Metadata Layer_
+
+#### Description
+
+Build the metadata layer to improve the structure of knowledge graph. The metadata layer contains data layer, pattern layer and logic layer. And refactoring of the metadata is also needed in building the metadata layer use case.
+
+#### Participants
+
+First of all, users who use our knowledge reasoning system should building the metadata layer.
+
+Main system of our knowledge reasoning project will attend building the metadata layer use case.
+
+#### Pre-condition
+
+- Building knowledge graph project is finished.
+- All network hardware and software in x-lab are clear.
+
+#### Post-condition
+
+- The metadata layer will complete.
+- Knowledge graph will be more structured.
+- Use the metadata layer to do reasoning.
+
+#### Process Flow
+
+1. Master all the hardware and software in x-lab.
+2. Building the data layer.
+   - Refactor of the data built in the data layer
+3. Building the pattern layer.
+4. Building the logic layer.
+5. Repeated iteration of 2~4.
+6. Reviewing throughout the process.
+
+<img src="Resources/Build_metadata_layer_flow_chart.png" alt="Build_metadata_layer_flow_chart" style="zoom:50%;" />
+
+#### Exceptions
+
+- We should find some way to confirm metadata layer is completed which means that it contain all information of x-lab.
+
+  > Solution: By randomly sampling the database and knowledge map, our ontology layer contains samples whose reliability meets the project's general criteria.
+
+  
+
+- The raw data layer is not always useable.
+
+  > According to the structure of the data, we use several ways to refactor the raw data in order to satisfy the data requirement in the knowledge reasoning project.
+
