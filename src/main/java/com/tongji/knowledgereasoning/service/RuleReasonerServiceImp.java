@@ -2,8 +2,7 @@ package com.tongji.knowledgereasoning.service;
 
 import com.tongji.knowledgereasoning.dao.FusekiDao;
 import com.tongji.knowledgereasoning.dao.NeoDao;
-import org.apache.jena.query.QuerySolution;
-import org.apache.jena.query.ResultSet;
+import org.apache.jena.query.*;
 import org.apache.jena.rdf.model.*;
 import org.apache.jena.reasoner.Reasoner;
 import org.apache.jena.reasoner.rulesys.GenericRuleReasoner;
@@ -27,7 +26,7 @@ public class RuleReasonerServiceImp implements RuleReasonerService {
     FileWriter ruleReasonResult = null;
 
 
-    public String fusekiReasoning(String rule) {
+    public String fusekiReasoning(String rules) {
 
         Model model = ModelFactory.createDefaultModel();
         ResultSet rs = fusekiDao.getTriples();
@@ -39,17 +38,19 @@ public class RuleReasonerServiceImp implements RuleReasonerService {
             String object = qs.get("o").toString();
             String predicate = qs.get("p").toString();
 
-            String[] p = predicate.split("/");
-            predicate = p[p.length - 1];
-            //System.out.println(predicate);
-
             model.add(model.createResource(subject), model.createProperty(predicate), model.createResource(object));
 
         }
 
-        Model modelAfterReason = reasoner(model, rule);
+//        String rules =
+//                "[rule1: (?X <http://pods/10.60.38.181/provides> ?Y) -> (?X <http://10.60.38.181/KGns/relates> ?Y)]\n" +
+//                        "[rule2: (?X <http://10.60.38.181/KGns/relates> ?Y) (?X <http://pods/10.60.38.181/deployed_in> ?Z) -> (?Z <http://10.60.38.181/KGns/relates> ?Y)]\n" +
+//                        "[rule3: (?X <http://10.60.38.181/KGns/relates> ?Y) (?X <http://pods/10.60.38.181/contains> ?Z) -> (?Z <http://10.60.38.181/KGns/relates> ?Y)]\n";
+
+        Model modelAfterReason = reasoner(model, rules);
         String triples = TriplesToJson(modelAfterReason);
 
+        //Operations.outputAllTriples(inf.getDeductionsModel());
         //输出原数据
         //outputAllTriples(model);
         //输出推理得出的数据
@@ -58,6 +59,7 @@ public class RuleReasonerServiceImp implements RuleReasonerService {
         //写回数据库
         fusekiDao.updateTriplesInFuseki(modelAfterReason);
         return triples;
+
     }
 
     public String neo4jReasoning(String rule) {
@@ -120,6 +122,7 @@ public class RuleReasonerServiceImp implements RuleReasonerService {
             return modelAfterReason;
         }
      */
+
     private String TriplesToJson(Model model) {
         JSONArray triples = new JSONArray();
         StmtIterator itr = model.listStatements();
@@ -134,7 +137,7 @@ public class RuleReasonerServiceImp implements RuleReasonerService {
             JSONObject triple = new JSONObject();
 
             //set predicate
-            predicate = subject.substring(0, subject.indexOf("1")) + "10.60.38.181/" + predicate;
+            //predicate = subject.substring(0, subject.indexOf("1")) + "10.60.38.181/" + predicate;
             triple.put("subject", subject);
             triple.put("predicate", predicate);
             triple.put("object", object);
