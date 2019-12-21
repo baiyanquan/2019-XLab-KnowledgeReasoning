@@ -48,7 +48,7 @@ This project focuses on knowledge reasoning, involving knowledge representation,
 
 ## Use Case Analysis (用例分析)
 
-[use case diagram]
+<img src="Resources/UseCase_Diagram.png" alt="Build_metadata_layer_flow_chart" style="zoom:50%;" />
 
 ------
 
@@ -132,3 +132,93 @@ Users who use our knowledge reasoning system can use ontology reasoning to perfe
 - Ontology reasoning yields a lot of new data that is obvious and not useful for later use.
 
   > Refactor all the data after ontology reasoning. Only data related to laboratory operation and maintenance will be retained.
+
+### Use Case: _Rule Reasoning_
+
+#### Description
+
+Rule reasoning is carried out on the knowledge graph and the reasoning result based on rules will return to users. This use case plays a significant role in perfect knowledge in x-lab because we can use it to find konwledge or write new knowledge to the database.
+
+#### Participants
+
+Users who use our knowledge reasoning system.
+
+#### Pre-condition (Optional)
+
+- The knowledge is imported from database in x-lab.
+- User enters the rules.
+
+#### Post-condition (Optional)
+
+- Konwledge based on rules will be find and return to users.
+
+#### Process Flow
+
+1. Reading data from x-lab database.
+2. Start rule reasoning based on the rules user entered.
+3. Return rule reasoning result to users.
+
+<img src="Resources/Rule_reasoning_flow_chart.PNG" alt="Rule_reasoning_flow_chart" style="zoom:50%;" />
+
+#### Exceptions (Optional)
+
+- Rule reasoning won't get any knowledge if the rules user entered are incorrectly.
+  
+
+### Use Case: _Deep Learning Reasoning——TransE Reasoning_
+
+#### Description
+
+TransE reasoning is carried out on the knowledge graph and the newly discovered knowledge is written into the database.This usecase plays a significant role in perfect knowledge in x-lab because we cannot find all knowledge artificially.
+
+
+#### Participants
+
+Users who use our knowledge reasoning system.
+
+#### Pre-condition (Optional)
+
+- The knowledge is imported from database in x-lab.
+
+#### Post-condition (Optional)
+
+- Newly discovered knowledge will be written into the database.
+
+#### Process Flow
+
+1. Reading data from x-lab database.
+2. Start transe reasoning to get new kowledge.
+3. Write the new data to the database.
+
+- TransE reasoning yields some new data that is incorrectly.
+
+  > Modify train parameters to get different models, valid and test these models to get the best model.
+ 
+<img src="Resources/TransE_reasoning_flow_chart.PNG" alt="TransE_reasoning_flow_chart" style="zoom:50%;" />
+
+### Use Case: _Query Event_
+
+#### Description
+
+Query Event is carried out on the knowledge graph and the query result will return to users. This use case plays a significant role in perfect knowledge in x-lab because we can use it to find failure component.
+
+#### Participants
+
+Users who use our knowledge reasoning system can use query usecase to get the failure component of the knowledge database.
+
+#### Pre-condition (Optional)
+
+- The knowledge is imported from database in x-lab.
+
+#### Post-condition (Optional)
+
+- Failure component will be find and return to users.
+
+#### Process Flow
+
+1. Reading data from x-lab database.
+2. Start query operation.
+3. Return query result to users.
+
+<img src="Resources/Query_flow_chart.PNG" alt="Query_flow_chart" style="zoom:50%;" />
+
