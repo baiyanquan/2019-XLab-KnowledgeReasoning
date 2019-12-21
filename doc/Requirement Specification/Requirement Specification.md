@@ -28,15 +28,11 @@ This project focuses on knowledge reasoning, involving knowledge representation,
 
 ### Target Users
 
-**这块还有待完善。。。**
-
 - Operation and Maintenance Engineer
 - Operations staff
 - Members in x-lab
 
 ### Boundary of the project
-
-**这块还有待完善。。。**
 
 - **This project will do:**
   - Build the metadata layer.
@@ -46,8 +42,7 @@ This project focuses on knowledge reasoning, involving knowledge representation,
   - Import data from fuseki into neo4j.
 - **This project won't do:**
   - Origin data built in knowledge graph.
-  - Whether the failure is reasonable。
-  - Best parameters of real data of laboratory operation and maintenance.
+  - Whether the failure is reasonable.
 
 ------
 
@@ -112,7 +107,7 @@ Ontology reasoning is carried out on the knowledge graph and the newly discovere
 
 #### Participants
 
-Users who use our knowledge reasoning system can use ontology reasoning to perfect his or her own knowledte database.
+Users who use our knowledge reasoning system can use ontology reasoning to perfect his or her own knowledge database.
 
 #### Pre-condition
 
@@ -134,6 +129,6 @@ Users who use our knowledge reasoning system can use ontology reasoning to perfe
 
 #### Exceptions
 
-- Ontology reasoning yields a lot of new data that is obvious and not useful for later use。
+- Ontology reasoning yields a lot of new data that is obvious and not useful for later use.
 
   > Refactor all the data after ontology reasoning. Only data related to laboratory operation and maintenance will be retained.
