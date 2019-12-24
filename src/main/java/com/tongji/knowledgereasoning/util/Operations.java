@@ -4,6 +4,8 @@ import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.Statement;
 import org.apache.jena.rdf.model.StmtIterator;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.util.List;
 
 
@@ -31,5 +33,10 @@ public class Operations {
         for(String attribute : list) {
             System.out.println(attribute);
         }
+    }
+
+    public static void outputAllTriples_to_ttl(Model model, String filename) throws FileNotFoundException {
+        model.write(new FileOutputStream(filename),"TURTLE");
+
     }
 }

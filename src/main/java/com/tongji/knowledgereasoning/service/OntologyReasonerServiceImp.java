@@ -309,7 +309,7 @@ import java.util.Vector;
         }
     }
 
-    public void OntologyReasoning() {
+    public void OntologyReasoning_for_origindata() {
         /**
          * @description: 本体推理
          *
@@ -339,6 +339,23 @@ import java.util.Vector;
         neoDao.updateTriplesInNeo4j(ttlInsert);
     }
 
+    public void OntologyReasoning() throws FileNotFoundException {
+        //本体推理代码（在整合到构建本体文件代码时移除）
+        Model fusionModel = ModelFactory.createDefaultModel();
+
+        InputStream in = FileManager.get().open( "data/newOntology_fix_typo.ttl" );
+        if (in == null) {
+            throw new IllegalArgumentException(" not found");
+        }
+
+        fusionModel.read(in, "","TURTLE");
+
+        Reasoner reasoner = ReasonerRegistry.getRDFSReasoner();
+        InfModel infModel = ModelFactory.createInfModel(reasoner, fusionModel);
+
+        Operations.outputAllTriples_to_ttl(infModel, "data/newOntology_after_reasoning.ttl");
+    }
+
     public static void main(String[] args) throws IOException {
 //        //读入原始数据
 //        readOriginData();
@@ -353,25 +370,5 @@ import java.util.Vector;
 //        outputOntologyTriples();
 //
 //        closeModel();
-
-
-
-
-        //本体推理代码（在整合到构建本体文件代码时移除）
-        Model fusionModel = ModelFactory.createDefaultModel();
-
-        InputStream in = FileManager.get().open( "data/newOntology_fix_typo.ttl" );
-        if (in == null) {
-            throw new IllegalArgumentException(" not found");
-        }
-
-        fusionModel.read(in, "","TURTLE");
-
-        Reasoner reasoner = ReasonerRegistry.getRDFSReasoner();
-        InfModel infModel = ModelFactory.createInfModel(reasoner, fusionModel);
-//        Operations.outputAllTriples(infModel);
-
-//        infModel.write(System.out, "TURTLE");
-        infModel.write(new FileOutputStream("data/newOntology_after_reasoning.ttl"),"TURTLE");
     }
 }

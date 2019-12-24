@@ -1,5 +1,6 @@
 package com.tongji.knowledgereasoning.service;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public interface OntologyReasonerService {
@@ -7,7 +8,7 @@ public interface OntologyReasonerService {
 
     void outputOriginTriples() throws IOException;
 
-    void OntologyReasoning();
+    void OntologyReasoning() throws FileNotFoundException;
 
     void outputOntologyTriples();
 
