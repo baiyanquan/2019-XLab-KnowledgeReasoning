@@ -10,6 +10,8 @@ import org.apache.jena.query.*;
 import org.apache.jena.rdf.model.*;
 import org.apache.jena.reasoner.Reasoner;
 import org.apache.jena.reasoner.ReasonerRegistry;
+import org.apache.jena.reasoner.rulesys.GenericRuleReasoner;
+import org.apache.jena.reasoner.rulesys.Rule;
 import org.springframework.stereotype.Service;
 
 
@@ -117,6 +119,7 @@ public class MetadataLayerConstructService {
 
     public void MetadataLayerConstruct(){
         System.out.println("begin...");
+
         ResultSet rs = FusekiDao.getTriples();
         //用于存储从数据库读出的数据
         Model model = ModelFactory.createDefaultModel();
@@ -180,14 +183,62 @@ public class MetadataLayerConstructService {
             }
         }
 
+        //本体推理代码（在整合到构建本体文件代码时移除）
+        Model fusionModel = ModelFactory.createDefaultModel();
+        fusionModel.add(ontModel);
+        fusionModel.add(model);
+        Reasoner reasoner = ReasonerRegistry.getRDFSReasoner();
+        InfModel infModel = ModelFactory.createInfModel(reasoner, fusionModel);
+        //Operations.outputAllTriples(infModel);
+
+        System.out.println("\n");
+        //属性路径查询表达式
+        Query propertyPathQuery = QueryFactory.create(
+                "PREFIX pods_rel: " + "<http://pods/10.60.38.181/> \n" +
+                        "SELECT * " +
+                        "{" +
+                        "<http://services/10.60.38.181/sock-shop/orders>" + " ^pods_rel:provides / ( pods_rel:deployed_in* | pods_rel:contains* ) ?o ." +
+                        "}");
+        QueryExecution qe = QueryExecutionFactory.create(propertyPathQuery, infModel);
+        ResultSet rs1 = qe.execSelect();
+        while (rs1.hasNext()) {
+            QuerySolution qs = rs1.next();
+            String object = qs.get("o").toString();
+            System.out.println(object);
+        }
+
+        System.out.println("\n");
+        String rules =
+                "[rule1: (?X <http://pods/10.60.38.181/provides> ?Y) -> (?X <http://10.60.38.181/KGns/relates> ?Y)]\n" +
+                        "[rule2: (?X <http://10.60.38.181/KGns/relates> ?Y) (?X <http://pods/10.60.38.181/deployed_in> ?Z) -> (?Z <http://10.60.38.181/KGns/relates> ?Y)]\n" +
+                        "[rule3: (?X <http://10.60.38.181/KGns/relates> ?Y) (?X <http://pods/10.60.38.181/contains> ?Z) -> (?Z <http://10.60.38.181/KGns/relates> ?Y)]\n";
+
+        Reasoner ruleReasoner = new GenericRuleReasoner(Rule.parseRules(rules));
+        ruleReasoner.setDerivationLogging(true);
+        InfModel inf = ModelFactory.createInfModel(ruleReasoner, infModel);
+        //Operations.outputAllTriples(inf.getDeductionsModel());
+
+        Query query = QueryFactory.create(
+                "PREFIX pods_rel: " + "<http://pods/10.60.38.181/> \n" +
+                        "SELECT * " +
+                        "{" +
+                        "?s ?p <http://services/10.60.38.181/sock-shop/orders> ." +
+                        "}");
+        QueryExecution qe1 = QueryExecutionFactory.create(query, inf.getDeductionsModel());
+        ResultSet rs2 = qe1.execSelect();
+        while (rs2.hasNext()) {
+            QuerySolution qs = rs2.next();
+            String object = qs.get("s").toString();
+            System.out.println(object);
+        }
 
         //写入文件
-        try {
-            FileWriter fwriter = new FileWriter("data/newOntology.ttl");     //没有文件会自动创建
-            ontModel.write(fwriter,"TURTLE");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            FileWriter fwriter = new FileWriter("C:/Users/Administrator/Desktop/newOntology.ttl");     //没有文件会自动创建
+//            ontModel.write(fwriter,"TURTLE");
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
 
         System.out.println("end...");
     }
