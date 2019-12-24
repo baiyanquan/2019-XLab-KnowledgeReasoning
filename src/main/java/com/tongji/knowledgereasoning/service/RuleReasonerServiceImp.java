@@ -62,7 +62,7 @@ public class RuleReasonerServiceImp implements RuleReasonerService {
 
     }
 
-    public String neo4jReasoning(String rule) {
+    public String neo4jReasoning(String rules) {
 
         Model model = ModelFactory.createDefaultModel();
 
@@ -74,18 +74,41 @@ public class RuleReasonerServiceImp implements RuleReasonerService {
                 String predicate = rs.getString(2);
                 String object = rs.getString(3);
 
-                String[] p = predicate.split("__");
-                predicate = p[p.length - 1];
-                //System.out.println(predicate);
+                if(predicate.equals("ns1__contains")){
+                    predicate = "http://pods/10.60.38.181/constains";
+                }else if(predicate.equals("ns1__deployed_in")){
+                    predicate = "http://pods/10.60.38.181/deployed_in";
+                }else if(predicate.equals("ns1__provides")){
+                    predicate = "http://pods/10.60.38.181/provides";
+                }else if(predicate.equals("ns2__profile")){
+                    predicate = "http://services/10.60.38.181/provides";
+                }else if(predicate.equals("ns3__profile")){
+                    predicate = "http://containers/10.60.38.181/profile";
+                }else if(predicate.equals("ns4__has")){
+                    predicate = "http://environment/10.60.38.181/has";
+                }else if(predicate.equals("ns5__manage")){
+                    predicate = "http://servers/10.60.38.181/manage";
+                }else if(predicate.equals("ns6__supervises")){
+                    predicate = "http://namespace/10.60.38.181/supervises";
+                }else if(predicate.equals("rdfs__domain")){
+                    predicate = "http://www.w3.org/2000/01/rdf-schema#domain";
+                }else if(predicate.equals("rdfs__range")){
+                    predicate = "http://www.w3.org/2000/01/rdf-schema#range";
+                }else if(predicate.equals("rdfs__subClassOf")){
+                    predicate = "http://www.w3.org/2000/01/rdf-schema#subClassOf";
+                }else if(predicate.equals("rdfs__subPropertyOf")){
+                    predicate = "http://www.w3.org/2000/01/rdf-schema#subPropertyOf";
+                }
+
                 //System.out.println(predicate);
                 model.add(model.createResource(subject), model.createProperty(predicate), model.createResource(object));
             }
-            //writeToFile(model,"data/neo4jdata.ttl");
+            writeToFile(model,"data/Neo4jData.ttl");
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        Model modelAfterReason = reasoner(model, rule);
+        Model modelAfterReason = reasoner(model, rules);
         String triples = TriplesToJson(modelAfterReason);
         String ttlInsert = "CALL semantics.importRDF('file:///F:/IDEA/2019-XLab-KnowledgeReasoning/data/RuleReasoning/RuleReasonResult.ttl','Turtle', {shortenUrls: true})";
         neoDao.updateTriplesInNeo4j(ttlInsert);
@@ -98,30 +121,6 @@ public class RuleReasonerServiceImp implements RuleReasonerService {
         InfModel inf = ModelFactory.createInfModel(reasoner, model);
         return inf.getDeductionsModel();
     }
-
-    /*
-        private Model modelAfterReason(Model model){
-
-            StmtIterator itr = model.listStatements();
-            Model modelAfterReason = ModelFactory.createDefaultModel();
-            while (itr.hasNext()) {
-                Statement nowStatement = itr.nextStatement();
-
-                String subject = nowStatement.getSubject().toString();
-                String predicate = nowStatement.getPredicate().toString();
-                String object = nowStatement.getObject().toString();
-
-                //set predicate
-                predicate=subject.substring(0,subject.indexOf("1"))+"10.60.38.181/"+predicate;
-
-                modelAfterReason.add(modelAfterReason.createResource(subject),
-                        modelAfterReason.createProperty(predicate),
-                        modelAfterReason.createResource(object));
-                writeToFile(modelAfterReason,"data/RuleReasoning/RuleReasonResult.ttl");
-            }
-            return modelAfterReason;
-        }
-     */
 
     private String TriplesToJson(Model model) {
         JSONArray triples = new JSONArray();
@@ -170,4 +169,30 @@ public class RuleReasonerServiceImp implements RuleReasonerService {
         model.write(ruleReasonResult, "TURTLE");    //写入文件,默认是xml方式,可以自己指定
 
     }
+
+
+    /*
+        private Model modelAfterReason(Model model){
+
+            StmtIterator itr = model.listStatements();
+            Model modelAfterReason = ModelFactory.createDefaultModel();
+            while (itr.hasNext()) {
+                Statement nowStatement = itr.nextStatement();
+
+                String subject = nowStatement.getSubject().toString();
+                String predicate = nowStatement.getPredicate().toString();
+                String object = nowStatement.getObject().toString();
+
+                //set predicate
+                predicate=subject.substring(0,subject.indexOf("1"))+"10.60.38.181/"+predicate;
+
+                modelAfterReason.add(modelAfterReason.createResource(subject),
+                        modelAfterReason.createProperty(predicate),
+                        modelAfterReason.createResource(object));
+                writeToFile(modelAfterReason,"data/RuleReasoning/RuleReasonResult.ttl");
+            }
+            return modelAfterReason;
+        }
+     */
+
 }
