@@ -1,5 +1,6 @@
 package com.tongji.knowledgereasoning.service;
 
+import com.tongji.knowledgereasoning.dao.LabDao;
 import com.tongji.knowledgereasoning.util.FusekiDao;
 import com.tongji.knowledgereasoning.util.Operations;
 import org.apache.jena.ontology.OntClass;
@@ -12,13 +13,11 @@ import org.apache.jena.reasoner.Reasoner;
 import org.apache.jena.reasoner.ReasonerRegistry;
 import org.apache.jena.reasoner.rulesys.GenericRuleReasoner;
 import org.apache.jena.reasoner.rulesys.Rule;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.*;
 import java.util.function.Predicate;
 
@@ -30,6 +29,9 @@ import java.util.function.Predicate;
  **/
 @Service
 public class MetadataLayerConstructService {
+    @Autowired
+    private static LabDao labDao = new LabDao();
+
     private static OntModel ontModel;
 
     private static Map<String, OntClass> ontClassMap;
@@ -117,6 +119,83 @@ public class MetadataLayerConstructService {
         ontPropertyMap.put("environment-has", environmentHas);
     }
 
+    public static void refactorRelation() {
+        Model model = ModelFactory.createDefaultModel();
+
+        String namespace = "http://namespace/10.60.38.181";
+        String pods = "http://pods/10.60.38.181";
+        String services = "http://services/10.60.38.181";
+        String containers = "http://containers/10.60.38.181";
+        String server = "http://server/10.60.38.181";
+        String environment = "http://environment/10.60.38.181";
+
+        ResultSet rs = labDao.getTriples();
+
+        while (rs.hasNext()) {
+
+            QuerySolution qs1 = rs.next();
+            String subject = qs1.get("s").toString();
+            String object = qs1.get("o").toString();
+            String predicate = qs1.get("p").toString();
+
+            if ((subject.contains(namespace) || subject.contains(pods) || subject.contains(containers) ||
+                    subject.contains(services) || subject.contains(server) || subject.contains(environment))
+                    && (object.contains(namespace) || object.contains(server) || object.contains(pods) ||
+                    object.contains(services) || object.contains(containers) || object.contains(environment))) {
+
+                String[] p = predicate.split("/");
+                String predicate_ = subject.substring(0, subject.indexOf("1")) + "10.60.38.181/" + p[p.length - 1];
+
+                model.add(model.createResource(subject), model.createProperty(predicate_), model.createResource(object));
+            }
+        }
+
+        try {
+            FileWriter fwriter = new FileWriter("data/newOntology.ttl", true);     //没有文件会自动创建
+            model.write(fwriter, "TURTLE");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void refactorTypo(){
+        try{
+            StringBuffer sb = new StringBuffer("");
+            FileReader reader = new FileReader("data/newOntology.ttl");
+            BufferedReader br = new BufferedReader(reader);
+            FileWriter writer = new FileWriter("data/newOntology_fix_typo.ttl");
+            BufferedWriter bw = new BufferedWriter(writer);
+            String str = null;
+
+            while((str = br.readLine()) != null){
+                sb.append(str);
+                String[] words = str.split(" ");
+
+                for(String word : words){
+                    if(word.length()>2 && word.substring(0,2).equals("<:")){
+                        bw.write(word.substring(1,word.length()-1) + ' ');
+                    }
+                    else{
+                        bw.write(word + ' ');
+                    }
+                }
+                bw.write("\n");
+
+            }
+
+            br.close();
+            reader.close();
+            bw.close();
+            writer.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+
+
     public static void MetadataLayerConstruct(){
         System.out.println("begin...");
 
@@ -183,14 +262,6 @@ public class MetadataLayerConstructService {
             }
         }
 
-        //本体推理代码（在整合到构建本体文件代码时移除）
-        Model fusionModel = ModelFactory.createDefaultModel();
-        fusionModel.add(ontModel);
-        fusionModel.add(model);
-        Reasoner reasoner = ReasonerRegistry.getRDFSReasoner();
-        InfModel infModel = ModelFactory.createInfModel(reasoner, fusionModel);
-        //Operations.outputAllTriples(infModel);
-
         System.out.println("\n");
         //写入文件
         try {
@@ -199,6 +270,10 @@ public class MetadataLayerConstructService {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        refactorRelation();
+        refactorTypo();
+
 
         System.out.println("end...");
     }

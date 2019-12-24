@@ -16,6 +16,7 @@ import java.util.List;
  **/
 public class Operations {
     public static void outputAllTriples(Model model) {
+        System.out.println("output start...");
         StmtIterator itr = model.listStatements();
         while (itr.hasNext()) {
             Statement a = itr.nextStatement();
@@ -23,6 +24,7 @@ public class Operations {
                 System.out.println(a);
             }
         }
+        System.out.println("output end...");
     }
 
     public static void outputList(List<String> list) {

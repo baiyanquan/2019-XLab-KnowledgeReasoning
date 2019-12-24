@@ -1,10 +1,12 @@
 package com.tongji.knowledgereasoning.service;
 
 import com.tongji.knowledgereasoning.dao.NeoDao;
+import com.tongji.knowledgereasoning.util.Operations;
 import org.apache.commons.io.FileUtils;
 import org.apache.jena.rdf.model.*;
 import org.apache.jena.reasoner.Reasoner;
 import org.apache.jena.reasoner.ReasonerRegistry;
+import org.apache.jena.util.FileManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,7 +23,7 @@ import java.util.Vector;
  **/
 
 @Service("OntologyReasonerService")
-public class OntologyReasonerServiceImp implements OntologyReasonerService {
+    public class OntologyReasonerServiceImp implements OntologyReasonerService {
     private Hashtable<String, String> prefix_map = new Hashtable<String, String>();
     private Vector<Vector<String>> stmt_container = new Vector<Vector<String>>();
     private Vector<String> buf_container = new Vector<String>();
@@ -351,5 +353,25 @@ public class OntologyReasonerServiceImp implements OntologyReasonerService {
 //        outputOntologyTriples();
 //
 //        closeModel();
+
+
+
+
+        //本体推理代码（在整合到构建本体文件代码时移除）
+        Model fusionModel = ModelFactory.createDefaultModel();
+
+        InputStream in = FileManager.get().open( "data/newOntology_fix_typo.ttl" );
+        if (in == null) {
+            throw new IllegalArgumentException(" not found");
+        }
+
+        fusionModel.read(in, "","TURTLE");
+
+        Reasoner reasoner = ReasonerRegistry.getRDFSReasoner();
+        InfModel infModel = ModelFactory.createInfModel(reasoner, fusionModel);
+//        Operations.outputAllTriples(infModel);
+
+//        infModel.write(System.out, "TURTLE");
+        infModel.write(new FileOutputStream("data/newOntology_after_reasoning.ttl"),"TURTLE");
     }
 }
