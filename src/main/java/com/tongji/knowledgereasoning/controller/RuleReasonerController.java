@@ -15,13 +15,13 @@ public class RuleReasonerController {
     private RuleReasonerService ruleReasonerService;
 
     @RequestMapping(value = "/start-fuseki-reason", method = RequestMethod.POST)
-    public String startFusekiReason(@RequestParam("rule") String rule) {
-        return ruleReasonerService.fusekiReasoning(rule);
+    public String startFusekiReason(@RequestParam("rules") String rules) {
+        return ruleReasonerService.fusekiReasoning(rules);
     }
 
     @RequestMapping(value = "/start-neo4j-reason", method = RequestMethod.POST)
-    public String startNeo4jReason(@RequestParam("rule") String rule) {
-        return ruleReasonerService.neo4jReasoning(rule);
+    public String startNeo4jReason(@RequestParam("rules") String rules) {
+        return ruleReasonerService.neo4jReasoning(rules);
     }
 
 }

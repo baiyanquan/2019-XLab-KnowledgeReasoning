@@ -192,46 +192,6 @@ public class MetadataLayerConstructService {
         //Operations.outputAllTriples(infModel);
 
         System.out.println("\n");
-        //属性路径查询表达式
-        Query propertyPathQuery = QueryFactory.create(
-                "PREFIX pods_rel: " + "<http://pods/10.60.38.181/> \n" +
-                        "SELECT * " +
-                        "{" +
-                        "<http://services/10.60.38.181/sock-shop/orders>" + " ^pods_rel:provides / ( pods_rel:deployed_in* | pods_rel:contains* ) ?o ." +
-                        "}");
-        QueryExecution qe = QueryExecutionFactory.create(propertyPathQuery, infModel);
-        ResultSet rs1 = qe.execSelect();
-        while (rs1.hasNext()) {
-            QuerySolution qs = rs1.next();
-            String object = qs.get("o").toString();
-            System.out.println(object);
-        }
-
-        System.out.println("\n");
-        String rules =
-                "[rule1: (?X <http://pods/10.60.38.181/provides> ?Y) -> (?X <http://10.60.38.181/KGns/relates> ?Y)]\n" +
-                        "[rule2: (?X <http://10.60.38.181/KGns/relates> ?Y) (?X <http://pods/10.60.38.181/deployed_in> ?Z) -> (?Z <http://10.60.38.181/KGns/relates> ?Y)]\n" +
-                        "[rule3: (?X <http://10.60.38.181/KGns/relates> ?Y) (?X <http://pods/10.60.38.181/contains> ?Z) -> (?Z <http://10.60.38.181/KGns/relates> ?Y)]\n";
-
-        Reasoner ruleReasoner = new GenericRuleReasoner(Rule.parseRules(rules));
-        ruleReasoner.setDerivationLogging(true);
-        InfModel inf = ModelFactory.createInfModel(ruleReasoner, infModel);
-        //Operations.outputAllTriples(inf.getDeductionsModel());
-
-        Query query = QueryFactory.create(
-                "PREFIX pods_rel: " + "<http://pods/10.60.38.181/> \n" +
-                        "SELECT * " +
-                        "{" +
-                        "?s ?p <http://services/10.60.38.181/sock-shop/orders> ." +
-                        "}");
-        QueryExecution qe1 = QueryExecutionFactory.create(query, inf.getDeductionsModel());
-        ResultSet rs2 = qe1.execSelect();
-        while (rs2.hasNext()) {
-            QuerySolution qs = rs2.next();
-            String object = qs.get("s").toString();
-            System.out.println(object);
-        }
-
         //写入文件
         try {
             FileWriter fwriter = new FileWriter("data/newOntology.ttl");     //没有文件会自动创建

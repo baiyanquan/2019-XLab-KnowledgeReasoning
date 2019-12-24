@@ -19,7 +19,7 @@ public class QueryService {
     private NeoDao neoDao;
     private List<String> queryResult = new ArrayList<>();
 
-    public List<String> Query() {
+    public List<String> Query(String query) {
 
         Model model = ModelFactory.createDefaultModel();
         java.sql.ResultSet rs = neoDao.getTriples();
@@ -30,26 +30,34 @@ public class QueryService {
                 String predicate = rs.getString(2);
                 String object = rs.getString(3);
 
-                String[] p = predicate.split("__");
-                predicate = p[p.length - 1];
+//                String[] p = predicate.split("__");
+//                predicate = p[p.length - 1];
                 // System.out.println(predicate);
                 //System.out.println(predicate);
+
                 model.add(model.createResource(subject), model.createProperty(predicate), model.createResource(object));
             }
 
         } catch (Exception e) {
             e.printStackTrace();
         }
-       // 属性路径查询表达式
-        Query propertyPathQuery = QueryFactory.create(
-                "PREFIX pods_rel: " + "<http://pods/10.60.38.181/> \n" +
-                        "SELECT * " +
-                        "{" +
-                        "<http://services/10.60.38.181/sock-shop/orders>" + " ^pods_rel:provides / ( pods_rel:deployed_in* | pods_rel:contains* ) ?o ." +
-                        "}");
+        // 属性路径查询表达式
+//        Query propertyPathQuery = QueryFactory.create(
+//                "PREFIX pods_rel: " + "<http://pods/10.60.38.181/> \n" +
+//                        "SELECT * " +
+//                        "{" +
+//                        "<http://services/10.60.38.181/sock-shop/orders>" + " ^pods_rel:provides / ( pods_rel:deployed_in* | pods_rel:contains* ) ?o ." +
+//                        "}");
 
+//
+//        Query query = QueryFactory.create(
+//                "PREFIX pods_rel: " + "<http://pods/10.60.38.181/> \n" +
+//                        "SELECT * " +
+//                        "{" +
+//                        "?s ?p <http://services/10.60.38.181/sock-shop/orders> ." +
+//                        "}");
 
-        //Query propertyPathQuery = QueryFactory.create(query);  //创建一个查询
+        Query propertyPathQuery = QueryFactory.create(query);  //创建一个查询
         // 执行查询，获得结果
         QueryExecution qe = QueryExecutionFactory.create(propertyPathQuery, model);
         org.apache.jena.query.ResultSet resultSet = qe.execSelect();//select 类型
@@ -62,6 +70,7 @@ public class QueryService {
 //        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 //        ResultSetFormatter.outputAsJSON(outputStream, resultSet);
 //        String result = new String(outputStream.toByteArray());
+
         return queryResult;
     }
 

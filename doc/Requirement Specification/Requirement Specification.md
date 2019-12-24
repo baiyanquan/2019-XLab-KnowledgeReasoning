@@ -46,11 +46,9 @@ This project focuses on knowledge reasoning, involving knowledge representation,
 
 ------
 
-## Use Case Analysis (用例分析)
+## Use Case Analysis
 
-<img src="Resources/UseCase_Diagram.png" alt="Build_metadata_layer_flow_chart" style="zoom:50%;" />
-
-------
+<img src="Resources/UseCase_Diagram.png" alt="UseCase_Diagram" style="zoom:50%;" />
 
 ### Use Case: _Building the Metadata Layer_
 
@@ -64,12 +62,12 @@ First of all, users who use our knowledge reasoning system should building the m
 
 Main system of our knowledge reasoning project will attend building the metadata layer use case.
 
-#### Pre-condition
+#### Pre-condition (Optional)
 
 - Building knowledge graph project is finished.
 - All network hardware and software in x-lab are clear.
 
-#### Post-condition
+#### Post-condition (Optional)
 
 - The metadata layer will complete.
 - Knowledge graph will be more structured.
@@ -87,17 +85,17 @@ Main system of our knowledge reasoning project will attend building the metadata
 
 <img src="Resources/Build_metadata_layer_flow_chart.png" alt="Build_metadata_layer_flow_chart" style="zoom:50%;" />
 
-#### Exceptions
+#### Exceptions (Optional)
 
 - We should find some way to confirm metadata layer is completed which means that it contain all information of x-lab.
 
   > Solution: By randomly sampling the database and knowledge map, our ontology layer contains samples whose reliability meets the project's general criteria.
 
-  
 
 - The raw data layer is not always useable.
 
   > According to the structure of the data, we use several ways to refactor the raw data in order to satisfy the data requirement in the knowledge reasoning project.
+
 
 ### Use Case: _Ontology Reasoning_
 
@@ -109,12 +107,12 @@ Ontology reasoning is carried out on the knowledge graph and the newly discovere
 
 Users who use our knowledge reasoning system can use ontology reasoning to perfect his or her own knowledge database.
 
-#### Pre-condition
+#### Pre-condition (Optional)
 
 - The metadata layer is built successfully.
 - The knowledge is imported from database in x-lab.
 
-#### Post-condition
+#### Post-condition (Optional)
 
 - Newly discovered knowledge will be written into the database.
 
@@ -127,11 +125,14 @@ Users who use our knowledge reasoning system can use ontology reasoning to perfe
 
 <img src="Resources/Ontology_reasoning_flow_chart.png" alt="Ontology_reasoning_flow_chart" style="zoom:50%;" />
 
-#### Exceptions
+#### Exceptions (Optional)
 
 - Ontology reasoning yields a lot of new data that is obvious and not useful for later use.
 
   > Refactor all the data after ontology reasoning. Only data related to laboratory operation and maintenance will be retained.
+
+------
+
 
 ### Use Case: _Rule Reasoning_
 
@@ -158,7 +159,7 @@ Users who use our knowledge reasoning system.
 2. Start rule reasoning based on the rules user entered.
 3. Return rule reasoning result to users.
 
-<img src="Resources/Rule_reasoning_flow_chart.PNG" alt="Rule_reasoning_flow_chart" style="zoom:50%;" />
+<img src="Resources/Rule_reasoning_flow_chart.png" alt="Rule_reasoning_flow_chart" style="zoom:50%;" />
 
 #### Exceptions (Optional)
 
@@ -194,7 +195,7 @@ Users who use our knowledge reasoning system.
 
   > Modify train parameters to get different models, valid and test these models to get the best model.
  
-<img src="Resources/TransE_reasoning_flow_chart.PNG" alt="TransE_reasoning_flow_chart" style="zoom:50%;" />
+<img src="Resources/TransE_reasoning_flow_chart.png" alt="TransE_reasoning_flow_chart" style="zoom:50%;" />
 
 ### Use Case: _Query Event_
 
@@ -220,5 +221,6 @@ Users who use our knowledge reasoning system can use query usecase to get the fa
 2. Start query operation.
 3. Return query result to users.
 
-<img src="Resources/Query_flow_chart.PNG" alt="Query_flow_chart" style="zoom:50%;" />
+<img src="Resources/Query_flow_chart.png" alt="Query_flow_chart" style="zoom:50%;" />
+
 

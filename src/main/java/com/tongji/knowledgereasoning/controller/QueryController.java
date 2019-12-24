@@ -24,7 +24,7 @@ public class QueryController {
     private QueryService queryService;
 
     @RequestMapping(value = "/query", method = RequestMethod.GET)
-    public List<String> query() {
-        return queryService.Query();
+    public List<String> query(@RequestParam("queryString")String query) {
+        return queryService.Query(query);
     }
 }
