@@ -22,19 +22,10 @@ public class OntologyReasonerController {
     @Autowired
     private OntologyReasonerService ontologyReasonerService;
 
-    @RequestMapping(value = "/prepare-missing-data", method = RequestMethod.GET)
-    public void prepareMissingData() {
-        ontologyReasonerService.write_origin_data_to_neo4j();
-    }
-
     @RequestMapping(value = "/start-ontology-reason", method = RequestMethod.GET)
     public void startOntologyReason() throws IOException {
-        ontologyReasonerService.readOriginData();
-        ontologyReasonerService.outputOriginTriples();
         ontologyReasonerService.OntologyReasoning();
-        ontologyReasonerService.outputOntologyTriples();
-        ontologyReasonerService.closeModel();
-        ontologyReasonerService.write_ontology_reasoning_data_to_neo4j();
+
     }
 
 

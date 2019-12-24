@@ -30,22 +30,22 @@ import java.util.function.Predicate;
 @Service
 public class MetadataLayerConstructService {
     @Autowired
-    private static LabDao labDao = new LabDao();
+    private LabDao labDao = new LabDao();
 
-    private static OntModel ontModel;
+    private OntModel ontModel;
 
-    private static Map<String, OntClass> ontClassMap;
+    private Map<String, OntClass> ontClassMap;
 
-    private static Map<String, OntProperty> ontPropertyMap;
+    private Map<String, OntProperty> ontPropertyMap;
 
     //初始化本体模型、本体Map、属性Map
-    private static void init(){
+    private void init(){
         ontModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM);
         ontClassMap = new HashMap<>();
         ontPropertyMap = new HashMap<>();
     }
 
-    public static void refactorPrefix(){
+    public void refactorPrefix(){
         ontModel.setNsPrefix( "owl", "http://www.w3.org/2002/07/owl#" );
         ontModel.setNsPrefix( "rdf", "http://www.w3.org/1999/02/22-rdf-syntax-ns#" );
         ontModel.setNsPrefix( "rdfs", "http://www.w3.org/2000/01/rdf-schema#" );
@@ -66,7 +66,7 @@ public class MetadataLayerConstructService {
         ontModel.setNsPrefix( "environment", "http://10.60.38.181/KGns/Environment/" );
     }
 
-    public static void refactorClass(){
+    public void refactorClass(){
         ontClassMap.put("namespace", ontModel.createClass(":Namespace"));
         ontClassMap.put("pod", ontModel.createClass(":Pod"));
         ontClassMap.put("container", ontModel.createClass(":Container"));
@@ -77,7 +77,7 @@ public class MetadataLayerConstructService {
         ontClassMap.put("serviceStatusInformation", ontModel.createClass(":ServiceStatusInformation"));
     }
 
-    public static void refactorProperty(){
+    public void refactorProperty(){
         OntProperty namespaceSupervises = ontModel.createObjectProperty("http://namespace/10.60.38.181/supervises");
         namespaceSupervises.addDomain(ontClassMap.get("namespace"));
         namespaceSupervises.addRange(ontClassMap.get("namespace"));
@@ -119,7 +119,7 @@ public class MetadataLayerConstructService {
         ontPropertyMap.put("environment-has", environmentHas);
     }
 
-    public static void refactorRelation() {
+    public void refactorRelation() {
         Model model = ModelFactory.createDefaultModel();
 
         String namespace = "http://namespace/10.60.38.181";
@@ -158,7 +158,7 @@ public class MetadataLayerConstructService {
         }
     }
 
-    public static void refactorTypo(){
+    public void refactorTypo(){
         try{
             StringBuffer sb = new StringBuffer("");
             FileReader reader = new FileReader("data/newOntology.ttl");
@@ -195,9 +195,7 @@ public class MetadataLayerConstructService {
     }
 
 
-    public static void MetadataLayerConstruct(){
-        System.out.println("begin...");
-
+    public void MetadataLayerConstruct(){
         ResultSet rs = FusekiDao.getTriples();
         //用于存储从数据库读出的数据
         Model model = ModelFactory.createDefaultModel();
@@ -272,12 +270,9 @@ public class MetadataLayerConstructService {
 
         refactorRelation();
         refactorTypo();
-
-
-        System.out.println("end...");
     }
 
     public static void main(String[] args) {
-        MetadataLayerConstruct();
+//        MetadataLayerConstruct();
     }
 }

@@ -8,8 +8,6 @@ public interface OntologyReasonerService {
 
     void outputOriginTriples() throws IOException;
 
-    void OntologyReasoning() throws FileNotFoundException;
-
     void outputOntologyTriples();
 
     void closeModel();
@@ -17,4 +15,6 @@ public interface OntologyReasonerService {
     void write_ontology_reasoning_data_to_neo4j();
 
     void write_origin_data_to_neo4j();
+
+    void OntologyReasoning() throws FileNotFoundException;
 }
