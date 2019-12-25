@@ -268,7 +268,7 @@ public class MetadataLayerConstructService {
             e.printStackTrace();
         }
 
-        refactorRelation();
+//        refactorRelation();
         refactorTypo();
     }
 
