@@ -1,0 +1,818 @@
+@prefix :      <http://10.60.38.181/KGns/> . 
+@prefix owl:   <http://www.w3.org/2002/07/owl#> . 
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> . 
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> . 
+@prefix services: <http://10.60.38.181/KGns/Service/> . 
+@prefix environment: <http://10.60.38.181/KGns/Environment/> . 
+@prefix servers_rel: <http://servers/10.60.38.181/> . 
+@prefix pods_rel: <http://pods/10.60.38.181/> . 
+@prefix namespace_rel: <http://namespace/10.60.38.181/> . 
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> . 
+@prefix namespace: <http://10.60.38.181/KGns/Namespace/> . 
+@prefix rel:   <http://10.60.38.181/KGns/relationship/> . 
+@prefix containers: <http://10.60.38.181/KGns/Container/> . 
+@prefix pods:  <http://10.60.38.181/KGns/Pod/> . 
+@prefix containers_rel: <http://containers/10.60.38.181/> . 
+@prefix environment_rel: <http://environment/10.60.38.181/> . 
+@prefix services_rel: <http://services/10.60.38.181/> . 
+ 
+<http://services/10.60.38.181/sock-shop/payment/latency> 
+        a       :ServiceStatusInformation . 
+ 
+<http://pods/10.60.38.181/sock-shop/front-end-858b4ff57-lkm8b> 
+        a       :Pod . 
+ 
+<http://pods/10.60.38.181/sock-shop/orders-db-86f5c494b9-xvvhr/provides> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  pods_rel:provides . 
+ 
+<http://pods/10.60.38.181/sock-shop/queue-master-77d854c647-qbgwq/provides> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  pods_rel:provides . 
+ 
+<http://services/10.60.38.181/sock-shop/carts/success_rate> 
+        a       :ServiceStatusInformation . 
+ 
+<http://pods/10.60.38.181/sock-shop/orders-6496fcd6f7-qcmj7/provides> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  pods_rel:provides . 
+ 
+<http://pods/10.60.38.181/sock-shop/front-end-858b4ff57-55bg5/deployed_in> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  pods_rel:deployed_in . 
+ 
+<http://services/10.60.38.181/sock-shop/user/success_rate> 
+        a       :ServiceStatusInformation . 
+ 
+<http://services/10.60.38.181/sock-shop/carts/latency> 
+        a       :ServiceStatusInformation . 
+ 
+pods_rel:provides  a  owl:ObjectProperty ; 
+        rdfs:domain  :Pod ; 
+        rdfs:range   :Service . 
+ 
+<http://containers/10.60.38.181/sock-shop/payment/Network_Output_Packets> 
+        a       :ContainerStatusInformation . 
+ 
+<http://server/10.60.38.181/192.168.199.191/manage> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  servers_rel:manage . 
+ 
+<http://services/10.60.38.181/sock-shop/rabbitmq> 
+        a       :Service . 
+ 
+<http://services/10.60.38.181/sock-shop/payment/success_rate> 
+        a       :ServiceStatusInformation . 
+ 
+<http://services/10.60.38.181/sock-shop/session-db/profile> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  services_rel:profile . 
+ 
+<http://containers/10.60.38.181/sock-shop/rabbitmq/profile> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  containers_rel:profile . 
+ 
+<http://containers/10.60.38.181/sock-shop/user/Network_Output_Bytes> 
+        a       :ContainerStatusInformation . 
+ 
+<http://containers/10.60.38.181/sock-shop/session-db/Network_Input_Packets> 
+        a       :ContainerStatusInformation . 
+ 
+<http://containers/10.60.38.181/sock-shop/catalogue/Network_Input_Packets> 
+        a       :ContainerStatusInformation . 
+ 
+<http://containers/10.60.38.181/sock-shop/front-end/Network_Output_Bytes> 
+        a       :ContainerStatusInformation . 
+ 
+<http://containers/10.60.38.181/sock-shop/carts/CPU_Usage> 
+        a       :ContainerStatusInformation . 
+ 
+<http://containers/10.60.38.181/sock-shop/session-db/Network_Output_Packets> 
+        a       :ContainerStatusInformation . 
+ 
+<http://pods/10.60.38.181/sock-shop/front-end-858b4ff57-55bg5/contains> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  pods_rel:contains . 
+ 
+<http://environment/10.60.38.181> 
+        a       :Environment . 
+ 
+:ServiceStatusInformation 
+        a       owl:Class . 
+ 
+<http://pods/10.60.38.181/sock-shop/orders-6496fcd6f7-zt6zq/provides> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  pods_rel:provides . 
+ 
+<http://server/10.60.38.181/192.168.199.32> 
+        a       :Server . 
+ 
+<http://pods/10.60.38.181/sock-shop/orders-6496fcd6f7-l9rmn/provides> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  pods_rel:provides . 
+ 
+<http://pods/10.60.38.181/sock-shop/carts-648d5f498d-test2> 
+        a       :Pod . 
+ 
+<http://services/10.60.38.181/sock-shop/rabbitmq/latency> 
+        a       :ServiceStatusInformation . 
+ 
+namespace_rel:supervises 
+        a            owl:ObjectProperty ; 
+        rdfs:domain  :Namespace ; 
+        rdfs:range   :Namespace . 
+ 
+<http://services/10.60.38.181/sock-shop/shipping/profile> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  services_rel:profile . 
+ 
+<http://pods/10.60.38.181/sock-shop/orders-6496fcd6f7-zt6zq/deployed_in> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  pods_rel:deployed_in . 
+ 
+<http://containers/10.60.38.181/sock-shop/shipping/MEM_Usage> 
+        a       :ContainerStatusInformation . 
+ 
+<http://containers/10.60.38.181/sock-shop/shipping/profile> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  containers_rel:profile . 
+ 
+<http://services/10.60.38.181/sock-shop/orders/success_rate> 
+        a       :ServiceStatusInformation . 
+ 
+:Service  a   owl:Class . 
+ 
+<http://pods/10.60.38.181/sock-shop/rabbitmq-6cf767fcc4-9j5vn/provides> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  pods_rel:provides . 
+ 
+<http://containers/10.60.38.181/sock-shop/payment/Network_Output_Bytes> 
+        a       :ContainerStatusInformation . 
+ 
+<http://services/10.60.38.181/sock-shop/catalogue> 
+        a       :Service . 
+ 
+<http://services/10.60.38.181/sock-shop/carts> 
+        a       :Service . 
+ 
+<http://pods/10.60.38.181/sock-shop/orders-6496fcd6f7-l9rmn> 
+        a       :Pod . 
+ 
+<http://pods/10.60.38.181/sock-shop/catalogue-b8587c9c5-wfvkt/provides> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  pods_rel:provides . 
+ 
+<http://pods/10.60.38.181/sock-shop/orders-db-86f5c494b9-xvvhr/contains> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  pods_rel:contains . 
+ 
+<http://containers/10.60.38.181/sock-shop/queue-master/Network_Input_Bytes> 
+        a       :ContainerStatusInformation . 
+ 
+<http://containers/10.60.38.181/sock-shop/shipping> 
+        a       :Container . 
+ 
+<http://pods/10.60.38.181/sock-shop/orders-6496fcd6f7-fqnjt/contains> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  pods_rel:contains . 
+ 
+<http://services/10.60.38.181/sock-shop/front-end/profile> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  services_rel:profile . 
+ 
+<http://containers/10.60.38.181/sock-shop/catalogue/Network_Output_Bytes> 
+        a       :ContainerStatusInformation . 
+ 
+<http://pods/10.60.38.181/sock-shop/queue-master-77d854c647-qbgwq/contains> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  pods_rel:contains . 
+ 
+<http://pods/10.60.38.181/sock-shop/catalogue-db-99cbcbb88-wl52p> 
+        a       :Pod . 
+ 
+<http://services/10.60.38.181/sock-shop/session-db/throughput> 
+        a       :ServiceStatusInformation . 
+ 
+<http://services/10.60.38.181/sock-shop/front-end/success_rate> 
+        a       :ServiceStatusInformation . 
+ 
+<http://containers/10.60.38.181/sock-shop/payment/CPU_Usage> 
+        a       :ContainerStatusInformation . 
+ 
+<http://pods/10.60.38.181/sock-shop/orders-6496fcd6f7-qcmj7/contains> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  pods_rel:contains . 
+ 
+<http://containers/10.60.38.181/sock-shop/queue-master/Network_Output_Packets> 
+        a       :ContainerStatusInformation . 
+ 
+<http://pods/10.60.38.181/sock-shop/front-end-858b4ff57-dbdck/provides> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  pods_rel:provides . 
+ 
+environment_rel:has  a      owl:ObjectProperty ; 
+        rdfs:domain         :Environment ; 
+        rdfs:range          :Server ; 
+        rdfs:subPropertyOf  environment_rel:has . 
+ 
+pods_rel:contains  a  owl:ObjectProperty ; 
+        rdfs:domain  :Pod ; 
+        rdfs:range   :Container . 
+ 
+<http://pods/10.60.38.181/sock-shop/queue-master-77d854c647-qbgwq/deployed_in> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  pods_rel:deployed_in . 
+ 
+<http://pods/10.60.38.181/sock-shop/front-end-858b4ff57-gq9k9/provides> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  pods_rel:provides . 
+ 
+<http://pods/10.60.38.181/sock-shop/front-end-858b4ff57-6md46/provides> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  pods_rel:provides . 
+ 
+<http://services/10.60.38.181/sock-shop/front-end> 
+        a       :Service . 
+ 
+<http://containers/10.60.38.181/sock-shop/rabbitmq/CPU_Usage> 
+        a       :ContainerStatusInformation . 
+ 
+<http://pods/10.60.38.181/sock-shop/shipping-65769d99d7-lmpg7> 
+        a       :Pod . 
+ 
+<http://containers/10.60.38.181/sock-shop/front-end/CPU_Usage> 
+        a       :ContainerStatusInformation . 
+ 
+<http://server/10.60.38.181/192.168.199.35> 
+        a       :Server . 
+ 
+<http://containers/10.60.38.181/sock-shop/queue-master/Network_Input_Packets> 
+        a       :ContainerStatusInformation . 
+ 
+<http://containers/10.60.38.181/sock-shop/orders/Network_Input_Packets> 
+        a       :ContainerStatusInformation . 
+ 
+<http://containers/10.60.38.181/sock-shop/session-db/Network_Output_Bytes> 
+        a       :ContainerStatusInformation . 
+ 
+namespace_rel:sock-shop 
+        a       :Namespace . 
+ 
+<http://pods/10.60.38.181/sock-shop/orders-6496fcd6f7-zt6zq/contains> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  pods_rel:contains . 
+ 
+<http://containers/10.60.38.181/sock-shop/carts/Network_Output_Bytes> 
+        a       :ContainerStatusInformation . 
+ 
+<http://pods/10.60.38.181/sock-shop/front-end-858b4ff57-lkm8b/provides> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  pods_rel:provides . 
+ 
+<http://pods/10.60.38.181/sock-shop/orders-6496fcd6f7-l9rmn/contains> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  pods_rel:contains . 
+ 
+<http://services/10.60.38.181/sock-shop/catalogue/profile> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  services_rel:profile . 
+ 
+<http://pods/10.60.38.181/sock-shop/orders-6496fcd6f7-qcmj7/deployed_in> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  pods_rel:deployed_in . 
+ 
+<http://pods/10.60.38.181/sock-shop/orders-6496fcd6f7-qcmj7> 
+        a       :Pod . 
+ 
+<http://pods/10.60.38.181/sock-shop/carts-648d5f498d-n8hzn> 
+        a       :Pod . 
+ 
+<http://services/10.60.38.181/sock-shop/orders/latency> 
+        a       :ServiceStatusInformation . 
+ 
+<http://pods/10.60.38.181/sock-shop/shipping-65769d99d7-lmpg7/provides> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  pods_rel:provides . 
+ 
+<http://containers/10.60.38.181/sock-shop/catalogue/CPU_Usage> 
+        a       :ContainerStatusInformation . 
+ 
+<http://containers/10.60.38.181/sock-shop/user/CPU_Usage> 
+        a       :ContainerStatusInformation . 
+ 
+<http://containers/10.60.38.181/sock-shop/rabbitmq/Network_Input_Bytes> 
+        a       :ContainerStatusInformation . 
+ 
+<http://pods/10.60.38.181/sock-shop/carts-db-64b6cc584f-zd6zz/deployed_in> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  pods_rel:deployed_in . 
+ 
+<http://containers/10.60.38.181/sock-shop/carts/MEM_Usage> 
+        a       :ContainerStatusInformation . 
+ 
+<http://pods/10.60.38.181/sock-shop/rabbitmq-6cf767fcc4-9j5vn/contains> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  pods_rel:contains . 
+ 
+<http://containers/10.60.38.181/sock-shop/catalogue/Network_Output_Packets> 
+        a       :ContainerStatusInformation . 
+ 
+<http://pods/10.60.38.181/sock-shop/session-db-6b57d5cc79-gjxvb/deployed_in> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  pods_rel:deployed_in . 
+ 
+<http://containers/10.60.38.181/sock-shop/shipping/Network_Input_Bytes> 
+        a       :ContainerStatusInformation . 
+ 
+<http://pods/10.60.38.181/sock-shop/catalogue-b8587c9c5-wfvkt/contains> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  pods_rel:contains . 
+ 
+<http://pods/10.60.38.181/sock-shop/catalogue-b8587c9c5-wfvkt> 
+        a       :Pod . 
+ 
+<http://containers/10.60.38.181/sock-shop/queue-master/profile> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  containers_rel:profile . 
+ 
+<http://containers/10.60.38.181/sock-shop/queue-master/Network_Output_Bytes> 
+        a       :ContainerStatusInformation . 
+ 
+<http://containers/10.60.38.181/sock-shop/catalogue/Network_Input_Bytes> 
+        a       :ContainerStatusInformation . 
+ 
+<http://containers/10.60.38.181/sock-shop/catalogue> 
+        a       :Container . 
+ 
+<http://pods/10.60.38.181/sock-shop/front-end-858b4ff57-dbdck/contains> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  pods_rel:contains . 
+ 
+<http://containers/10.60.38.181/sock-shop/carts/Network_Input_Packets> 
+        a       :ContainerStatusInformation . 
+ 
+<http://services/10.60.38.181/sock-shop/user/profile> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  services_rel:profile . 
+ 
+<http://services/10.60.38.181/sock-shop/queue-master/latency> 
+        a       :ServiceStatusInformation . 
+ 
+<http://pods/10.60.38.181/sock-shop/front-end-858b4ff57-gq9k9/contains> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  pods_rel:contains . 
+ 
+<http://pods/10.60.38.181/sock-shop/payment-6c698f689b-vlkhq> 
+        a       :Pod . 
+ 
+<http://pods/10.60.38.181/sock-shop/front-end-858b4ff57-6md46/contains> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  pods_rel:contains . 
+ 
+<http://containers/10.60.38.181/sock-shop/carts/Network_Input_Bytes> 
+        a       :ContainerStatusInformation . 
+ 
+<http://containers/10.60.38.181/sock-shop/queue-master/CPU_Usage> 
+        a       :ContainerStatusInformation . 
+ 
+:Namespace  a  owl:Class . 
+ 
+<http://containers/10.60.38.181/sock-shop/payment/profile> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  containers_rel:profile . 
+ 
+<http://services/10.60.38.181/sock-shop/user> 
+        a       :Service . 
+ 
+<http://pods/10.60.38.181/sock-shop/user-d4cb47c5f-8srcb/provides> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  pods_rel:provides . 
+ 
+<http://services/10.60.38.181/sock-shop/payment/profile> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  services_rel:profile . 
+ 
+<http://pods/10.60.38.181/sock-shop/carts-648d5f498d-n8hzn/deployed_in> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  pods_rel:deployed_in . 
+ 
+<http://containers/10.60.38.181/sock-shop/orders/CPU_Usage> 
+        a       :ContainerStatusInformation . 
+ 
+<http://services/10.60.38.181/sock-shop/shipping/success_rate> 
+        a       :ServiceStatusInformation . 
+ 
+<http://containers/10.60.38.181/sock-shop/front-end> 
+        a       :Container . 
+ 
+<http://pods/10.60.38.181/sock-shop/front-end-858b4ff57-lkm8b/deployed_in> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  pods_rel:deployed_in . 
+ 
+<http://containers/10.60.38.181/sock-shop/payment/MEM_Usage> 
+        a       :ContainerStatusInformation . 
+ 
+<http://services/10.60.38.181/sock-shop/carts/profile> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  services_rel:profile . 
+ 
+<http://pods/10.60.38.181/sock-shop/user-d4cb47c5f-8srcb/deployed_in> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  pods_rel:deployed_in . 
+ 
+<http://pods/10.60.38.181/sock-shop/user-db-6ccbdb454c-q9dxm/provides> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  pods_rel:provides . 
+ 
+<http://containers/10.60.38.181/sock-shop/orders/Network_Input_Bytes> 
+        a       :ContainerStatusInformation . 
+ 
+<http://server/10.60.38.181/192.168.199.33> 
+        a       :Server . 
+ 
+<http://pods/10.60.38.181/sock-shop/front-end-858b4ff57-lkm8b/contains> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  pods_rel:contains . 
+ 
+<http://services/10.60.38.181/sock-shop/user/latency> 
+        a       :ServiceStatusInformation . 
+ 
+<http://pods/10.60.38.181/sock-shop/carts-db-64b6cc584f-zd6zz> 
+        a       :Pod . 
+ 
+<http://pods/10.60.38.181/sock-shop/session-db-6b57d5cc79-gjxvb> 
+        a       :Pod . 
+ 
+<http://containers/10.60.38.181/sock-shop/carts> 
+        a       :Container . 
+ 
+<http://containers/10.60.38.181/sock-shop/rabbitmq/Network_Output_Bytes> 
+        a       :ContainerStatusInformation . 
+ 
+:Container  a  owl:Class . 
+ 
+<http://containers/10.60.38.181/sock-shop/front-end/MEM_Usage> 
+        a       :ContainerStatusInformation . 
+ 
+<http://containers/10.60.38.181/sock-shop/session-db/profile> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  containers_rel:profile . 
+ 
+<http://pods/10.60.38.181/sock-shop/shipping-65769d99d7-lmpg7/contains> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  pods_rel:contains . 
+ 
+<http://pods/10.60.38.181/sock-shop/orders-6496fcd6f7-tw8sm> 
+        a       :Pod . 
+ 
+<http://pods/10.60.38.181/sock-shop/front-end-858b4ff57-gq9k9> 
+        a       :Pod . 
+ 
+<http://containers/10.60.38.181/sock-shop/front-end/Network_Input_Bytes> 
+        a       :ContainerStatusInformation . 
+ 
+<http://pods/10.60.38.181/sock-shop/user-d4cb47c5f-8srcb> 
+        a       :Pod . 
+ 
+<http://pods/10.60.38.181/sock-shop/payment-6c698f689b-vlkhq/contains> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  pods_rel:contains . 
+ 
+<http://pods/10.60.38.181/sock-shop/orders-6496fcd6f7-fqnjt/provides> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  pods_rel:provides . 
+ 
+<http://containers/10.60.38.181/sock-shop/shipping/Network_Output_Packets> 
+        a       :ContainerStatusInformation . 
+ 
+<http://pods/10.60.38.181/sock-shop/front-end-858b4ff57-55bg5> 
+        a       :Pod . 
+ 
+<http://pods/10.60.38.181/sock-shop/user-db-6ccbdb454c-q9dxm/deployed_in> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  pods_rel:deployed_in . 
+ 
+<http://containers/10.60.38.181/sock-shop/payment> 
+        a       :Container . 
+ 
+<http://pods/10.60.38.181/sock-shop/catalogue-db-99cbcbb88-wl52p/provides> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  pods_rel:provides . 
+ 
+<http://pods/10.60.38.181/sock-shop/carts-648d5f498d-n8hzn/provides> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  pods_rel:provides . 
+ 
+<http://containers/10.60.38.181/sock-shop/session-db/Network_Input_Bytes> 
+        a       :ContainerStatusInformation . 
+ 
+<http://pods/10.60.38.181/sock-shop/catalogue-b8587c9c5-wfvkt/deployed_in> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  pods_rel:deployed_in . 
+ 
+<http://pods/10.60.38.181/sock-shop/catalogue-db-99cbcbb88-wl52p/deployed_in> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  pods_rel:deployed_in . 
+ 
+:Pod  a       owl:Class . 
+ 
+<http://containers/10.60.38.181/sock-shop/user/Network_Input_Bytes> 
+        a       :ContainerStatusInformation . 
+ 
+<http://containers/10.60.38.181/sock-shop/front-end/profile> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  containers_rel:profile . 
+ 
+<http://services/10.60.38.181/sock-shop/catalogue/success_rate> 
+        a       :ServiceStatusInformation . 
+ 
+<http://services/10.60.38.181/sock-shop/session-db/latency> 
+        a       :ServiceStatusInformation . 
+ 
+<http://services/10.60.38.181/sock-shop/rabbitmq/profile> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  services_rel:profile . 
+ 
+<http://containers/10.60.38.181/sock-shop/rabbitmq> 
+        a       :Container . 
+ 
+<http://containers/10.60.38.181/sock-shop/payment/Network_Input_Bytes> 
+        a       :ContainerStatusInformation . 
+ 
+<http://containers/10.60.38.181/sock-shop/catalogue/MEM_Usage> 
+        a       :ContainerStatusInformation . 
+ 
+<http://containers/10.60.38.181/sock-shop/user/MEM_Usage> 
+        a       :ContainerStatusInformation . 
+ 
+<http://pods/10.60.38.181/sock-shop/orders-db-86f5c494b9-xvvhr> 
+        a       :Pod . 
+ 
+namespace_rel:monitoring 
+        a       :Namespace . 
+ 
+<http://pods/10.60.38.181/sock-shop/user-d4cb47c5f-8srcb/contains> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  pods_rel:contains . 
+ 
+<http://pods/10.60.38.181/sock-shop/orders-6496fcd6f7-tw8sm/provides> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  pods_rel:provides . 
+ 
+<http://services/10.60.38.181/sock-shop/shipping> 
+        a       :Service . 
+ 
+<http://pods/10.60.38.181/sock-shop/orders-6496fcd6f7-fqnjt/deployed_in> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  pods_rel:deployed_in . 
+ 
+<http://pods/10.60.38.181/sock-shop/front-end-858b4ff57-dbdck/deployed_in> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  pods_rel:deployed_in . 
+ 
+<http://pods/10.60.38.181/sock-shop/orders-6496fcd6f7-tw8sm/deployed_in> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  pods_rel:deployed_in . 
+ 
+<http://containers/10.60.38.181/sock-shop/session-db/CPU_Usage> 
+        a       :ContainerStatusInformation . 
+ 
+<http://services/10.60.38.181/sock-shop/shipping/latency> 
+        a       :ServiceStatusInformation . 
+ 
+<http://pods/10.60.38.181/sock-shop/orders-6496fcd6f7-zt6zq> 
+        a       :Pod . 
+ 
+<http://pods/10.60.38.181/sock-shop/user-db-6ccbdb454c-q9dxm/contains> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  pods_rel:contains . 
+ 
+<http://containers/10.60.38.181/sock-shop/orders/profile> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  containers_rel:profile . 
+ 
+:Server  a    owl:Class . 
+ 
+<http://containers/10.60.38.181/sock-shop/queue-master/MEM_Usage> 
+        a       :ContainerStatusInformation . 
+ 
+<http://containers/10.60.38.181/sock-shop/catalogue/profile> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  containers_rel:profile . 
+ 
+<http://containers/10.60.38.181/sock-shop/rabbitmq/Network_Input_Packets> 
+        a       :ContainerStatusInformation . 
+ 
+<http://services/10.60.38.181/sock-shop/orders> 
+        a       :Service . 
+ 
+<http://containers/10.60.38.181/sock-shop/queue-master> 
+        a       :Container . 
+ 
+<http://containers/10.60.38.181/sock-shop/payment/Network_Input_Packets> 
+        a       :ContainerStatusInformation . 
+ 
+<http://pods/10.60.38.181/sock-shop/rabbitmq-6cf767fcc4-9j5vn/deployed_in> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  pods_rel:deployed_in . 
+ 
+<http://containers/10.60.38.181/sock-shop/user/Network_Output_Packets> 
+        a       :ContainerStatusInformation . 
+ 
+<http://server/10.60.38.181/192.168.199.31> 
+        a       :Server . 
+ 
+<http://containers/10.60.38.181/sock-shop/orders/MEM_Usage> 
+        a       :ContainerStatusInformation . 
+ 
+<http://services/10.60.38.181/sock-shop/front-end/latency> 
+        a       :ServiceStatusInformation . 
+ 
+<http://pods/10.60.38.181/sock-shop/carts-db-64b6cc584f-zd6zz/provides> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  pods_rel:provides . 
+ 
+servers_rel:manage  a  owl:ObjectProperty ; 
+        rdfs:domain  :Server ; 
+        rdfs:range   :Server . 
+ 
+<http://pods/10.60.38.181/sock-shop/orders-db-86f5c494b9-xvvhr/deployed_in> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  pods_rel:deployed_in . 
+ 
+<http://containers/10.60.38.181/sock-shop/user/Network_Input_Packets> 
+        a       :ContainerStatusInformation . 
+ 
+<http://pods/10.60.38.181/sock-shop/catalogue-db-99cbcbb88-wl52p/contains> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  pods_rel:contains . 
+ 
+<http://pods/10.60.38.181/sock-shop/carts-648d5f498d-n8hzn/contains> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  pods_rel:contains . 
+ 
+<http://pods/10.60.38.181/sock-shop/session-db-6b57d5cc79-gjxvb/provides> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  pods_rel:provides . 
+ 
+<http://containers/10.60.38.181/sock-shop/shipping/Network_Input_Packets> 
+        a       :ContainerStatusInformation . 
+ 
+<http://services/10.60.38.181/sock-shop/queue-master/success_rate> 
+        a       :ServiceStatusInformation . 
+ 
+<http://services/10.60.38.181/sock-shop/orders/profile> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  services_rel:profile . 
+ 
+<http://containers/10.60.38.181/sock-shop/front-end/Network_Output_Packets> 
+        a       :ContainerStatusInformation . 
+ 
+<http://services/10.60.38.181/sock-shop/payment> 
+        a       :Service . 
+ 
+<http://pods/10.60.38.181/sock-shop/front-end-858b4ff57-dbdck> 
+        a       :Pod . 
+ 
+<http://containers/10.60.38.181/sock-shop/user> 
+        a       :Container . 
+ 
+<http://pods/10.60.38.181/sock-shop/front-end-858b4ff57-6md46/deployed_in> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  pods_rel:deployed_in . 
+ 
+<http://services/10.60.38.181/sock-shop/queue-master> 
+        a       :Service . 
+ 
+<http://containers/10.60.38.181/sock-shop/orders/Network_Output_Packets> 
+        a       :ContainerStatusInformation . 
+ 
+<http://server/10.60.38.181/192.168.199.191> 
+        a       :Server . 
+ 
+<http://pods/10.60.38.181/sock-shop/orders-6496fcd6f7-tw8sm/contains> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  pods_rel:contains . 
+ 
+<http://pods/10.60.38.181/sock-shop/front-end-858b4ff57-gq9k9/deployed_in> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  pods_rel:deployed_in . 
+ 
+<http://containers/10.60.38.181/sock-shop/front-end/Network_Input_Packets> 
+        a       :ContainerStatusInformation . 
+ 
+<http://pods/10.60.38.181/sock-shop/user-db-6ccbdb454c-q9dxm> 
+        a       :Pod . 
+ 
+<http://containers/10.60.38.181/sock-shop/orders> 
+        a       :Container . 
+ 
+<http://services/10.60.38.181/sock-shop/catalogue/latency> 
+        a       :ServiceStatusInformation . 
+ 
+<http://containers/10.60.38.181/sock-shop/user/profile> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  containers_rel:profile . 
+ 
+<http://containers/10.60.38.181/sock-shop/shipping/Network_Output_Bytes> 
+        a       :ContainerStatusInformation . 
+ 
+<http://server/10.60.38.181/192.168.199.34> 
+        a       :Server . 
+ 
+<http://pods/10.60.38.181/sock-shop/front-end-858b4ff57-6md46> 
+        a       :Pod . 
+ 
+<http://containers/10.60.38.181/sock-shop/session-db> 
+        a       :Container . 
+ 
+<http://containers/10.60.38.181/sock-shop/shipping/CPU_Usage> 
+        a       :ContainerStatusInformation . 
+ 
+<http://services/10.60.38.181/sock-shop/queue-master/profile> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  services_rel:profile . 
+ 
+<http://pods/10.60.38.181/sock-shop/front-end-858b4ff57-55bg5/provides> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  pods_rel:provides . 
+ 
+pods_rel:deployed_in  a  owl:ObjectProperty ; 
+        rdfs:domain  :Pod ; 
+        rdfs:range   :Server . 
+ 
+<http://pods/10.60.38.181/sock-shop/payment-6c698f689b-vlkhq/provides> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  pods_rel:provides . 
+ 
+<http://pods/10.60.38.181/sock-shop/orders-6496fcd6f7-fqnjt> 
+        a       :Pod . 
+ 
+<http://pods/10.60.38.181/sock-shop/orders-6496fcd6f7-l9rmn/deployed_in> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  pods_rel:deployed_in . 
+ 
+<http://services/10.60.38.181/sock-shop/session-db> 
+        a       :Service . 
+ 
+<http://containers/10.60.38.181/sock-shop/rabbitmq/Network_Output_Packets> 
+        a       :ContainerStatusInformation . 
+ 
+:ContainerStatusInformation 
+        a       owl:Class . 
+ 
+<http://pods/10.60.38.181/sock-shop/carts-db-64b6cc584f-zd6zz/contains> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  pods_rel:contains . 
+ 
+<http://pods/10.60.38.181/sock-shop/rabbitmq-6cf767fcc4-9j5vn> 
+        a       :Pod . 
+ 
+<http://namespace/10.60.38.181/monitoring/supervises> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  namespace_rel:supervises . 
+ 
+<http://pods/10.60.38.181/sock-shop/payment-6c698f689b-vlkhq/deployed_in> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  pods_rel:deployed_in . 
+ 
+services_rel:profile  a  owl:ObjectProperty ; 
+        rdfs:domain  :Service ; 
+        rdfs:range   :ServiceStatusInformation . 
+ 
+<http://containers/10.60.38.181/sock-shop/carts/profile> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  containers_rel:profile . 
+ 
+<http://containers/10.60.38.181/sock-shop/session-db/MEM_Usage> 
+        a       :ContainerStatusInformation . 
+ 
+<http://services/10.60.38.181/sock-shop/rabbitmq/success_rate> 
+        a       :ServiceStatusInformation . 
+ 
+<http://containers/10.60.38.181/sock-shop/orders/Network_Output_Bytes> 
+        a       :ContainerStatusInformation . 
+ 
+<http://pods/10.60.38.181/sock-shop/queue-master-77d854c647-qbgwq> 
+        a       :Pod . 
+ 
+<http://containers/10.60.38.181/sock-shop/rabbitmq/MEM_Usage> 
+        a       :ContainerStatusInformation . 
+ 
+<http://pods/10.60.38.181/sock-shop/session-db-6b57d5cc79-gjxvb/contains> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  pods_rel:contains . 
+ 
+containers_rel:profile 
+        a            owl:ObjectProperty ; 
+        rdfs:domain  :Container ; 
+        rdfs:range   :ContainerStatusInformation . 
+ 
+<http://pods/10.60.38.181/sock-shop/shipping-65769d99d7-lmpg7/deployed_in> 
+        a                   owl:ObjectProperty ; 
+        rdfs:subPropertyOf  pods_rel:deployed_in . 
+ 
+:Environment  a  owl:Class . 
+ 
+<http://containers/10.60.38.181/sock-shop/carts/Network_Output_Packets> 
+        a       :ContainerStatusInformation . 

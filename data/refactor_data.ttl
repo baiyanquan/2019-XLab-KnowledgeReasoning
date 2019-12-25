@@ -74,9 +74,8 @@ services_rel:ss_profile
 <:Namespace>
     a owl:Class .
 
-<http://services/10.60.38.181/sock-shop/session-db>
-    rdf:type :Service
-        <http://containers/10.60.38.181/sock-shop/carts-db/Network_Input_Packets> rdf:type :Container
+<http://services/10.60.38.181/sock-shop/session-db> rdf:type :Service
+<http://containers/10.60.38.181/sock-shop/carts-db/Network_Input_Packets> rdf:type :Container
 <http://services/10.60.38.181/sock-shop/front-end-external/success_rate> rdf:type :Service
 <http://containers/10.60.38.181/sock-shop/user/MEM_Usage> rdf:type :Container
 <http://services/10.60.38.181/sock-shop/carts-db> rdf:type :Service

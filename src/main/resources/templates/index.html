@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="../jquery.js"></script>
+<script src="../jquery-1.7.1.js"></script>
+
+
+<script type="text/javascript">
+
+    function test(){
+        //把data拿到后端
+        alert("ddd")
+        $.ajax({
+            type : "POST",
+            dataType : "json",
+            url : "query",     //请求的url。与后端@Request Mapping注解中的值一致。
+            headers : {   'Content-Type' : 'application/x-www-form-urlencoded;charset=UTF-8'
+            },
+            data :{
+                "queryString" : "query",
+            },                    //上传的参数
+
+            success : function(data) {
+                //请求成功的回调函
+                if (data.code === 0){
+                    alert("成功");
+                    window.location.href = "success";
+                }
+            },
+            error : function(e) {           //请求失败的回调函数
+                console.log(e);
+            }
+        });
+
+    }
+</script>
+
+<body>
+<button type="submit" id="btn" onclick="test();">btn</button>
+
+</body>
+</html>
