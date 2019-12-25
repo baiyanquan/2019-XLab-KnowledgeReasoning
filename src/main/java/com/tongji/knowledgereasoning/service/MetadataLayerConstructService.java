@@ -1,6 +1,7 @@
 package com.tongji.knowledgereasoning.service;
 
 import com.tongji.knowledgereasoning.dao.LabDao;
+import com.tongji.knowledgereasoning.dao.NeoDao;
 import com.tongji.knowledgereasoning.util.FusekiDao;
 import com.tongji.knowledgereasoning.util.Operations;
 import org.apache.jena.ontology.OntClass;
@@ -31,6 +32,9 @@ import java.util.function.Predicate;
 public class MetadataLayerConstructService {
     @Autowired
     private LabDao labDao = new LabDao();
+
+    @Autowired
+    private NeoDao neoDao;
 
     private OntModel ontModel;
 
@@ -259,7 +263,6 @@ public class MetadataLayerConstructService {
             }
         }
 
-        System.out.println("\n");
         //写入文件
         try {
             FileWriter fwriter = new FileWriter("data/newOntology.ttl");     //没有文件会自动创建
@@ -270,6 +273,9 @@ public class MetadataLayerConstructService {
 
 //        refactorRelation();
         refactorTypo();
+
+        String ttlInsert = "CALL semantics.importRDF('file:///F:/IDEA/2019-XLab-KnowledgeReasoning/data/newOntology_fix_typo.ttl','Turtle', {shortenUrls: true})";
+        neoDao.updateTriplesInNeo4j(ttlInsert);
     }
 
     public static void main(String[] args) {

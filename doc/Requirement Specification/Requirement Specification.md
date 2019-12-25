@@ -138,7 +138,7 @@ Users who use our knowledge reasoning system can use ontology reasoning to perfe
 
 #### Description
 
-Rule reasoning is carried out on the knowledge graph and the reasoning result based on rules will return to users. This use case plays a significant role in perfect knowledge in x-lab because we can use it to find konwledge or write new knowledge to the database.
+Rule reasoning is carried out on the knowledge graph and the reasoning result based on rules will return to users. This use case plays a significant role in perfect knowledge in x-lab because we can use it to find or write new knowledge to the database.
 
 #### Participants
 
@@ -154,9 +154,10 @@ Users who use our knowledge reasoning system.
 - Konwledge based on rules will be find and return to users.
 
 #### Process Flow
-
-1. Reading data from x-lab database.
-2. Start rule reasoning based on the rules user entered.
+1. User enters rules.
+2. Reading data from x-lab database.
+3. Start rule reasoning based on the rules user entered.
+4. Write reasoning result into database.
 3. Return rule reasoning result to users.
 
 <img src="Resources/Rule_reasoning_flow_chart.png" alt="Rule_reasoning_flow_chart" style="zoom:50%;" />
@@ -201,11 +202,11 @@ Users who use our knowledge reasoning system.
 
 #### Description
 
-Query Event is carried out on the knowledge graph and the query result will return to users. This use case plays a significant role in perfect knowledge in x-lab because we can use it to find failure component.
+Query Event is carried out on the knowledge graph and the query result will return to users. This use case plays a significant role in perfect knowledge in x-lab because we can use it to find failure components.
 
 #### Participants
 
-Users who use our knowledge reasoning system can use query usecase to get the failure component of the knowledge database.
+Users who use our knowledge reasoning system can use the query usecase to get the failure components of the knowledge database.
 
 #### Pre-condition (Optional)
 
@@ -217,9 +218,10 @@ Users who use our knowledge reasoning system can use query usecase to get the fa
 
 #### Process Flow
 
-1. Reading data from x-lab database.
-2. Start query operation.
-3. Return query result to users.
+1. User enters query  statement.
+2. Reading data from x-lab database.
+3. Start query operation.
+4. Return query result to users.
 
 <img src="Resources/Query_flow_chart.png" alt="Query_flow_chart" style="zoom:50%;" />
 
