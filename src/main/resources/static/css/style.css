@@ -1,0 +1,88 @@
+html{
+    height: 100%;
+}
+
+body{
+    height: 100%;
+}
+
+.container{
+    height: 80%;
+    width: 80%;
+    margin: auto;
+    margin-top: 5%;
+}
+
+.shadow-box{
+    height: 100%;
+    width: 100%;
+    box-shadow: 0 8px 8px rgba(0,0,0,.28);
+    background-color: rgba(255, 255, 255, 0.5);
+    z-index: 1;
+    display: inline-block;
+}
+
+
+.part{
+    height: 20%;
+    /* width: 80% */
+    margin: auto;
+    margin-bottom: 3%;
+}
+
+.part .description{
+    height: 100%;
+    width: 30%;
+    float: left;
+    text-align: center;
+}
+
+.description-text{
+    margin-top: 10px;
+}
+
+.part .input{
+    height: 100%;
+    width: 50%;
+    float: left;
+    text-align: center;
+    margin-top: 1%;
+}
+
+.part .action{
+    height: 100%;
+    width: 20%;
+    float: left;
+    text-align: center;
+}
+
+.part .clear{
+    clear: both;
+}
+
+.submit-button{
+    width: 120px; /* 宽度 */
+	height: 40px; /* 高度 */
+	border-width: 0px; /* 边框宽度 */
+	border-radius: 3px; /* 边框半径 */
+	background: #1E90FF; /* 背景颜色 */
+	cursor: pointer; /* 鼠标移入按钮范围时出现手势 */
+	outline: none; /* 不显示轮廓线 */
+	font-family: Microsoft YaHei; /* 设置字体 */
+	color: white; /* 字体颜色 */
+    font-size: 17px; /* 字体大小 */
+    
+    margin-top: 20%;
+}
+
+.submit-button:hover{
+    background: #5599FF;
+}
+
+.metadata form{
+    width: 100%;
+}
+
+.input textarea{
+    resize: none;
+}

@@ -339,7 +339,8 @@ import java.util.Vector;
         neoDao.updateTriplesInNeo4j(ttlInsert);
     }
 
-    public void OntologyReasoning() throws FileNotFoundException {
+    public Vector OntologyReasoning() throws FileNotFoundException {
+        System.out.println("OntologyReasoning.....");
         //本体推理代码（在整合到构建本体文件代码时移除）
         Model fusionModel = ModelFactory.createDefaultModel();
 
@@ -354,6 +355,10 @@ import java.util.Vector;
         InfModel infModel = ModelFactory.createInfModel(reasoner, fusionModel);
 
         Operations.outputAllTriples_to_ttl(infModel, "data/newOntology_after_reasoning.ttl");
+
+        return Operations.outputAllTriples(infModel);
+//        String ttlInsert = "CALL semantics.importRDF('file:///F:/IDEA/2019-XLab-KnowledgeReasoning/data/Ontology Reasoning/newOntology_after_reasoning.ttl','Turtle', {shortenUrls: true})";
+//        neoDao.updateTriplesInNeo4j(ttlInsert);
     }
 
     public static void main(String[] args) throws IOException {

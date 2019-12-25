@@ -103,7 +103,7 @@ public class RuleReasonerServiceImp implements RuleReasonerService {
                 //System.out.println(predicate);
                 model.add(model.createResource(subject), model.createProperty(predicate), model.createResource(object));
             }
-            writeToFile(model,"data/Neo4jData.ttl");
+            //writeToFile(model,"data/Neo4jData.ttl");
         } catch (Exception e) {
             e.printStackTrace();
         }

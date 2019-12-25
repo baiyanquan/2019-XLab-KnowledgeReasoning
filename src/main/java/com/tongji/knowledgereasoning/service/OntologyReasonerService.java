@@ -2,6 +2,7 @@ package com.tongji.knowledgereasoning.service;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Vector;
 
 public interface OntologyReasonerService {
     void readOriginData();
@@ -16,5 +17,5 @@ public interface OntologyReasonerService {
 
     void write_origin_data_to_neo4j();
 
-    void OntologyReasoning() throws FileNotFoundException;
+    Vector OntologyReasoning() throws FileNotFoundException;
 }
