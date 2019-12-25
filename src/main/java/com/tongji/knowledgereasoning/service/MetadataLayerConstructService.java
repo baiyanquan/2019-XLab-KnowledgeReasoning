@@ -271,11 +271,11 @@ public class MetadataLayerConstructService {
             e.printStackTrace();
         }
 
-//        refactorRelation();
+        refactorRelation();
         refactorTypo();
 
-        String ttlInsert = "CALL semantics.importRDF('file:///F:/IDEA/2019-XLab-KnowledgeReasoning/data/newOntology_fix_typo.ttl','Turtle', {shortenUrls: true})";
-        neoDao.updateTriplesInNeo4j(ttlInsert);
+//        String ttlInsert = "CALL semantics.importRDF('file:///F:/IDEA/2019-XLab-KnowledgeReasoning/data/newOntology_fix_typo.ttl','Turtle', {shortenUrls: true})";
+//        neoDao.updateTriplesInNeo4j(ttlInsert);
     }
 
     public static void main(String[] args) {
