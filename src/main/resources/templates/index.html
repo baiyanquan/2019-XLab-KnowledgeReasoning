@@ -1,45 +1,102 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Knowledge Reasoing Front-End</title>
+
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery-1.7.1.js"></script>
+    <script src="js/main.js"></script>
+    <script src="/js/Ontology.js"></script>
 </head>
-<script src="../jquery.js"></script>
-<script src="../jquery-1.7.1.js"></script>
+<body background="../img/bg.jpg">
+<div class="container">
+    <div class="shadow-box">
+        <div class="part metadata" >
+            <div class="description">
+                <p class="description-text">构建元数据层的描述</p>
+            </div>
 
+            <div class="input">
 
-<script type="text/javascript">
+            </div>
 
-    function test(){
-        //把data拿到后端
-        alert("ddd")
-        $.ajax({
-            type : "POST",
-            dataType : "json",
-            url : "query",     //请求的url。与后端@Request Mapping注解中的值一致。
-            headers : {   'Content-Type' : 'application/x-www-form-urlencoded;charset=UTF-8'
-            },
-            data :{
-                "queryString" : "query",
-            },                    //上传的参数
+            <div class="action">
+                <button class="submit-button">构建元数据层</button>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="part ontology">
+            <div class="description">
+                <p class="description-text">本体推理的描述</p>
+            </div>
 
-            success : function(data) {
-                //请求成功的回调函
-                if (data.code === 0){
-                    alert("成功");
-                    window.location.href = "success";
-                }
-            },
-            error : function(e) {           //请求失败的回调函数
-                console.log(e);
-            }
-        });
+            <div class="input">
 
-    }
-</script>
+            </div>
 
-<body>
-<button type="submit" id="btn" onclick="test();">btn</button>
+            <div class="action">
+                <button class="submit-button" onclick="OntologyClick();">本体推理</button>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="part requery">
+            <div class="description">
+                <p class="description-text">查询的描述</p>
+            </div>
+
+            <div class="input">
+                <form>
+                    <textarea rows="7" cols="50" placeholder="请输入你的查询表达式"></textarea>
+                </form>
+            </div>
+
+            <div class="action">
+                <button class="submit-button">查询</button>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="part rule">
+            <div class="description" >
+                <p class="description-text">规则的描述</p>
+            </div>
+
+            <div class="input">
+                <form>
+                    <textarea rows="7" cols="50" placeholder="请输入你的查询规则"></textarea>
+                </form>
+            </div>
+
+            <div class="action">
+                <button class="submit-button">规则推理</button>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
 
 </body>
+<script>
+    let jsonObj = {"username":"Ed sheeran", "password":"123"};
+    /*
+        Jquery默认Content-Type为application/x-www-form-urlencoded类型
+     */
+    $.ajax({
+        type: 'POST',
+        url: "/result",
+        dataType: "json",
+        data: JSON.stringify(jsonObj),
+        contentType : "application/json",
+        success: function(data) {
+            console.log(data);
+        },
+        error: function() {
+            console.log("error...");
+        }
+    });
+</script>
 </html>

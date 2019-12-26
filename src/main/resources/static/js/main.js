@@ -1,0 +1,1 @@
+document.documentElement.style.overflow='hidden';   //禁止页面滚动
