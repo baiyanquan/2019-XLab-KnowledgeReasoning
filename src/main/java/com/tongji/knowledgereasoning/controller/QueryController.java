@@ -23,7 +23,7 @@ public class QueryController {
     @Autowired
     private QueryService queryService;
 
-    @RequestMapping(value = "/query", method = RequestMethod.POST)
+    @RequestMapping(value = "/query-test", method = RequestMethod.POST)
     public List<String> query(@RequestParam("queryString")String query) {
         System.out.println("yes");
         return queryService.Query(query);

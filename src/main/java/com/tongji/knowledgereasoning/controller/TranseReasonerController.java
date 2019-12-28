@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping({"/transe-reasoner"})
+@RequestMapping({"/transe-reasoner-test"})
 public class TranseReasonerController {
     @Autowired
     private TranseService transeService;

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping({"/metadata-layer-construct"})
+@RequestMapping({"/metadata-layer-construct-test"})
 public class MetadataLayerConstructController {
     @Autowired
     private MetadataLayerConstructService metadataLayerConstructService;

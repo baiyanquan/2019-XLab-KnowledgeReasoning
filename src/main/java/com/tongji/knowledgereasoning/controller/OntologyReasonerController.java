@@ -16,7 +16,7 @@ import java.io.IOException;
  **/
 
 @RestController
-@RequestMapping({"/ontology-reasoner"})
+@RequestMapping({"/ontology-reasoner-test"})
 public class OntologyReasonerController {
 
     @Autowired
