@@ -84,13 +84,14 @@ public class QueryService {
         // 执行查询，获得结果
         QueryExecution qe = QueryExecutionFactory.create(propertyPathQuery, model);
         org.apache.jena.query.ResultSet resultSet = qe.execSelect();//select 类型
-        if(query.contains("?o")) {
-            while (resultSet.hasNext()) {
-                QuerySolution qs = resultSet.next();
-                String object = qs.get("o").toString();
-                queryResult.add(object);
-            }
-        }else if(query.contains("?s")){
+//        if(query.contains("?o")) {
+//            while (resultSet.hasNext()) {
+//                QuerySolution qs = resultSet.next();
+//                String object = qs.get("o").toString();
+//                queryResult.add(object);
+//            }
+//        }else
+        if(query.contains("?s")){
             while (resultSet.hasNext()) {
                 QuerySolution qs = resultSet.next();
                 String object = qs.get("s").toString();

@@ -75,7 +75,7 @@ public class RuleReasonerServiceImp implements RuleReasonerService {
                 String object = rs.getString(3);
 
                 if(predicate.equals("ns1__contains")){
-                    predicate = "http://pods/10.60.38.181/constains";
+                    predicate = "http://pods/10.60.38.181/contains";
                 }else if(predicate.equals("ns1__deployed_in")){
                     predicate = "http://pods/10.60.38.181/deployed_in";
                 }else if(predicate.equals("ns1__provides")){
@@ -110,6 +110,7 @@ public class RuleReasonerServiceImp implements RuleReasonerService {
 
         Model modelAfterReason = reasoner(model, rules);
         String triples = TriplesToJson(modelAfterReason);
+        System.out.println(triples);
         String ttlInsert = "CALL semantics.importRDF('file:///F:/IDEA/2019-XLab-KnowledgeReasoning/data/RuleReasoning/RuleReasonResult.ttl','Turtle', {shortenUrls: true})";
         neoDao.updateTriplesInNeo4j(ttlInsert);
         return triples;

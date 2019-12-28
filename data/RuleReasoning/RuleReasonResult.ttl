@@ -1,41 +1,87 @@
-<http://containers/10.60.38.181/sock-shop/catalogue>
-    <http://containers/10.60.38.181/supports> <http://services/10.60.38.181/sock-shop/catalogue> .
+<http://pods/10.60.38.181/sock-shop/orders-6496fcd6f7-qcmj7>
+        <http://pods/10.60.38.181/provides>
+                <http://containers/10.60.38.181/sock-shop/orders> .
 
-<http://containers/10.60.38.181/sock-shop/rabbitmq>
-    <http://containers/10.60.38.181/supports> <http://services/10.60.38.181/sock-shop/rabbitmq> .
+<http://pods/10.60.38.181/sock-shop/catalogue-b8587c9c5-wfvkt>
+        <http://pods/10.60.38.181/provides>
+                <http://containers/10.60.38.181/sock-shop/catalogue> .
 
-<http://containers/10.60.38.181/sock-shop/payment>
-    <http://containers/10.60.38.181/supports> <http://services/10.60.38.181/sock-shop/payment> .
+<http://pods/10.60.38.181/sock-shop/user-db-6ccbdb454c-q9dxm>
+        <http://pods/10.60.38.181/provides>
+                <http://containers/10.60.38.181/sock-shop/user-db> .
 
-<http://containers/10.60.38.181/sock-shop/orders-db>
-    <http://containers/10.60.38.181/supports> <http://services/10.60.38.181/sock-shop/orders-db> .
+<http://pods/10.60.38.181/sock-shop/rabbitmq-6cf767fcc4-9j5vn>
+        <http://pods/10.60.38.181/provides>
+                <http://containers/10.60.38.181/sock-shop/rabbitmq> .
 
-<http://containers/10.60.38.181/sock-shop/queue-master>
-    <http://containers/10.60.38.181/supports> <http://services/10.60.38.181/sock-shop/queue-master> .
+<http://pods/10.60.38.181/sock-shop/front-end-858b4ff57-6md46>
+        <http://pods/10.60.38.181/provides>
+                <http://containers/10.60.38.181/sock-shop/front-end> .
 
-<http://containers/10.60.38.181/sock-shop/front-end>
-    <http://containers/10.60.38.181/supports> <http://services/10.60.38.181/sock-shop/front-end> .
+<http://pods/10.60.38.181/sock-shop/user-d4cb47c5f-8srcb>
+        <http://pods/10.60.38.181/provides>
+                <http://containers/10.60.38.181/sock-shop/user> .
 
-<http://containers/10.60.38.181/sock-shop/user>
-    <http://containers/10.60.38.181/supports> <http://services/10.60.38.181/sock-shop/user> .
+<http://pods/10.60.38.181/sock-shop/carts-648d5f498d-n8hzn>
+        <http://pods/10.60.38.181/provides>
+                <http://containers/10.60.38.181/sock-shop/carts> .
 
-<http://containers/10.60.38.181/sock-shop/orders>
-    <http://containers/10.60.38.181/supports> <http://services/10.60.38.181/sock-shop/orders> .
+<http://pods/10.60.38.181/sock-shop/front-end-858b4ff57-lkm8b>
+        <http://pods/10.60.38.181/provides>
+                <http://containers/10.60.38.181/sock-shop/front-end> .
 
-<http://containers/10.60.38.181/sock-shop/catalogue-db>
-    <http://containers/10.60.38.181/supports> <http://services/10.60.38.181/sock-shop/catalogue-db> .
+<http://pods/10.60.38.181/sock-shop/catalogue-db-99cbcbb88-wl52p>
+        <http://pods/10.60.38.181/provides>
+                <http://containers/10.60.38.181/sock-shop/catalogue-db> .
 
-<http://containers/10.60.38.181/sock-shop/carts-db>
-    <http://containers/10.60.38.181/supports> <http://services/10.60.38.181/sock-shop/carts-db> .
+<http://pods/10.60.38.181/sock-shop/queue-master-77d854c647-qbgwq>
+        <http://pods/10.60.38.181/provides>
+                <http://containers/10.60.38.181/sock-shop/queue-master> .
 
-<http://containers/10.60.38.181/sock-shop/shipping>
-    <http://containers/10.60.38.181/supports> <http://services/10.60.38.181/sock-shop/shipping> .
+<http://pods/10.60.38.181/sock-shop/front-end-858b4ff57-dbdck>
+        <http://pods/10.60.38.181/provides>
+                <http://containers/10.60.38.181/sock-shop/front-end> .
 
-<http://containers/10.60.38.181/sock-shop/carts>
-    <http://containers/10.60.38.181/supports> <http://services/10.60.38.181/sock-shop/carts> .
+<http://pods/10.60.38.181/sock-shop/front-end-858b4ff57-55bg5>
+        <http://pods/10.60.38.181/provides>
+                <http://containers/10.60.38.181/sock-shop/front-end> .
 
-<http://containers/10.60.38.181/sock-shop/user-db>
-    <http://containers/10.60.38.181/supports> <http://services/10.60.38.181/sock-shop/user-db> .
+<http://pods/10.60.38.181/sock-shop/session-db-6b57d5cc79-gjxvb>
+        <http://pods/10.60.38.181/provides>
+                <http://containers/10.60.38.181/sock-shop/session-db> .
 
-<http://containers/10.60.38.181/sock-shop/session-db>
-    <http://containers/10.60.38.181/supports> <http://services/10.60.38.181/sock-shop/session-db> .
+<http://pods/10.60.38.181/sock-shop/orders-db-86f5c494b9-xvvhr>
+        <http://pods/10.60.38.181/provides>
+                <http://containers/10.60.38.181/sock-shop/orders-db> .
+
+<http://pods/10.60.38.181/sock-shop/orders-6496fcd6f7-zt6zq>
+        <http://pods/10.60.38.181/provides>
+                <http://containers/10.60.38.181/sock-shop/orders> .
+
+<http://pods/10.60.38.181/sock-shop/orders-6496fcd6f7-l9rmn>
+        <http://pods/10.60.38.181/provides>
+                <http://containers/10.60.38.181/sock-shop/orders> .
+
+<http://pods/10.60.38.181/sock-shop/payment-6c698f689b-vlkhq>
+        <http://pods/10.60.38.181/provides>
+                <http://containers/10.60.38.181/sock-shop/payment> .
+
+<http://pods/10.60.38.181/sock-shop/carts-db-64b6cc584f-zd6zz>
+        <http://pods/10.60.38.181/provides>
+                <http://containers/10.60.38.181/sock-shop/carts-db> .
+
+<http://pods/10.60.38.181/sock-shop/shipping-65769d99d7-lmpg7>
+        <http://pods/10.60.38.181/provides>
+                <http://containers/10.60.38.181/sock-shop/shipping> .
+
+<http://pods/10.60.38.181/sock-shop/orders-6496fcd6f7-tw8sm>
+        <http://pods/10.60.38.181/provides>
+                <http://containers/10.60.38.181/sock-shop/orders> .
+
+<http://pods/10.60.38.181/sock-shop/front-end-858b4ff57-gq9k9>
+        <http://pods/10.60.38.181/provides>
+                <http://containers/10.60.38.181/sock-shop/front-end> .
+
+<http://pods/10.60.38.181/sock-shop/orders-6496fcd6f7-fqnjt>
+        <http://pods/10.60.38.181/provides>
+                <http://containers/10.60.38.181/sock-shop/orders> .
