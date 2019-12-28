@@ -46,6 +46,7 @@ public class HomeController {
 
 
     @PostMapping("/metadata-layer-construct")
+    @ResponseBody
     public void MetadataLayerConstruct(@RequestBody Map<String,Object> map){
         metadataLayerConstructService.MetadataLayerConstruct();
     }
