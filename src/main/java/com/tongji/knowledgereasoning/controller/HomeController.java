@@ -72,7 +72,9 @@ public class HomeController {
     @ResponseBody
     public Map<String, Object> startNeo4jReason(@RequestBody Map<String,Object> map) {
         String rules = map.get("rule_expression").toString();
+        System.out.println(rules);
         String result = ruleReasonerService.neo4jReasoning(rules);
+        System.out.println(result);
         Map<String, Object> result_map = new HashMap<>();
         result_map.put("data", result);
         return result_map;

@@ -6,7 +6,7 @@
 
     <neo4jIpAddress>jdbc:neo4j:bolt://localhost</neo4jIpAddress>
     <neo4jUser>neo4j</neo4jUser>
-    <neo4jPassword>0000</neo4jPassword>
+    <neo4jPassword>1234</neo4jPassword>
     <neo4jQueryString>MATCH p=(s)-[r]->(o) RETURN s.uri as subject, type(r) as predicate, o.uri as object</neo4jQueryString>
 
     <rule>[rule1: (?X contains ?Y) (?X provides ?Z) -> (?Y supports ?Z)]</rule>

@@ -356,9 +356,11 @@ import java.util.Vector;
 
         Operations.outputAllTriples_to_ttl(infModel, "data/newOntology_after_reasoning.ttl");
 
+
+        String ttlInsert = "CALL semantics.importRDF('file:///F:/IDEA/2019-XLab-KnowledgeReasoning/data/newOntology_after_reasoning.ttl','Turtle', {shortenUrls: true})";
+        neoDao.updateTriplesInNeo4j(ttlInsert);
+
         return Operations.outputAllTriples(infModel);
-//        String ttlInsert = "CALL semantics.importRDF('file:///F:/IDEA/2019-XLab-KnowledgeReasoning/data/Ontology Reasoning/newOntology_after_reasoning.ttl','Turtle', {shortenUrls: true})";
-//        neoDao.updateTriplesInNeo4j(ttlInsert);
     }
 
     public static void main(String[] args) throws IOException {
