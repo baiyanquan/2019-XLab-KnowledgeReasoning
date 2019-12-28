@@ -71,7 +71,7 @@ public class HomeController {
     @PostMapping("/rule-reasoning")
     @ResponseBody
     public Map<String, Object> startNeo4jReason(@RequestBody Map<String,Object> map) {
-        String rules = map.get("rules").toString();
+        String rules = map.get("rule_expression").toString();
         String result = ruleReasonerService.neo4jReasoning(rules);
         Map<String, Object> result_map = new HashMap<>();
         result_map.put("data", result);
@@ -82,7 +82,7 @@ public class HomeController {
     @PostMapping("/query")
     @ResponseBody
     public Map<String, Object> query(@RequestBody Map<String,Object> map) {
-        String query = map.get("queryString").toString();
+        String query = map.get("query_expression").toString();
         List<String>result_ = queryService.Query(query);
         Map<String, Object> result_map = new HashMap<>();
         result_map.put("data", result_);
