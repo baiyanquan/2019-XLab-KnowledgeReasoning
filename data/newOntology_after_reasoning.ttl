@@ -15,6 +15,92 @@
 @prefix containers_rel: <http://containers/10.60.38.181/> .
 @prefix environment_rel: <http://environment/10.60.38.181/> .
 @prefix services_rel: <http://services/10.60.38.181/> .
+@prefix event: <http://10.60.38.181/KGns/Event/> .
+@prefix event_rel: <http://event/10.60.38.181/> .
+
+:Event   a       owl:Class .
+
+<http://event/10.60.38.181/464dd12e11c7d130>
+        a       :Event .
+
+<http://event/10.60.38.181/c6430ff37ed2b615>
+        a       :Event .
+
+<http://event/10.60.38.181/a60ae474f20a046e>
+        a       :Event .
+
+<http://event/10.60.38.181/e9f65ed9f9639267>
+        a       :Event .
+
+<http://event/10.60.38.181/f18d988bf0bb5a57>
+        a       :Event .
+
+<http://event/10.60.38.181/54e3782c6619ff6d>
+        a       :Event .
+
+<http://event/10.60.38.181/a01e44a6f230c7b8>
+        a       :Event .
+
+<http://event/10.60.38.181/5fc29fffcb31dc41>
+        a       :Event .
+
+<http://event/10.60.38.181/90497f0b58b0c1b0>
+        a       :Event .
+
+<http://event/10.60.38.181/e393f2275fb9a6f2>
+        a       :Event .
+
+<http://event/10.60.38.181/296bfa0f67eb4da1>
+        a       :Event .
+
+
+event_rel:inject  a  owl:ObjectProperty ;
+                  rdfs:domain  :Event ;
+
+<http://event/10.60.38.181/464dd12e11c7d130/inject>
+        a                   owl:ObjectProperty ;
+        rdfs:subPropertyOf  event_rel:inject .
+
+<http://event/10.60.38.181/c6430ff37ed2b615/inject>
+        a                   owl:ObjectProperty ;
+        rdfs:subPropertyOf  event_rel:inject .
+
+<http://event/10.60.38.181/a60ae474f20a046e/inject>
+        a                   owl:ObjectProperty ;
+        rdfs:subPropertyOf  event_rel:inject .
+
+<http://event/10.60.38.181/e9f65ed9f9639267/inject>
+        a                   owl:ObjectProperty ;
+        rdfs:subPropertyOf  event_rel:inject .
+
+<http://event/10.60.38.181/f18d988bf0bb5a57/inject>
+        a                   owl:ObjectProperty ;
+        rdfs:subPropertyOf  event_rel:inject .
+
+<http://event/10.60.38.181/54e3782c6619ff6d/inject>
+        a                   owl:ObjectProperty ;
+        rdfs:subPropertyOf  event_rel:inject .
+
+<http://event/10.60.38.181/a01e44a6f230c7b8/inject>
+        a                   owl:ObjectProperty ;
+        rdfs:subPropertyOf  event_rel:inject .
+
+<http://event/10.60.38.181/5fc29fffcb31dc41/inject>
+        a                   owl:ObjectProperty ;
+        rdfs:subPropertyOf  event_rel:inject .
+
+<http://event/10.60.38.181/90497f0b58b0c1b0/inject>
+        a                   owl:ObjectProperty ;
+        rdfs:subPropertyOf  event_rel:inject .
+
+<http://event/10.60.38.181/e393f2275fb9a6f2/inject>
+        a                   owl:ObjectProperty ;
+        rdfs:subPropertyOf  event_rel:inject .
+
+<http://event/10.60.38.181/296bfa0f67eb4da1/inject>
+        a                   owl:ObjectProperty ;
+        rdfs:subPropertyOf  event_rel:inject .
+
 
 rdf:rest  a                 rdf:Property , rdfs:Resource ;
         rdfs:domain         rdf:List ;
