@@ -6,15 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Knowledge Reasoning Front-End</title>
 
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-
+    <link rel="stylesheet" href="css/style.css">
     <script src="js/jquery.js"></script>
     <script src="js/jquery-1.7.1.js"></script>
     <script src="js/main.js"></script>
-    <script src="/js/Ontology.js"></script>
     <script src="js/MetadataLayer.js"></script>
+    <script src="js/Ontology.js"></script>
+    <script src="js/Query.js"></script>
+    <script src="js/Rule.js"></script>
 </head>
-<body background="../img/bg.jpg">
+<body background="img/bg.jpg">
 <div class="container">
     <div class="shadow-box">
         <div class="part metadata" >
@@ -52,12 +53,12 @@
 
             <div class="input">
                 <form>
-                    <textarea rows="7" cols="50" placeholder="请输入你的查询表达式"></textarea>
+                    <textarea id="query-textarea" rows="7" cols="50" placeholder="请输入你的查询表达式"></textarea>
                 </form>
             </div>
 
             <div class="action">
-                <button class="submit-button">查询</button>
+                <button class="submit-button" onclick="QueryClick();">查询</button>
             </div>
             <div class="clear"></div>
         </div>
@@ -68,12 +69,12 @@
 
             <div class="input">
                 <form>
-                    <textarea rows="7" cols="50" placeholder="请输入你的查询规则"></textarea>
+                    <textarea id="rule-textarea" rows="7" cols="50" placeholder="请输入你的查询规则"></textarea>
                 </form>
             </div>
 
             <div class="action">
-                <button class="submit-button">规则推理</button>
+                <button class="submit-button" onclick="RuleClick();">规则推理</button>
             </div>
             <div class="clear"></div>
         </div>
@@ -81,23 +82,4 @@
 </div>
 
 </body>
-<script>
-    let jsonObj = {"username":"Ed sheeran", "password":"123"};
-    /*
-        Jquery默认Content-Type为application/x-www-form-urlencoded类型
-     */
-    $.ajax({
-        type: 'POST',
-        url: "/result",
-        dataType: "json",
-        data: JSON.stringify(jsonObj),
-        contentType : "application/json",
-        success: function(data) {
-            console.log(data);
-        },
-        error: function() {
-            console.log("error...");
-        }
-    });
-</script>
 </html>
