@@ -271,7 +271,7 @@ public class MetadataLayerConstructService {
             e.printStackTrace();
         }
 
-        //refactorRelation();
+        refactorRelation();
         refactorTypo();
 
 //        String ttlInsert = "CALL semantics.importRDF('file:///F:/IDEA/2019-XLab-KnowledgeReasoning/data/newOntology_fix_typo.ttl','Turtle', {shortenUrls: true})";

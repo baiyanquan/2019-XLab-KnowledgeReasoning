@@ -11,7 +11,16 @@ function OntologyClick(){
         contentType : "application/json",
         success: function(data) {
             console.log(data);
-            alert(data.data);
+            if(data.data.length){
+                let buf_str = "";
+                for(let i=0;i<data.data.length;++i){
+                    buf_str += String(i+1) + ". " + data.data[i] + "\n";
+                }
+                alert(buf_str);
+            }else{
+                alert("本体推理结果为空!")
+            }
+
         },
         error: function() {
             console.log("error...");
