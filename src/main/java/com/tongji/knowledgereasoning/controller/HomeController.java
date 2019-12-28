@@ -46,8 +46,14 @@ public class HomeController {
 
 
     @PostMapping("/metadata-layer-construct")
-    public void MetadataLayerConstruct(@RequestBody Map<String,Object> map){
+    @ResponseBody
+    public Map<String, Object> MetadataLayerConstruct(@RequestBody Map<String,Object> map){
         metadataLayerConstructService.MetadataLayerConstruct();
+
+        Map<String, Object> result_map = new HashMap<>();
+        result_map.put("flag", "true");
+
+        return result_map;
     }
 
     @PostMapping("/ontology-reasoning")
