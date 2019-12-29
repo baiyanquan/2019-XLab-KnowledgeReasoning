@@ -2,29 +2,35 @@ package com.tongji.knowledgereasoning.service;
 
 import com.tongji.knowledgereasoning.dao.NeoDao;
 import org.apache.jena.query.*;
-import org.apache.jena.rdf.model.Model;
-import org.apache.jena.rdf.model.ModelFactory;
+import org.apache.jena.rdf.model.*;
+import org.apache.jena.reasoner.Reasoner;
+import org.apache.jena.reasoner.ReasonerRegistry;
+import org.apache.jena.reasoner.rulesys.GenericRuleReasoner;
+import org.apache.jena.reasoner.rulesys.Rule;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-@Service("QueryService")
-public class QueryService {
+/**
+ * @Author: yan
+ * @Date: 2019/12/28
+ * @Description:
+ **/
+
+@Service
+public class EventService {
 
     @Autowired
-    private NeoDao neoDao;
-    private List<String> queryResult = new ArrayList<>();
+    private NeoDao neoDao = new NeoDao();
 
-    public List<String> Query(String query) {
+    public List<String> eventQuery(String service) {
 
         Model model = ModelFactory.createDefaultModel();
         java.sql.ResultSet rs = neoDao.getTriples();
 
         try {
-
             while (rs.next()) {
                 String subject = rs.getString(1);
                 String predicate = rs.getString(2);
@@ -64,34 +70,35 @@ public class QueryService {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        // 属性路径查询表达式
-//        Query propertyPathQuery = QueryFactory.create(
-//                "PREFIX pods_rel: " + "<http://pods/10.60.38.181/> \n" +
-//                        "SELECT * " +
-//                        "{" +
-//                        "<http://services/10.60.38.181/sock-shop/orders>" + " ^pods_rel:provides / ( pods_rel:deployed_in* | pods_rel:contains* ) ?o ." +
-//                        "}");
 
+        Reasoner reasoner = ReasonerRegistry.getRDFSReasoner();
+        InfModel infModel = ModelFactory.createInfModel(reasoner, model);
 
-//        Query querys = QueryFactory.create(
-//                "PREFIX pods_rel: " + "<http://pods/10.60.38.181/> \n" +
-//                        "SELECT * " +
-//                        "{" +
-//                        "?s ?p <http://services/10.60.38.181/sock-shop/orders> ." +
-//                        "}");
+        String rules ="[rule1: (?X <http://pods/10.60.38.181/provides> ?Y) -> (?X <http://10.60.38.181/KGns/relates> ?Y)]\n" +
+                "[rule2: (?X <http://10.60.38.181/KGns/relates> ?Y) (?X <http://pods/10.60.38.181/deployed_in> ?Z) -> (?Z <http://10.60.38.181/KGns/relates> ?Y)]\n" +
+                "[rule3: (?X <http://10.60.38.181/KGns/relates> ?Y) (?X <http://pods/10.60.38.181/contains> ?Z) -> (?Z <http://10.60.38.181/KGns/relates> ?Y)]\n" +
+                "[rule4: (?Y <http://10.60.38.181/KGns/relates> ?X) (?Z <http://event/10.60.38.181/inject> ?Y) -> (?Z <http://10.60.38.181/KGns/effects> ?X)]";
 
-        Query propertyPathQuery = QueryFactory.create(query);  //创建一个查询
-        // 执行查询，获得结果
-        QueryExecution qe = QueryExecutionFactory.create(propertyPathQuery, model);
-        org.apache.jena.query.ResultSet resultSet = qe.execSelect();//select 类型
+        Reasoner rulereasoner = new GenericRuleReasoner(Rule.parseRules(rules));
+        reasoner.setDerivationLogging(true);
+        InfModel inf = ModelFactory.createInfModel(rulereasoner, infModel);
+        List<String> events = new ArrayList<>();
+        StmtIterator itr = model.listStatements();
 
-        while (resultSet.hasNext()) {
-            QuerySolution qs = resultSet.next();
-            String object = qs.get("o").toString();
-            queryResult.add(object);
+        while (itr.hasNext()) {
+            Statement nowStatement = itr.nextStatement();
+
+            String subject = nowStatement.getSubject().toString();
+            String predicate = nowStatement.getPredicate().toString();
+            String object = nowStatement.getObject().toString();
+
+            if (subject.contains(service)) {
+                events.add(object);
+            }
+
         }
+        return events;
 
-        return queryResult;
     }
 
 }

@@ -74,21 +74,21 @@ public class RuleReasonerServiceImp implements RuleReasonerService {
                 String predicate = rs.getString(2);
                 String object = rs.getString(3);
 
-                if(predicate.equals("ns1__contains")){
+                if(predicate.equals("ns12__contains")){
                     predicate = "http://pods/10.60.38.181/contains";
-                }else if(predicate.equals("ns1__deployed_in")){
+                }else if(predicate.equals("ns12__deployed_in")){
                     predicate = "http://pods/10.60.38.181/deployed_in";
-                }else if(predicate.equals("ns1__provides")){
+                }else if(predicate.equals("ns12__provides")){
                     predicate = "http://pods/10.60.38.181/provides";
-                }else if(predicate.equals("ns2__profile")){
+                }else if(predicate.equals("ns13__profile")){
                     predicate = "http://services/10.60.38.181/provides";
-                }else if(predicate.equals("ns3__profile")){
+                }else if(predicate.equals("ns14__profile")){
                     predicate = "http://containers/10.60.38.181/profile";
-                }else if(predicate.equals("ns4__has")){
+                }else if(predicate.equals("ns15__has")){
                     predicate = "http://environment/10.60.38.181/has";
-                }else if(predicate.equals("ns5__manage")){
+                }else if(predicate.equals("ns16__manage")){
                     predicate = "http://servers/10.60.38.181/manage";
-                }else if(predicate.equals("ns6__supervises")){
+                }else if(predicate.equals("ns17__supervises")){
                     predicate = "http://namespace/10.60.38.181/supervises";
                 }else if(predicate.equals("rdfs__domain")){
                     predicate = "http://www.w3.org/2000/01/rdf-schema#domain";
@@ -98,6 +98,8 @@ public class RuleReasonerServiceImp implements RuleReasonerService {
                     predicate = "http://www.w3.org/2000/01/rdf-schema#subClassOf";
                 }else if(predicate.equals("rdfs__subPropertyOf")){
                     predicate = "http://www.w3.org/2000/01/rdf-schema#subPropertyOf";
+                }else if(predicate.equals("ns18__inject")){
+                    predicate ="http://event/10.60.38.181/inject";
                 }
 
                 //System.out.println(predicate);
@@ -111,8 +113,8 @@ public class RuleReasonerServiceImp implements RuleReasonerService {
         Model modelAfterReason = reasoner(model, rules);
         String triples = TriplesToJson(modelAfterReason);
         System.out.println(triples);
-        String ttlInsert = "CALL semantics.importRDF('file:///F:/IDEA/2019-XLab-KnowledgeReasoning/data/RuleReasoning/RuleReasonResult.ttl','Turtle', {shortenUrls: true})";
-        neoDao.updateTriplesInNeo4j(ttlInsert);
+//        String ttlInsert = "CALL semantics.importRDF('file:///F:/IDEA/2019-XLab-KnowledgeReasoning/data/RuleReasoning/RuleReasonResult.ttl','Turtle', {shortenUrls: true})";
+//        neoDao.updateTriplesInNeo4j(ttlInsert);
         return triples;
     }
 
