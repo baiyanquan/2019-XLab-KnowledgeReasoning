@@ -1,22 +1,24 @@
-# Requirement Specification (需求规约)
+# Requirement Specification
 
 [TOC]
 
 ------
 
-## Project Introduction (项目介绍)
+## Project Introduction
 
 ### Background
 
-**Knowledge Graph** is a kind of structured data processing method, which involves a series of technologies such as knowledge extraction, representation, storage and retrieval. From the origin, it is the fusion of knowledge representation and reasoning, database, information retrieval, natural language processing and other technologies.
+- **Knowledge Graph** : a kind of structured data processing method, which involves a series of technologies such as knowledge extraction, representation, storage and retrieval. From the origin, it is the fusion of knowledge representation and reasoning, database, information retrieval, natural language processing and other technologies.
 
-**Operation and Maintenance** generally refers to the maintenance of network hardware and software established by large organizations, among which the traditional Operation and Maintenance refers to IT Operation and Maintenance. Operations and maintenance are important and extensive responsibilities for the entire software development life cycle, failures can occur at any time, and the value of operations and maintenance is becoming increasingly important because of the frequent iteration of business applications.
+<img src="Requirement Specification.assets/image-20200103181905202.png" alt="image-20200103181905202" style="zoom:50%;" />
 
-However, in the face of massive monitoring data and huge distributed system, all kinds of operation and maintenance subjects have their own characteristics and rules, but also interrelated, which increases the difficulty of operation and maintenance decision-making, operation and maintenance knowledge graph arises at the historic moment. Combined operations and knowledge graph, let the knowledge graph offline mining operations history data, establishing all kinds of portraits, tease out all kinds of high level of knowledge, operations staff have already been good operations using data sets and knowledge graph to make decisions, not only reduce the operations staff workload, and improve the operational efficiency and accuracy.
+- **Operation and Maintenance**: generally refers to the maintenance of network hardware and software established by large organizations, among which the traditional Operation and Maintenance refers to IT Operation and Maintenance. Operations and maintenance are important and extensive responsibilities for the entire software development life cycle, failures can occur at any time, and the value of operations and maintenance is becoming increasingly important because of the frequent iteration of business applications.
 
-Due to the complexity of the distributed system, once a fault occurs at a certain location, a series of service failures will result. However, simply repairing the affected service cannot fundamentally solve the problem, and the root cause of the fault needs to be located and repaired. In the operation and maintenance knowledge graph, knowledge reasoning can deduce the key factors that affect the abnormal service, and then quickly locate the root cause of the fault, so as to quickly recover the affected service and reduce the loss caused by the service failure.
+<u>Combined operations and knowledge graph</u>, let the knowledge graph offline mining operations history data, establishing all kinds of portraits, tease out all kinds of high level of knowledge, operations staff have already been good operations using data sets and knowledge graph to make decisions, not only reduce the operations staff workload, and improve the operational efficiency and accuracy.
 
-This project focuses on knowledge reasoning, involving knowledge representation, storage and retrieval, not event extraction or relational extraction. Knowledge Reasoning is the process of obtaining new Knowledge from existing Knowledge based on specific rules and constraints.
+Due to the complexity of the distributed system, once a fault occurs at a certain location, a series of service failures will result. However, simply repairing the affected service cannot fundamentally solve the problem, and the **root cause** of the fault needs to be located and repaired. In the operation and maintenance knowledge graph, knowledge reasoning can deduce the key factors that affect the abnormal service, and then quickly locate the root cause of the fault, so as to quickly recover the affected service and reduce the loss caused by the service failure.
+
+**This project focuses on knowledge reasoning, involving knowledge representation, storage and retrieval, not event extraction or relational extraction. Knowledge Reasoning is the process of obtaining new Knowledge from existing Knowledge based on specific rules and constraints.**
 
 ### Prupose of the project
 
@@ -62,12 +64,12 @@ First of all, users who use our knowledge reasoning system should building the m
 
 Main system of our knowledge reasoning project will attend building the metadata layer use case.
 
-#### Pre-condition (Optional)
+#### Pre-condition
 
 - Building knowledge graph project is finished.
 - All network hardware and software in x-lab are clear.
 
-#### Post-condition (Optional)
+#### Post-condition
 
 - The metadata layer will complete.
 - Knowledge graph will be more structured.
@@ -85,7 +87,7 @@ Main system of our knowledge reasoning project will attend building the metadata
 
 <img src="Resources/Build_metadata_layer_flow_chart.png" alt="Build_metadata_layer_flow_chart" style="zoom:50%;" />
 
-#### Exceptions (Optional)
+#### Exceptions
 
 - We should find some way to confirm metadata layer is completed which means that it contain all information of x-lab.
 
@@ -107,12 +109,12 @@ Ontology reasoning is carried out on the knowledge graph and the newly discovere
 
 Users who use our knowledge reasoning system can use ontology reasoning to perfect his or her own knowledge database.
 
-#### Pre-condition (Optional)
+#### Pre-condition
 
 - The metadata layer is built successfully.
 - The knowledge is imported from database in x-lab.
 
-#### Post-condition (Optional)
+#### Post-condition
 
 - Newly discovered knowledge will be written into the database.
 
@@ -125,7 +127,7 @@ Users who use our knowledge reasoning system can use ontology reasoning to perfe
 
 <img src="Resources/Ontology_reasoning_flow_chart.png" alt="Ontology_reasoning_flow_chart" style="zoom:50%;" />
 
-#### Exceptions (Optional)
+#### Exceptions
 
 - Ontology reasoning yields a lot of new data that is obvious and not useful for later use.
 
@@ -144,12 +146,12 @@ Rule reasoning is carried out on the knowledge graph and the reasoning result ba
 
 Users who use our knowledge reasoning system.
 
-#### Pre-condition (Optional)
+#### Pre-condition
 
 - The knowledge is imported from database in x-lab.
 - User enters the rules.
 
-#### Post-condition (Optional)
+#### Post-condition
 
 - Konwledge based on rules will be find and return to users.
 
@@ -162,7 +164,7 @@ Users who use our knowledge reasoning system.
 
 <img src="Resources/Rule_reasoning_flow_chart.png" alt="Rule_reasoning_flow_chart" style="zoom:50%;" />
 
-#### Exceptions (Optional)
+#### Exceptions
 
 - Rule reasoning won't get any knowledge if the rules user entered are incorrectly.
   
@@ -178,11 +180,11 @@ TransE reasoning is carried out on the knowledge graph and the newly discovered 
 
 Users who use our knowledge reasoning system.
 
-#### Pre-condition (Optional)
+#### Pre-condition
 
 - The knowledge is imported from database in x-lab.
 
-#### Post-condition (Optional)
+#### Post-condition
 
 - Newly discovered knowledge will be written into the database.
 
@@ -195,7 +197,7 @@ Users who use our knowledge reasoning system.
 - TransE reasoning yields some new data that is incorrectly.
 
   > Modify train parameters to get different models, valid and test these models to get the best model.
- 
+
 <img src="Resources/TransE_reasoning_flow_chart.png" alt="TransE_reasoning_flow_chart" style="zoom:50%;" />
 
 ### Use Case: _Query Event_
@@ -208,11 +210,11 @@ Query Event is carried out on the knowledge graph and the query result will retu
 
 Users who use our knowledge reasoning system can use the query usecase to get the failure components of the knowledge database.
 
-#### Pre-condition (Optional)
+#### Pre-condition
 
 - The knowledge is imported from database in x-lab.
 
-#### Post-condition (Optional)
+#### Post-condition
 
 - Failure component will be find and return to users.
 
