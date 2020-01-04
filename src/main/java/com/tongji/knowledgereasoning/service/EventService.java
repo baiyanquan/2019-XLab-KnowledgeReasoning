@@ -43,7 +43,7 @@ public class EventService {
                 }else if(predicate.equals("ns12__provides")){
                     predicate = "http://pods/10.60.38.181/provides";
                 }else if(predicate.equals("ns13__profile")){
-                    predicate = "http://services/10.60.38.181/provides";
+                    predicate = "http://services/10.60.38.181/profile";
                 }else if(predicate.equals("ns14__profile")){
                     predicate = "http://containers/10.60.38.181/profile";
                 }else if(predicate.equals("ns15__has")){
@@ -82,8 +82,9 @@ public class EventService {
         Reasoner rulereasoner = new GenericRuleReasoner(Rule.parseRules(rules));
         reasoner.setDerivationLogging(true);
         InfModel inf = ModelFactory.createInfModel(rulereasoner, infModel);
+        Model modelAfterReason = inf.getDeductionsModel();
         List<String> events = new ArrayList<>();
-        StmtIterator itr = model.listStatements();
+        StmtIterator itr = modelAfterReason.listStatements();
 
         while (itr.hasNext()) {
             Statement nowStatement = itr.nextStatement();
@@ -92,8 +93,8 @@ public class EventService {
             String predicate = nowStatement.getPredicate().toString();
             String object = nowStatement.getObject().toString();
 
-            if (subject.contains(service)) {
-                events.add(object);
+            if (predicate.contains("http://10.60.38.181/KGns/effects") && object.contains(service)) {
+                events.add(subject);
             }
 
         }

@@ -37,7 +37,7 @@ public class QueryService {
                 }else if(predicate.equals("ns12__provides")){
                     predicate = "http://pods/10.60.38.181/provides";
                 }else if(predicate.equals("ns13__profile")){
-                    predicate = "http://services/10.60.38.181/provides";
+                    predicate = "http://services/10.60.38.181/profile";
                 }else if(predicate.equals("ns14__profile")){
                     predicate = "http://containers/10.60.38.181/profile";
                 }else if(predicate.equals("ns15__has")){
