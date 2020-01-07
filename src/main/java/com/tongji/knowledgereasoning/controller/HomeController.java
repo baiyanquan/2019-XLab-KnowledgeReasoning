@@ -99,15 +99,5 @@ public class HomeController {
         return result_map;
     }
 
-//    @PostMapping("/result")
-//    @ResponseBody
-//    public Map<String, Object> exchangeData(@RequestBody Map<String,Object> map){
-//        System.out.println(map.get("username"));
-//
-//        Map<String, Object> result_map = new HashMap<>();
-//        result_map.put("data", "233423");
-//
-//        return result_map;
-//    }
 
 }

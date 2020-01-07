@@ -198,6 +198,27 @@ public class MetadataLayerConstructService {
 
     }
 
+    public void refactorEvent(){
+        try {
+            FileReader reader = new FileReader("data/event.ttl");
+            BufferedReader br = new BufferedReader(reader);
+            File file = new File("data/newOntology_fix_typo.ttl");
+
+            FileWriter fileWriter = new FileWriter(file, true);
+            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+
+            bufferedWriter.write("\n");
+            String str = null;
+            while((str = br.readLine()) != null){
+                bufferedWriter.write(str + "\n");
+            }
+
+            bufferedWriter.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     public void MetadataLayerConstruct(){
         ResultSet rs = FusekiDao.getTriples();
@@ -273,6 +294,8 @@ public class MetadataLayerConstructService {
 
         refactorRelation();
         refactorTypo();
+
+        refactorEvent();
 
 //        String ttlInsert = "CALL semantics.importRDF('file:///F:/IDEA/2019-XLab-KnowledgeReasoning/data/newOntology_fix_typo.ttl','Turtle', {shortenUrls: true})";
 //        neoDao.updateTriplesInNeo4j(ttlInsert);
