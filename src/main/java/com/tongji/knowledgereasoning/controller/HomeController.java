@@ -2,10 +2,7 @@ package com.tongji.knowledgereasoning.controller;
 
 import com.fasterxml.jackson.databind.jsonschema.JsonSchema;
 import com.github.jsonldjava.utils.Obj;
-import com.tongji.knowledgereasoning.service.MetadataLayerConstructService;
-import com.tongji.knowledgereasoning.service.OntologyReasonerService;
-import com.tongji.knowledgereasoning.service.QueryService;
-import com.tongji.knowledgereasoning.service.RuleReasonerService;
+import com.tongji.knowledgereasoning.service.*;
 import org.apache.jena.atlas.json.JSON;
 import org.apache.jena.atlas.json.JsonObject;
 import org.json.JSONArray;
@@ -37,7 +34,8 @@ public class HomeController {
     private RuleReasonerService ruleReasonerService;
     @Autowired
     private QueryService queryService;
-
+    @Autowired
+    private EventService eventService;
 
     @RequestMapping(method = RequestMethod.GET)
     public String index(){
@@ -91,6 +89,15 @@ public class HomeController {
         return result_map;
     }
 
+    @PostMapping("/event")
+    @ResponseBody
+    public Map<String, Object> event(@RequestBody Map<String,Object> map) {
+        String service = map.get("service").toString();
+        List<String>events= eventService.eventQuery(service);
+        Map<String, Object> result_map = new HashMap<>();
+        result_map.put("data", events);
+        return result_map;
+    }
 
 //    @PostMapping("/result")
 //    @ResponseBody
