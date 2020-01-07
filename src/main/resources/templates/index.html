@@ -14,6 +14,7 @@
     <script src="js/Ontology.js"></script>
     <script src="js/Query.js"></script>
     <script src="js/Rule.js"></script>
+    <script src="js/Event.js"></script>
 </head>
 <body background="img/bg.jpg">
 <div class="container">
@@ -78,6 +79,22 @@
             </div>
             <div class="clear"></div>
         </div>
+        <div class="part event">
+        <div class="description" >
+            <p class="description-text">完整的规则推理，输入service名字，获取到错误事件</p>
+        </div>
+
+        <div class="input">
+            <form>
+                <textarea id="event-textarea" rows="7" cols="50" placeholder="请输入service名称"></textarea>
+            </form>
+        </div>
+
+        <div class="action">
+            <button class="submit-button" onclick="EventClick();">获取错误事件</button>
+        </div>
+        <div class="clear"></div>
+    </div>
     </div>
 </div>
 
