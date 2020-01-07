@@ -92,7 +92,7 @@ public class HomeController {
     @PostMapping("/event")
     @ResponseBody
     public Map<String, Object> event(@RequestBody Map<String,Object> map) {
-        String service = map.get("service").toString();
+        String service = map.get("event_expression").toString();
         List<String>events= eventService.eventQuery(service);
         Map<String, Object> result_map = new HashMap<>();
         result_map.put("data", events);

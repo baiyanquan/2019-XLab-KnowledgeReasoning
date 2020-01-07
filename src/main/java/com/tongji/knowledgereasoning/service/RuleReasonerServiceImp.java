@@ -145,7 +145,7 @@ public class RuleReasonerServiceImp implements RuleReasonerService {
             modelAfterReason.add(modelAfterReason.createResource(subject),
                     modelAfterReason.createProperty(predicate),
                     modelAfterReason.createResource(object));
-            writeToFile(modelAfterReason, "data/RuleReasoning/RuleReasonResult.ttl");
+            writeToFile(modelAfterReason, "data/RuleReasonResult.ttl");
         }
         return triples.toString();
     }

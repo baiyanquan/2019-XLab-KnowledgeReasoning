@@ -11,7 +11,7 @@ function QueryClick(){
         data: JSON.stringify(jsonObj),
         contentType : "application/json",
         success: function(data) {
-            console.log(data);
+            console.log(JSON.stringify(data));
             alert(data.data);
         },
         error: function() {
