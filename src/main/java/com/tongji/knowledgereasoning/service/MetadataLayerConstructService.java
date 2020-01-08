@@ -244,7 +244,7 @@ public class MetadataLayerConstructService {
             classStatusMap.put(i, i + "StatusInformation");
         }
 
-        //设定各实体与关系的对应map
+        //r
         Map<String, String[]> relationTypeMap = new HashMap<>();
         relationTypeMap.put("namespace", new String[]{"supervises"});
         relationTypeMap.put("pod", new String[]{"contains", "deployed_in", "provides"});
@@ -297,8 +297,8 @@ public class MetadataLayerConstructService {
 
         refactorEvent();
 
-//        String ttlInsert = "CALL semantics.importRDF('file:///F:/IDEA/2019-XLab-KnowledgeReasoning/data/newOntology_fix_typo.ttl','Turtle', {shortenUrls: true})";
-//        neoDao.updateTriplesInNeo4j(ttlInsert);
+        String ttlInsert = "CALL semantics.importRDF('file:///F:/IDEA/2019-XLab-KnowledgeReasoning/data/newOntology_fix_typo.ttl','Turtle', {shortenUrls: true})";
+        neoDao.updateTriplesInNeo4j(ttlInsert);
     }
 
     public static void main(String[] args) {

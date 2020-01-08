@@ -1119,6 +1119,7 @@ containers_rel:profile
 <http://services/10.60.38.181/sock-shop/front-end> 
         <http://services/10.60.38.181/profile> 
                 <http://services/10.60.38.181/sock-shop/front-end/latency> , <http://services/10.60.38.181/sock-shop/front-end/success_rate> . 
+
 @prefix :      <http://10.60.38.181/KGns/> .
 @prefix owl:             <http://www.w3.org/2002/07/owl#> .
 @prefix event: <http://10.60.38.181/KGns/Event/> .
