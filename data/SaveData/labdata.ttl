@@ -20,23 +20,17 @@
 
 ## Class
 
-:Namespace
-    rdf:type owl:Class .
+:Namespace  rdf:type owl:Class .
 
-:Pod
-    rdf:type owl:Class .
+:Pod rdf:type owl:Class .
 
-:Container
-    rdf:type owl:Class .
+:Container rdf:type owl:Class .
 
-:Service
-    rdf:type owl:Class .
+:Service rdf:type owl:Class .
 
-:Server
-    rdf:type owl:Class .
+:Server rdf:type owl:Class .
 
-:Environment
-    rdf:type owl:Class .
+:Environment rdf:type owl:Class .
 
 
 ## ObjectProperty
