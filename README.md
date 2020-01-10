@@ -1,8 +1,10 @@
-- # README
+# 2019-XLab-KnowledgeReasoning
 
-  ## Introduction
+[TOC]
 
-  
+------
+
+## Introduction
 
 Maintenance of established network hardware and software in large organizations.
 
@@ -29,9 +31,14 @@ However, in the face of massive monitoring data and huge distributed system, all
 
 Open the project in IntelliJ IDEA.
 
-### Build the Project 
+## How to Run
 
-How to build executable artifacts.
+1. run `src/main/java/com/tongji/knowledgereasoning/KnowledgereasoningApplication.java` to initiate the project
+2. visit `http://localhost/8080` in your browser
+3. construct the metadata layer first
+4. ontology reasoning
+5. rule reasoning
+6. require for the event
 
 ## How to Use 
 
